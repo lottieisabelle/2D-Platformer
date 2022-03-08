@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+
+    [SerializeField] private LayerMask defaultLayer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask boxLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform placeBehind;
     public float rayDist;
     private float pickUpCoolDown;
+    public int holdingBoxID;
 
     private float wallJumpCoolDown;
     private float horizontalInput;
@@ -41,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
         // grab controller
         handsEmpty = true;
+        // 0 means hands empty
+        holdingBoxID = 0;
 
         // door enter controller
         canEnter = false;
@@ -112,7 +117,10 @@ public class PlayerMovement : MonoBehaviour
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            grabCheck.collider.gameObject.layer = 0;
             handsEmpty = false;
+            holdingBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
+
         }
         
     }
@@ -125,20 +133,21 @@ public class PlayerMovement : MonoBehaviour
 
         if(holdCheck.collider != null && holdCheck.collider.tag == "Box"){
 
+            holdCheck.collider.gameObject.transform.parent = null;
+            holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            holdCheck.collider.gameObject.layer = 9;
+            handsEmpty = true;
+            holdingBoxID = 0;
+
             if(wallCheck.collider != null)
             {
                 // if hit wall, put down in behind position
-                holdCheck.collider.gameObject.transform.parent = null;
                 holdCheck.collider.gameObject.transform.position = placeBehind.position;
-                holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                handsEmpty = true;
             } else {
                 // put down in front
-                holdCheck.collider.gameObject.transform.parent = null;
                 holdCheck.collider.gameObject.transform.position = place.position;
-                holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                handsEmpty = true;
             }
+            
         }
     }
 
@@ -181,15 +190,27 @@ public class PlayerMovement : MonoBehaviour
     {   
         // casts rays only on ground
         RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
-        // casts rays only on box
+        // casts rays only on boxes
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
 
-        // can only jump if on the ground or on box with empty hands
-        if((boxHit.collider != null && handsEmpty) || groundHit.collider != null){
+        if(boxHit.collider != null){
+            int hitBoxID = boxHit.collider.gameObject.GetComponent<PickUpable>().boxID;
+
+            bool diffBox = true;
+            if(holdingBoxID == hitBoxID){
+                diffBox = false;
+            }
+
+            // can jump if different box
+            return diffBox;
+
+        } else if(groundHit.collider != null) {
+            // can jump if on the ground
             return true;
         } else {
             return false;
         }
+        
     }
 
 

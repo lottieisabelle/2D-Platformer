@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUpable : MonoBehaviour
 {   
+    [SerializeField] public int boxID;
     [SerializeField] private string level;
     [SerializeField] GameObject interactIconP;
 
