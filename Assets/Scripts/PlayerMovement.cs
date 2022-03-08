@@ -193,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
         // casts rays only on boxes
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
 
+        // need to differentiate between boxes/crates and metal immoveable blocks
         if(boxHit.collider != null){
             int hitBoxID = boxHit.collider.gameObject.GetComponent<PickUpable>().boxID;
 
