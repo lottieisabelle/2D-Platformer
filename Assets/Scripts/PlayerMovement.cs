@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
 
-    [SerializeField] private LayerMask defaultLayer;
+    [SerializeField] private LayerMask blockLayer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask boxLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            grabCheck.collider.gameObject.layer = 0;
+            grabCheck.collider.gameObject.layer = 0; // make default layer, remove from box layer
             handsEmpty = false;
             holdingBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
 
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
             holdCheck.collider.gameObject.transform.parent = null;
             holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            holdCheck.collider.gameObject.layer = 9;
+            holdCheck.collider.gameObject.layer = 9; // put back in box layer
             handsEmpty = true;
             holdingBoxID = 0;
 
@@ -188,12 +188,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {   
-        // casts rays only on ground
+        // casts rays only on ground (includes buttons)
         RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
         // casts rays only on boxes
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
-
-        // need to differentiate between boxes/crates and metal immoveable blocks
+        // casts rays only on blocks
+        RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);
+        
         if(boxHit.collider != null){
             int hitBoxID = boxHit.collider.gameObject.GetComponent<PickUpable>().boxID;
 
@@ -206,8 +207,8 @@ public class PlayerMovement : MonoBehaviour
             // not sure this code works how i think it does - need to see what happens when there is more than 2 boxes around player
             return diffBox;
 
-        } else if(groundHit.collider != null) {
-            // can jump if on the ground
+        } else if(groundHit.collider != null || blockHit.collider != null) {
+            // can jump if on the ground or on a block (buttons are included in the ground layer)
             return true;
         } else {
             return false;

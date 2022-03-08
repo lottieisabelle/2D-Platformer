@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 432021006}
   - component: {fileID: 432021003}
   - component: {fileID: 432021002}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -1577,7 +1577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432021001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.536, y: -3.15, z: 0}
+  m_LocalPosition: {x: 2.14, y: -2.6, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3756,9 +3756,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpPower: 12
-  defaultLayer:
+  blockLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
