@@ -202,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // can jump if different box
+            // not sure this code works how i think it does - need to see what happens when there is more than 2 boxes around player
             return diffBox;
 
         } else if(groundHit.collider != null) {

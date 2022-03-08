@@ -259,6 +259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpPower: 12
+  defaultLayer:
+    serializedVersion: 2
+    m_Bits: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -277,6 +280,7 @@ MonoBehaviour:
   place: {fileID: 1986382060}
   placeBehind: {fileID: 1967528038}
   rayDist: 1
+  holdingBoxID: 0
 --- !u!50 &82402375
 Rigidbody2D:
   serializedVersion: 4
@@ -2116,6 +2120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c3697af49eebe44b0a27f136d8e529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxID: 1
   level: Tutorial2
   interactIconP: {fileID: 711232452}
 --- !u!61 &684050327
