@@ -8,6 +8,13 @@ public class PickUpable : MonoBehaviour
     [SerializeField] private string level;
     [SerializeField] GameObject interactIconP;
 
+    public bool isHeld;
+
+    void Start()
+    {
+        isHeld = false;
+    }
+
     private void Reset()
     {
         GetComponent<BoxCollider2D>().isTrigger = true;

@@ -22,7 +22,6 @@ public class Pressable : MonoBehaviour
     {
         playerPressed = false;
         boxPressed = false;
-        //blockPressed = false;
 
         isPressed = false;
 
@@ -55,7 +54,7 @@ public class Pressable : MonoBehaviour
             isPressed = true;
             value.sprite = _true;
         }
-        if(collision.CompareTag("Box")){
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
             boxPressed = true;
             isPressed = true;
             value.sprite = _true;
@@ -75,11 +74,11 @@ public class Pressable : MonoBehaviour
             isPressed = true;
             value.sprite = _true;
 
-        if(collision.CompareTag("Box"))
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld)
             boxPressed = true;
             isPressed = true;
             value.sprite = _true;
-            
+
         if(collision.CompareTag("Block"))
             blockPressed = true;
             isPressed = true;

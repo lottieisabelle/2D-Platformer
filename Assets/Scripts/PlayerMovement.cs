@@ -117,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            grabCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = true;
             grabCheck.collider.gameObject.layer = 0; // make default layer, remove from box layer
             handsEmpty = false;
             holdingBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
@@ -135,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
             holdCheck.collider.gameObject.transform.parent = null;
             holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            holdCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = false;
             holdCheck.collider.gameObject.layer = 9; // put back in box layer
             handsEmpty = true;
             holdingBoxID = 0;
