@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float pickUpCoolDown;
     public int holdingBoxID;
 
-    private float wallJumpCoolDown;
+    private float jumpCoolDown;
     private float horizontalInput;
 
     // runs when the script is loaded
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         move.SetBool("Grounded", isGrounded());
 
         // wall jump logic
-        if (wallJumpCoolDown > 0.2f) // if jumping is allowed
+        if (jumpCoolDown > 0.4f) // if jumping is allowed
         {
             body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
             body.gravityScale = 4;
@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
 
         } else {
-            wallJumpCoolDown += Time.deltaTime;
+            jumpCoolDown += Time.deltaTime;
         }
 
     }
@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // reset
-            wallJumpCoolDown = 0;
+            jumpCoolDown = 0;
         }
     }
 
