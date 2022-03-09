@@ -11,6 +11,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] public LayerMask blockLayer;
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public LayerMask boxLayer;
+    [SerializeField] public LayerMask boxHeldLayer;
     [SerializeField] public LayerMask wallLayer;
 
     public void nextLevel()

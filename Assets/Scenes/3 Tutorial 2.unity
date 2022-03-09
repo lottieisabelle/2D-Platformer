@@ -2683,8 +2683,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 82402372}
   door: {fileID: 1850636357}
-  interactIconP: {fileID: 711232452}
-  interactIconE: {fileID: 1606164133}
 --- !u!4 &935166135
 Transform:
   m_ObjectHideFlags: 0
@@ -2729,6 +2727,9 @@ MonoBehaviour:
   boxLayer:
     serializedVersion: 2
     m_Bits: 512
+  boxHeldLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -4981,7 +4982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b896ab26241634e9e5721db04ee8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactIconE: {fileID: 1606164133}
 --- !u!212 &1850151416
 SpriteRenderer:
   m_ObjectHideFlags: 0

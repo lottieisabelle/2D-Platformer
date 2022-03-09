@@ -43,7 +43,7 @@ public class TutorialPart3 : MonoBehaviour
             pressed = true;
         }
 
-        if(pressed)
+        if(pressed && !door.GetComponent<DoorController>().isOpen)
         {
             // open door
             door.GetComponent<DoorController>().openDoor();

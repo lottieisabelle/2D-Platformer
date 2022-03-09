@@ -32,7 +32,7 @@ public class TutorialPart2 : MonoBehaviour
             box = true;
         }
 
-        if(box)
+        if(box && !door.GetComponent<DoorController>().isOpen)
         {
             // open door
             door.GetComponent<DoorController>().openDoor();

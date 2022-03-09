@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enterable : MonoBehaviour
 {
     //[SerializeField] private string level;
-    [SerializeField] GameObject interactIconE;
+    //[SerializeField] GameObject interactIconE;
 
     private string level;
 
@@ -27,7 +27,8 @@ public class Enterable : MonoBehaviour
             if(level != "Tutorial1")
             {
                 // show the E if it's not the tutorial level
-                interactIconE.GetComponent<IconController>().show();
+                //interactIconE.GetComponent<IconController>().show();
+                this.transform.parent.parent.GetChild(2).GetComponent<IconController>().show();
             }
     }
 
@@ -39,7 +40,8 @@ public class Enterable : MonoBehaviour
             if(level != "Tutorial1")
             {
                 // hide the E if it's not the tutorial level
-                interactIconE.GetComponent<IconController>().hide();
+                //interactIconE.GetComponent<IconController>().hide();
+                this.transform.parent.parent.GetChild(2).GetComponent<IconController>().hide();
             }
     }
     

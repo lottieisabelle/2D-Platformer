@@ -4,13 +4,12 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     // level info
-    //[SerializeField] private GameObject Level;
-    //private GameObject Level;
     private Transform levelTransform;
 
     private LayerMask blockLayer;
     private LayerMask groundLayer;
     private LayerMask boxLayer;
+    private LayerMask boxHeldLayer;
     private LayerMask wallLayer;
 
     // player info
@@ -39,19 +38,18 @@ public class PlayerController : MonoBehaviour
     // runs when the script is loaded
     private void Awake()
     {   
-        //Level = this.transform.parent.GetComponent<LevelController>();
-        
+        // store layer data        
         wallLayer = this.transform.parent.GetComponent<LevelController>().wallLayer;
         boxLayer = this.transform.parent.GetComponent<LevelController>().boxLayer;
         groundLayer = this.transform.parent.GetComponent<LevelController>().groundLayer;
         blockLayer = this.transform.parent.GetComponent<LevelController>().blockLayer;
+        boxHeldLayer = this.transform.parent.GetComponent<LevelController>().boxHeldLayer;
 
         levelTransform = this.transform.parent.GetComponent<Transform>();
 
+        // player info
         speed = 8;
         jumpPower = 12;
-
-        // grab data references from objects
         body = GetComponent<Rigidbody2D>();
         move = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -128,7 +126,7 @@ public class PlayerController : MonoBehaviour
     private void pickUp()
     {   
         // check if there is a box to pick up, if yes, pick up box
-        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist);
+        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, boxLayer);
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Box"){
             // pick up
@@ -136,18 +134,17 @@ public class PlayerController : MonoBehaviour
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             grabCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = true;
-            grabCheck.collider.gameObject.layer = 0; // make default layer, remove from box layer
+            grabCheck.collider.gameObject.layer = 11; // put in box held layer, can check for held box and jump
             handsEmpty = false;
             holdingBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
-
-        }
-        
+            pickUpCoolDown = 0;
+        } 
     }
 
     private void putDown()
     {   
-        // check if player is holding box, check for walls, put behind player if wall detected
-        RaycastHit2D holdCheck = Physics2D.Raycast(holdDetect.position, Vector2.up * transform.localScale, rayDist);
+        // check if player is holding box, check for walls, put box behind player if wall detected
+        RaycastHit2D holdCheck = Physics2D.Raycast(holdDetect.position, Vector2.up, rayDist, boxHeldLayer);
         RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, wallLayer);
 
         if(holdCheck.collider != null && holdCheck.collider.tag == "Box"){
@@ -168,7 +165,7 @@ public class PlayerController : MonoBehaviour
                 holdCheck.collider.gameObject.transform.position = place.position;
             }
             
-        }
+        } 
     }
 
     private void enterDoor()
@@ -208,27 +205,15 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded()
     {   
-        // casts rays only on ground (includes buttons)
+        // casts rays only on ground (includes buttons (buttons are ground layer))
         RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
-        // casts rays only on boxes
+        // casts rays only on boxes (excludes the box held if there is one)
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
         // casts rays only on blocks
         RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);
-        
-        if(boxHit.collider != null){
-            int hitBoxID = boxHit.collider.gameObject.GetComponent<PickUpable>().boxID;
 
-            bool diffBox = true;
-            if(holdingBoxID == hitBoxID){
-                diffBox = false;
-            }
-
-            // can jump if different box
-            // not sure this code works how i think it does - need to see what happens when there is more than 2 boxes around player
-            return diffBox;
-
-        } else if(groundHit.collider != null || blockHit.collider != null) {
-            // can jump if on the ground or on a block (buttons are included in the ground layer)
+        if(boxHit.collider != null || groundHit.collider != null || blockHit.collider != null)
+        {
             return true;
         } else {
             return false;
