@@ -11,10 +11,6 @@ public class Level1Script : MonoBehaviour
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject door;
 
-    // interact icons
-    [SerializeField] GameObject interactIconP;
-    [SerializeField] GameObject interactIconE;
-
     // level variables
     private bool isPressed;
     private bool isOpen;
@@ -29,8 +25,10 @@ public class Level1Script : MonoBehaviour
             button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        interactIconP.GetComponent<IconController>().hide();
-        interactIconE.GetComponent<IconController>().hide();
+        // hide interact icons P and E
+        this.transform.GetChild(1).GetComponent<IconController>().hide();
+        this.transform.GetChild(2).GetComponent<IconController>().hide();
+
     }
 
     // Update is called once per frame

@@ -13,9 +13,6 @@ public class TutorialPart3 : MonoBehaviour
     // child 0 = labels
     // child 1 = trigger
     
-    // interact icon E
-    [SerializeField] GameObject interactIconE;
-
     // level variables
     private bool pressed;
     
@@ -30,7 +27,10 @@ public class TutorialPart3 : MonoBehaviour
             button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        interactIconE.GetComponent<IconController>().hide();
+        // hide interact icons P and E
+        this.transform.GetChild(1).GetComponent<IconController>().hide();
+        this.transform.GetChild(2).GetComponent<IconController>().hide();
+
     }
 
     // Update is called once per frame

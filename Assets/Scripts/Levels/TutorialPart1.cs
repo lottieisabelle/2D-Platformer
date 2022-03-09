@@ -7,9 +7,6 @@ public class TutorialPart1 : MonoBehaviour
 {  
     // level objects
     [SerializeField] private GameObject door;
-    
-    // interact icon E
-    [SerializeField] GameObject interactIconE;
 
     // level variables
     private bool jumped;
@@ -19,7 +16,8 @@ public class TutorialPart1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        interactIconE.GetComponent<IconController>().show();
+        // show interact icon E
+        this.transform.GetChild(2).GetComponent<IconController>().show();
 
         jumped = false;
         left = false;

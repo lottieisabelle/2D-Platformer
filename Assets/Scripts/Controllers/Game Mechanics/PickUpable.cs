@@ -20,8 +20,6 @@ public class PickUpable : MonoBehaviour
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
-    // do not show or hide P icon when level = Tutorial2
-    // also
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         if(collision.CompareTag("Player"))

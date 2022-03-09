@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
 
     private void enterDoor()
     {
-        if(canEnter == true && handsEmpty)
+        if(canEnter && handsEmpty)
         {
             this.transform.parent.GetComponent<LevelController>().nextLevel();
         }

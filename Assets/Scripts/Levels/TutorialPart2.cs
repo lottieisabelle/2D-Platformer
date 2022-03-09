@@ -8,10 +8,6 @@ public class TutorialPart2 : MonoBehaviour
     // level objects
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door;
-    
-    // interact icons
-    [SerializeField] GameObject interactIconP;
-    [SerializeField] GameObject interactIconE;
 
     // level variables
     private bool box;
@@ -19,8 +15,10 @@ public class TutorialPart2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        interactIconP.GetComponent<IconController>().show();
-        interactIconE.GetComponent<IconController>().hide();
+        // show interact icon P
+        this.transform.GetChild(1).GetComponent<IconController>().show();
+        // hide interact icon E
+        this.transform.GetChild(2).GetComponent<IconController>().hide();
 
         box = false;
     }
