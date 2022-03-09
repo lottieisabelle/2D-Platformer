@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579341928aa5abe4494bd160f98a9176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 2079137126}
   setting: 0
+  settingID: ButtonLabels
   off: {fileID: 1007237661}
   on: {fileID: 1199140831}
 --- !u!1 &59753979

@@ -942,10 +942,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0706648d24d1724fbfb13e1893ccf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setting: 0
+  buttonLabels: 0
   player: {fileID: 1060287931}
   buttonTrigger: {fileID: 2118364692}
   door: {fileID: 1381088678}
+  button: {fileID: 1602687719}
 --- !u!1 &348009348
 GameObject:
   m_ObjectHideFlags: 0
