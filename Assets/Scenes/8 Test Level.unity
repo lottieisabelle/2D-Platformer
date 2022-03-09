@@ -865,7 +865,7 @@ Transform:
   - {fileID: 675571609}
   - {fileID: 758356542}
   - {fileID: 2095204024}
-  m_Father: {fileID: 313691002}
+  m_Father: {fileID: 1344286094}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &292253593
@@ -923,11 +923,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 367574519}
-  - {fileID: 292253592}
-  - {fileID: 2025026514}
-  - {fileID: 1942278366}
   - {fileID: 1381088680}
+  - {fileID: 1344286094}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -943,7 +940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0706648d24d1724fbfb13e1893ccf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: TestLevel
   player: {fileID: 1060287931}
   door: {fileID: 1381088678}
   button: {fileID: 1602687719}
@@ -961,6 +957,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: TestLevel
   NextLevelSceneID: 0
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  boxLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &348009348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1094,7 @@ Transform:
   - {fileID: 1905708277}
   - {fileID: 1506441254}
   - {fileID: 1256865334}
-  m_Father: {fileID: 313691002}
+  m_Father: {fileID: 1344286094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &367574520
@@ -1989,7 +1997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b896ab26241634e9e5721db04ee8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Tutorial
   interactIconE: {fileID: 668819116}
 --- !u!212 &645881544
 SpriteRenderer:
@@ -3775,20 +3782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e134fa6a21dd254eae02478aa59b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  jumpPower: 12
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  boxLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
   Level: {fileID: 313691001}
   canEnter: 0
   handsEmpty: 1
@@ -4848,6 +4841,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1344286093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344286094}
+  m_Layer: 0
+  m_Name: Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344286094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344286093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 367574519}
+  - {fileID: 292253592}
+  - {fileID: 2025026514}
+  - {fileID: 1942278366}
+  m_Father: {fileID: 313691002}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376636236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4974,7 +5001,7 @@ Transform:
   - {fileID: 1022542178}
   - {fileID: 645881545}
   m_Father: {fileID: 313691002}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392300105
 GameObject:
@@ -6466,7 +6493,7 @@ Transform:
   - {fileID: 1654079758}
   - {fileID: 1144481907}
   - {fileID: 568108856}
-  m_Father: {fileID: 313691002}
+  m_Father: {fileID: 1344286094}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1942278367
@@ -6819,7 +6846,7 @@ Transform:
   - {fileID: 1190813636}
   - {fileID: 819030935}
   - {fileID: 251356306}
-  m_Father: {fileID: 313691002}
+  m_Father: {fileID: 1344286094}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2025026515
