@@ -17,14 +17,14 @@ public class PlayerController : MonoBehaviour
 
     // grab controller
     public bool handsEmpty;
-    public Transform grabDetect;
-    public Transform boxHolder;
-    public Transform holdDetect;
-    public Transform place;
-    public Transform placeBehind;
-    public float rayDist;
+    private int holdingBoxID;
+    private float rayDist;
     private float pickUpCoolDown;
-    public int holdingBoxID;
+    private Transform grabDetect;
+    private Transform boxHolder;
+    private Transform place;
+    private Transform holdDetect;
+    private Transform placeBehind;
 
     private float jumpCoolDown;
     private float horizontalInput;
@@ -42,8 +42,13 @@ public class PlayerController : MonoBehaviour
 
         // grab controller
         handsEmpty = true;
-        // 0 means hands empty
-        holdingBoxID = 0;
+        rayDist = 1;
+        holdingBoxID = 0; // 0 means hands empty
+        grabDetect = this.transform.GetChild(0).GetComponent<Transform>();
+        boxHolder = this.transform.GetChild(1).GetComponent<Transform>();
+        place = this.transform.GetChild(2).GetComponent<Transform>();
+        holdDetect = this.transform.GetChild(3).GetComponent<Transform>();
+        placeBehind = this.transform.GetChild(4).GetComponent<Transform>();
 
         // door enter controller
         canEnter = false;
@@ -54,7 +59,6 @@ public class PlayerController : MonoBehaviour
     {   
         if(Input.GetKey(KeyCode.E))
             enterDoor();
-
 
         if(pickUpCoolDown > 0.2f)
         {
@@ -157,8 +161,6 @@ public class PlayerController : MonoBehaviour
         {
             Level.GetComponent<LevelController>().nextLevel();
         }
-
-        
     }
     
     private void Jump()
@@ -215,15 +217,12 @@ public class PlayerController : MonoBehaviour
         } else {
             return false;
         }
-        
     }
-
 
     private bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, Level.GetComponent<LevelController>().wallLayer);
         return raycastHit.collider != null;
     }
-
 
 }
