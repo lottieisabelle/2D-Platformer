@@ -6,41 +6,27 @@ using UnityEngine;
 
 public class Pressable : MonoBehaviour
 {    
-    private bool playerPressed;
-    private bool boxPressed;
     public bool blockPressed;
 
-    public bool isPressed;
+    public List<int> itemsOnbutton = new List<int>();
+
+    public int pressedCount;
 
     // Start is called before the first frame update
     void Start()
     {
+        pressedCount = 0;
+
         blockPressed = this.transform.parent.GetComponent<ButtonController>().blockPressed;
 
-        playerPressed = false;
-        boxPressed = false;
-        
         if(blockPressed)
         {
             // deactivate boxcollider
             this.GetComponent<BoxCollider2D>().enabled = false;
-
-            isPressed = true;
+            pressedCount = this.transform.parent.GetComponent<ButtonController>().lights;
         } else {
             this.GetComponent<BoxCollider2D>().enabled = true;
             this.GetComponent<BoxCollider2D>().isTrigger = true;
-
-            isPressed = false;
-        }
-    }
-
-    void Update()
-    {
-        if(playerPressed == true || boxPressed == true || blockPressed == true)
-        {
-            isPressed = true;
-        } else {
-            isPressed = false;
         }
     }
 
@@ -50,36 +36,59 @@ public class Pressable : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision)
-    {   
-        if(collision.CompareTag("Player")){
-            playerPressed = true;
-            isPressed = true;
-        }
+    {
+        // need to keep track of what boxes are new, add to list of boxes on button - using boxids
         if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
-            boxPressed = true;
-            isPressed = true;
+            if(itemsOnbutton.Count == 0){
+                itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
+            } else {
+                for(int i = 0; i < itemsOnbutton.Count; i++){
+                    if(itemsOnbutton[i] == collision.gameObject.GetComponent<PickUpable>().boxID){
+                        // break - do not add to list
+                        break;
+                    }
+                    if((itemsOnbutton[i] != collision.gameObject.GetComponent<PickUpable>().boxID) && (i == itemsOnbutton.Count - 1)){
+                        // add to list
+                        itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
+                    }
+                }
+            }
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        if(collision.CompareTag("Player"))
-            playerPressed = true;
-            isPressed = true;
+        if(collision.CompareTag("Player")){
+            itemsOnbutton.Add(0);
+        }
 
-        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld)
-            boxPressed = true;
-            isPressed = true;
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
+            if(itemsOnbutton.Count == 0){
+                itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
+            } else {
+                for(int i = 0; i < itemsOnbutton.Count; i++){
+                    if(itemsOnbutton[i] == collision.gameObject.GetComponent<PickUpable>().boxID){
+                        // break - do not add to list
+                        break;
+                    }
+                    if((itemsOnbutton[i] != collision.gameObject.GetComponent<PickUpable>().boxID) && (i == itemsOnbutton.Count - 1)){
+                        // add to list
+                        itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
+                    }
+                }
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
-            playerPressed = false;
+        if(collision.CompareTag("Player")){
+            itemsOnbutton.Remove(0);
+        }
 
-        if(collision.CompareTag("Box"))
-            boxPressed = false;
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
+            itemsOnbutton.Remove(collision.gameObject.GetComponent<PickUpable>().boxID);
+        }
 
     }
 

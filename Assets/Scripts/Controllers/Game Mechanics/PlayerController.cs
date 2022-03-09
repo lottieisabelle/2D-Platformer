@@ -205,15 +205,14 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded()
     {   
-        // casts rays only on ground (includes buttons (buttons are ground layer))
+        // casts rays only on ground (includes buttons physical part, excludes button trigger collider)
         RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
         // casts rays only on boxes (excludes the box held if there is one)
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
         // casts rays only on blocks
         RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);
 
-        if(boxHit.collider != null || groundHit.collider != null || blockHit.collider != null)
-        {
+        if(boxHit.collider != null || groundHit.collider != null || blockHit.collider != null){
             return true;
         } else {
             return false;

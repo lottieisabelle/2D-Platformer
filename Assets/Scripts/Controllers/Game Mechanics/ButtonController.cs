@@ -18,6 +18,7 @@ public class ButtonController : MonoBehaviour
     public int lights;
 
     public bool isPressed;
+    private int pressedCount;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +30,9 @@ public class ButtonController : MonoBehaviour
             this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        lights = this.transform.GetChild(4).childCount;
+        pressedCount = 0;
 
-        isPressed = this.transform.GetChild(1).GetComponent<Pressable>().isPressed;
+        lights = this.transform.GetChild(4).childCount;
 
         this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
         this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
@@ -49,7 +50,23 @@ public class ButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isPressed = this.transform.GetChild(1).GetComponent<Pressable>().isPressed;
+        pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().itemsOnbutton.Count;
+
+        for(int i = 0; i < lights; i++)
+        {   
+            if(i < pressedCount){
+                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOn;
+            } else {
+                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
+            }
+        }
+
+        if(pressedCount >= lights)
+        {
+            isPressed = true;
+        } else {
+            isPressed = false;
+        }
 
         if(isPressed){
             this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
@@ -58,22 +75,12 @@ public class ButtonController : MonoBehaviour
             this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
             this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = true;
 
-            for(int i = 0; i < lights; i++)
-            {
-                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOn;
-            }
-
         } else {
             this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
             this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
 
             this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
             this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = false;
-
-            for(int i = 0; i < lights; i++)
-            {
-                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
-            }
 
         }
     }

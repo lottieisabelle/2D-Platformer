@@ -25,7 +25,7 @@ public class Level1Script : MonoBehaviour
     void Update()
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
-        isPressed = button.transform.GetChild(1).GetComponent<Pressable>().isPressed;
+        isPressed = button.GetComponent<ButtonController>().isPressed;
 
         if(isPressed)
         {

@@ -58,7 +58,7 @@ public class TestLevelScript : MonoBehaviour
         }
         
         // if the player has pressed the button
-        if(button.transform.GetChild(1).GetComponent<Pressable>().isPressed)
+        if(button.GetComponent<ButtonController>().isPressed)
         {
             pressed = true;
         }
