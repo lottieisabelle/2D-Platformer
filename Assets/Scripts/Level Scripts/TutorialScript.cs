@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // determines when to open the door of the tutorial level - when the player has interacted in all possible ways
-public class TestLevelScript : MonoBehaviour
+public class TutorialScript : MonoBehaviour
 {   
-    public bool buttonLabels;
-
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject door;
     [SerializeField] private GameObject button;
-    // child 0 = label
-    // child 1 = trigger
+    [SerializeField] private GameObject door;
 
     private bool jumped;
     private bool box;
@@ -22,13 +18,6 @@ public class TestLevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonLabels = GameManager.buttonLabels;
-        if(buttonLabels){
-            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        } else {
-            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        }
-
         jumped = false;
         box = false;
         left = false;
@@ -55,13 +44,13 @@ public class TestLevelScript : MonoBehaviour
         }
 
         // if the player's hands are not empty - they have picked up the box
-        if(!player.GetComponent<PlayerMovement>().handsEmpty)
+        if(!player.GetComponent<PlayerController>().handsEmpty)
         {
             box = true;
         }
-        
+
         // if the player has pressed the button
-        if(button.transform.GetChild(1).GetComponent<Pressable>().isPressed)
+        if(button.GetComponent<Pressable>().isPressed)
         {
             pressed = true;
         }

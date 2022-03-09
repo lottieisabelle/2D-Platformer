@@ -15,7 +15,7 @@ public class Enterable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         if(collision.CompareTag("Player"))
-            collision.GetComponent<PlayerMovement>().canEnter = true;
+            collision.GetComponent<PlayerController>().canEnter = true;
 
             if(level != "Tutorial1")
             {
@@ -27,7 +27,7 @@ public class Enterable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
-            collision.GetComponent<PlayerMovement>().canEnter = false;
+            collision.GetComponent<PlayerController>().canEnter = false;
 
             if(level != "Tutorial1")
             {

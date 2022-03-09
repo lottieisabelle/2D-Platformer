@@ -27,7 +27,7 @@ public class TutorialPart2 : MonoBehaviour
     void Update()
     {
         // if the player's hands are not empty - they have picked up the box
-        if(!player.GetComponent<PlayerMovement>().handsEmpty)
+        if(!player.GetComponent<PlayerController>().handsEmpty)
         {
             box = true;
         }
