@@ -5,8 +5,6 @@ using UnityEngine;
 // determines when to open the door of the tutorial level - when the player has interacted in all possible ways
 public class TestLevelScript : MonoBehaviour
 {   
-    private bool buttonLabels;
-
     // level objects
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door;
@@ -27,14 +25,6 @@ public class TestLevelScript : MonoBehaviour
         // hide interact icons P and E
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
-
-        // show or hide button labels
-        buttonLabels = GameManager.buttonLabels;
-        if(buttonLabels){
-            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        } else {
-            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        }
 
         jumped = false;
         box = false;

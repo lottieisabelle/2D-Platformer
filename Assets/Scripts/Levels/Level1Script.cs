@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Level1Script : MonoBehaviour
 {
-    // access settings
-    private bool buttonLabels;
-
     // level objects
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject door;
@@ -18,13 +15,6 @@ public class Level1Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        buttonLabels = GameManager.buttonLabels;
-        if(buttonLabels){
-            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-        } else {
-            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        }
-
         // hide interact icons P and E
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
