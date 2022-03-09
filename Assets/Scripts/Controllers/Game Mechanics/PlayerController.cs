@@ -4,7 +4,14 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     // level info
-    [SerializeField] private GameObject Level;
+    //[SerializeField] private GameObject Level;
+    //private GameObject Level;
+    private Transform levelTransform;
+
+    private LayerMask blockLayer;
+    private LayerMask groundLayer;
+    private LayerMask boxLayer;
+    private LayerMask wallLayer;
 
     // player info
     private Rigidbody2D body;
@@ -32,6 +39,15 @@ public class PlayerController : MonoBehaviour
     // runs when the script is loaded
     private void Awake()
     {   
+        //Level = this.transform.parent.GetComponent<LevelController>();
+        
+        wallLayer = this.transform.parent.GetComponent<LevelController>().wallLayer;
+        boxLayer = this.transform.parent.GetComponent<LevelController>().boxLayer;
+        groundLayer = this.transform.parent.GetComponent<LevelController>().groundLayer;
+        blockLayer = this.transform.parent.GetComponent<LevelController>().blockLayer;
+
+        levelTransform = this.transform.parent.GetComponent<Transform>();
+
         speed = 8;
         jumpPower = 12;
 
@@ -132,11 +148,11 @@ public class PlayerController : MonoBehaviour
     {   
         // check if player is holding box, check for walls, put behind player if wall detected
         RaycastHit2D holdCheck = Physics2D.Raycast(holdDetect.position, Vector2.up * transform.localScale, rayDist);
-        RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, Level.GetComponent<LevelController>().wallLayer);
+        RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, wallLayer);
 
         if(holdCheck.collider != null && holdCheck.collider.tag == "Box"){
 
-            holdCheck.collider.gameObject.transform.parent = null;
+            holdCheck.collider.gameObject.transform.parent = levelTransform;
             holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             holdCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = false;
             holdCheck.collider.gameObject.layer = 9; // put back in box layer
@@ -159,7 +175,7 @@ public class PlayerController : MonoBehaviour
     {
         if(canEnter == true && handsEmpty)
         {
-            Level.GetComponent<LevelController>().nextLevel();
+            this.transform.parent.GetComponent<LevelController>().nextLevel();
         }
     }
     
@@ -193,11 +209,11 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {   
         // casts rays only on ground (includes buttons)
-        RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, Level.GetComponent<LevelController>().groundLayer);
+        RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
         // casts rays only on boxes
-        RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, Level.GetComponent<LevelController>().boxLayer);
+        RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
         // casts rays only on blocks
-        RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, Level.GetComponent<LevelController>().blockLayer);
+        RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);
         
         if(boxHit.collider != null){
             int hitBoxID = boxHit.collider.gameObject.GetComponent<PickUpable>().boxID;
@@ -221,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
     private bool onWall()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, Level.GetComponent<LevelController>().wallLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
 

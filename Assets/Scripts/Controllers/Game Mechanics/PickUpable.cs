@@ -5,16 +5,14 @@ using UnityEngine;
 public class PickUpable : MonoBehaviour
 {   
     [SerializeField] public int boxID;
-    [SerializeField] private string level;
-    [SerializeField] GameObject interactIconP;
 
     public bool isHeld;
-    //private string level;
+    private string level;
 
     void Start()
     {
         isHeld = false;
-
+        level = this.transform.parent.GetComponent<LevelController>().levelName;
     }
 
     private void Reset()
@@ -22,12 +20,14 @@ public class PickUpable : MonoBehaviour
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
+    // do not show or hide P icon when level = Tutorial2
+    // also
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         if(collision.CompareTag("Player"))
-            if(level != "Tutorial2")
+            if(level != "Tutorial2" && !isHeld)
             {
-                interactIconP.GetComponent<IconController>().show();
+                this.transform.parent.GetChild(1).GetComponent<IconController>().show();
             }
             
     }
@@ -35,9 +35,9 @@ public class PickUpable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
-            if(level != "Tutorial2")
+            if(level != "Tutorial2" && !isHeld)
             {
-                interactIconP.GetComponent<IconController>().hide();
+                this.transform.parent.GetChild(1).GetComponent<IconController>().hide();
             }
             
     }
