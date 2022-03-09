@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelScript : MonoBehaviour
+public class ChangeLevel : MonoBehaviour
 {
     [SerializeField] private int NextLevelSceneID;
 
