@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class SettingController : MonoBehaviour
 {
-    static public bool setting = false;
+    //[SerializeField] public GameObject GameManager;
+    public bool setting;
 
     // off button
     [SerializeField] public GameObject off;
@@ -15,6 +16,10 @@ public class SettingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        setting = GameManager.buttonLabels;
+        //GameManager.setting = setting;
+        //setting = GameManager.GetComponent<GameManager>().buttonLabels;
+
         if(setting)
         {
             // set as on
@@ -35,11 +40,13 @@ public class SettingController : MonoBehaviour
             off.GetComponent<Image>().enabled = true;
             on.GetComponent<Image>().enabled = false;
             setting = false;
+            GameManager.buttonLabels = false;
         } else {
             // change to on
             off.GetComponent<Image>().enabled = false;
             on.GetComponent<Image>().enabled = true;
             setting = true;
+            GameManager.buttonLabels = true;
         }
     }
 }

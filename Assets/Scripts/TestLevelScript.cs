@@ -5,6 +5,8 @@ using UnityEngine;
 // determines when to open the door of the tutorial level - when the player has interacted in all possible ways
 public class TestLevelScript : MonoBehaviour
 {   
+    public bool setting;
+
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject buttonTrigger;
     [SerializeField] private GameObject door;
@@ -18,6 +20,13 @@ public class TestLevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        setting = GameManager.buttonLabels;
+        if(setting){
+            Debug.Log("true");
+        } else {
+            Debug.Log("false");
+        }
+
         jumped = false;
         box = false;
         left = false;
