@@ -24,6 +24,12 @@ public class TestLevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //bool check = this.transform.parent.GetChild(4).GetComponent<SpriteRenderer>().enabled;
+        //if(check)
+        //{
+            //Debug.Log("IT WORKS!!");
+        //}
+
         buttonLabels = GameManager.buttonLabels;
         if(buttonLabels){
             button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;

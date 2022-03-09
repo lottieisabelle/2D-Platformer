@@ -4981,7 +4981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b896ab26241634e9e5721db04ee8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   interactIconE: {fileID: 1124105470}
 --- !u!1 &1423497495
 GameObject:
@@ -5199,30 +5198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e134fa6a21dd254eae02478aa59b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  jumpPower: 12
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  boxLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
   Level: {fileID: 1826549520}
   canEnter: 0
   handsEmpty: 1
-  grabDetect: {fileID: 176726074}
-  boxHolder: {fileID: 1845073450}
-  holdDetect: {fileID: 2110340699}
-  place: {fileID: 439198209}
-  placeBehind: {fileID: 1313977055}
-  rayDist: 1
-  holdingBoxID: 0
 --- !u!50 &1535977342
 Rigidbody2D:
   serializedVersion: 4
@@ -5953,7 +5931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27436a1c3bf7cf478cd80f149272a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: Level1
   button: {fileID: 1875319329}
   door: {fileID: 661205009}
   interactIconP: {fileID: 1280431734}
@@ -5972,6 +5949,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level1
   NextLevelSceneID: 8
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  boxLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1845073449
 GameObject:
   m_ObjectHideFlags: 0

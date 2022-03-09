@@ -257,30 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e134fa6a21dd254eae02478aa59b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  jumpPower: 12
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  boxLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 128
   Level: {fileID: 935166133}
   canEnter: 0
   handsEmpty: 1
-  grabDetect: {fileID: 981156077}
-  boxHolder: {fileID: 2055933877}
-  holdDetect: {fileID: 522869924}
-  place: {fileID: 1986382060}
-  placeBehind: {fileID: 1967528038}
-  rayDist: 1
-  holdingBoxID: 0
 --- !u!50 &82402375
 Rigidbody2D:
   serializedVersion: 4
@@ -2703,7 +2682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c1b2a7267e1934fbaeab0cac4027ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: Tutorial2
   player: {fileID: 82402372}
   door: {fileID: 1850636357}
   interactIconP: {fileID: 711232452}
@@ -2741,6 +2719,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Tutorial2
   NextLevelSceneID: 4
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  boxLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &939647588
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,7 +4948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b896ab26241634e9e5721db04ee8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Tutorial2
   interactIconE: {fileID: 1606164133}
 --- !u!212 &1850151416
 SpriteRenderer:
