@@ -18,8 +18,5 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         _img.sprite = _default;
     }
-
-    
-
 }
 

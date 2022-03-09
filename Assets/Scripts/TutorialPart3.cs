@@ -7,15 +7,25 @@ public class TutorialPart3 : MonoBehaviour
 {   
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject button;
+    // child 0 = labels
+    // child 1 = trigger
     
     // interact icon E
     [SerializeField] GameObject interactIconE;
 
     private bool pressed;
+    private bool buttonLabels;
 
     // Start is called before the first frame update
     void Start()
     {   
+        buttonLabels = GameManager.buttonLabels;
+        if(buttonLabels){
+            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        } else {
+            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        }
+
         interactIconE.GetComponent<IconController>().hide();
     }
 
@@ -24,7 +34,7 @@ public class TutorialPart3 : MonoBehaviour
     {
         
         // if the player has pressed the button
-        if(button.GetComponent<Pressable>().isPressed)
+        if(button.transform.GetChild(1).GetComponent<Pressable>().isPressed)
         {
             pressed = true;
         }
