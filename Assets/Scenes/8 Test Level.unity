@@ -944,7 +944,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonLabels: 0
   player: {fileID: 1060287931}
-  buttonTrigger: {fileID: 2118364692}
   door: {fileID: 1381088678}
   button: {fileID: 1602687719}
 --- !u!1 &348009348
@@ -1502,7 +1501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432021001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.34, y: -3.101924, z: 0}
+  m_LocalPosition: {x: 2.97, y: -2.31, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1701,7 +1700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1602687721}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &547339274
 SpriteRenderer:
@@ -5594,9 +5593,9 @@ Transform:
   m_Children:
   - {fileID: 1648586386}
   - {fileID: 2118364693}
-  - {fileID: 547339273}
-  - {fileID: 1143828417}
   - {fileID: 1958682894}
+  - {fileID: 1143828417}
+  - {fileID: 547339273}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5612,9 +5611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299fbcf6350037f418d9e5b1e32b872f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unpressed: {fileID: 1958682893}
-  pressed: {fileID: 1143828416}
-  trigger: {fileID: 2118364692}
+  colour: Red
+  blockPressed: 1
   isPressed: 0
 --- !u!1 &1612086196
 GameObject:
@@ -6563,7 +6561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1602687721}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1958682895
 PolygonCollider2D:
@@ -7109,9 +7107,6 @@ MonoBehaviour:
   _true: {fileID: 21300000, guid: a06d87238487d3d4c8b28c774e05e09d, type: 3}
   _false: {fileID: 21300000, guid: 998b6a44fa8ee984a8a051cc24b317bc, type: 3}
   blockPressed: 0
-  pressTrigger: {fileID: 2118364695}
-  playerPressed: 0
-  boxPressed: 0
   isPressed: 0
 --- !u!61 &2118364695
 BoxCollider2D:

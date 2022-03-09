@@ -4,43 +4,47 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    // unpressed button
-    [SerializeField] public GameObject unpressed;
-    // pressed button 
-    [SerializeField] public GameObject pressed;
+    // button children
+    // child 0 = colour label
+    // child 1 = trigger
+    // child 2 = unpressed
+    // child 3 = pressed
+    // child 4 = value (true/false text)
 
-    // trigger info
-    [SerializeField] public GameObject trigger;
+    [SerializeField] public string colour;
+    [SerializeField] public bool blockPressed;
     
     public bool isPressed;
 
     // Start is called before the first frame update
     void Start()
     {
-        unpressed.GetComponent<SpriteRenderer>().enabled = true;
-        unpressed.GetComponent<PolygonCollider2D>().enabled = true;
+        isPressed = this.transform.GetChild(1).GetComponent<Pressable>().isPressed;
 
-        pressed.GetComponent<SpriteRenderer>().enabled = false;
-        pressed.GetComponent<PolygonCollider2D>().enabled = false;
+        this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
+
+        this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        isPressed = trigger.GetComponent<Pressable>().isPressed;
+        isPressed = this.transform.GetChild(1).GetComponent<Pressable>().isPressed;
 
         if(isPressed){
-            unpressed.GetComponent<SpriteRenderer>().enabled = false;
-            unpressed.GetComponent<PolygonCollider2D>().enabled = false;
+            this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+            this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
 
-            pressed.GetComponent<SpriteRenderer>().enabled = true;
-            pressed.GetComponent<PolygonCollider2D>().enabled = true;
+            this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
+            this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = true;
         } else {
-            unpressed.GetComponent<SpriteRenderer>().enabled = true;
-            unpressed.GetComponent<PolygonCollider2D>().enabled = true;
+            this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+            this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
 
-            pressed.GetComponent<SpriteRenderer>().enabled = false;
-            pressed.GetComponent<PolygonCollider2D>().enabled = false;
+            this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+            this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 }

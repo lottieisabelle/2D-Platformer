@@ -8,26 +8,35 @@ public class Pressable : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer value;
     [SerializeField] private Sprite _true, _false;
-    [SerializeField] public bool blockPressed;
-
-    public BoxCollider2D pressTrigger;
-    public bool playerPressed;
-    public bool boxPressed;
     
+    private bool playerPressed;
+    private bool boxPressed;
+    public bool blockPressed;
 
     public bool isPressed;
 
     // Start is called before the first frame update
     void Start()
     {
+        blockPressed = this.transform.parent.GetComponent<ButtonController>().blockPressed;
+
         playerPressed = false;
         boxPressed = false;
+        
+        if(blockPressed)
+        {
+            // deactivate boxcollider
+            this.GetComponent<BoxCollider2D>().enabled = false;
 
-        isPressed = false;
+            isPressed = true;
+            value.sprite = _true;
+        } else {
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            this.GetComponent<BoxCollider2D>().isTrigger = true;
 
-        value.sprite = _false;
-
-        pressTrigger.isTrigger = true;
+            isPressed = false;
+            value.sprite = _false;
+        }
     }
 
     void Update()
@@ -44,7 +53,7 @@ public class Pressable : MonoBehaviour
 
     private void Reset()
     {
-        pressTrigger.isTrigger = true;
+        this.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -56,11 +65,6 @@ public class Pressable : MonoBehaviour
         }
         if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
             boxPressed = true;
-            isPressed = true;
-            value.sprite = _true;
-        }
-        if(collision.CompareTag("Block")){
-            blockPressed = true;
             isPressed = true;
             value.sprite = _true;
         }
@@ -76,11 +80,6 @@ public class Pressable : MonoBehaviour
 
         if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld)
             boxPressed = true;
-            isPressed = true;
-            value.sprite = _true;
-
-        if(collision.CompareTag("Block"))
-            blockPressed = true;
             isPressed = true;
             value.sprite = _true;
     }
