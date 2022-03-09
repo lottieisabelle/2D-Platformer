@@ -4,12 +4,14 @@ using UnityEngine;
 
 // determines when to open the door of the tutorial level - when the player has interacted in all possible ways
 public class TutorialPart1 : MonoBehaviour
-{   
+{  
+    // level objects
     [SerializeField] private GameObject door;
     
     // interact icon E
     [SerializeField] GameObject interactIconE;
 
+    // level variables
     private bool jumped;
     private bool left;
     private bool right;

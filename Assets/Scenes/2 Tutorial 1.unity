@@ -5541,6 +5541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d819b8f766f0d4aa3ab126f8ac2542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelID: Tutorial1
   door: {fileID: 2039873611}
   interactIconE: {fileID: 625448158}
 --- !u!4 &1954424842
@@ -5574,6 +5575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78afb97dc788be47a2e447f095436d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: Tutorial1
   NextLevelSceneID: 3
 --- !u!1 &1972308914
 GameObject:
@@ -5768,9 +5770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5388269c45186624da6c34ce1b5f308d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 138353124}
-  doorSR: {fileID: 138353123}
-  doorHole: {fileID: 16231703}
   isOpen: 0
 --- !u!4 &2039873613
 Transform:

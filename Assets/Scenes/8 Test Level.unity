@@ -904,6 +904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313691002}
   - component: {fileID: 313691003}
+  - component: {fileID: 313691004}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -942,10 +943,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0706648d24d1724fbfb13e1893ccf05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonLabels: 0
+  levelID: TestLevel
   player: {fileID: 1060287931}
   door: {fileID: 1381088678}
   button: {fileID: 1602687719}
+--- !u!114 &313691004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313691001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78afb97dc788be47a2e447f095436d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: TestLevel
+  NextLevelSceneID: 0
 --- !u!1 &348009348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,9 +4959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5388269c45186624da6c34ce1b5f308d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 1022542178}
-  doorSR: {fileID: 1022542177}
-  doorHole: {fileID: 645881542}
   isOpen: 0
 --- !u!4 &1381088680
 Transform:

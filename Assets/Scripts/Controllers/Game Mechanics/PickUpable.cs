@@ -9,10 +9,12 @@ public class PickUpable : MonoBehaviour
     [SerializeField] GameObject interactIconP;
 
     public bool isHeld;
+    //private string level;
 
     void Start()
     {
         isHeld = false;
+
     }
 
     private void Reset()

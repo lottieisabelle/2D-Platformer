@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeLevel : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
+    [SerializeField] public string levelName;
     [SerializeField] private int NextLevelSceneID;
 
     public void nextLevel()

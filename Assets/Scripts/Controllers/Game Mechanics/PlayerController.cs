@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
     {
         if(canEnter == true && handsEmpty)
         {
-            Level.GetComponent<ChangeLevel>().nextLevel();
+            Level.GetComponent<LevelController>().nextLevel();
         }
     }
     

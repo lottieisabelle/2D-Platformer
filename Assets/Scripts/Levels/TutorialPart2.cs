@@ -4,7 +4,8 @@ using UnityEngine;
 
 // determines when to open the door of the tutorial level - when the player has interacted in all possible ways
 public class TutorialPart2 : MonoBehaviour
-{   
+{  
+    // level objects
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door;
     
@@ -12,6 +13,7 @@ public class TutorialPart2 : MonoBehaviour
     [SerializeField] GameObject interactIconP;
     [SerializeField] GameObject interactIconE;
 
+    // level variables
     private bool box;
 
     // Start is called before the first frame update

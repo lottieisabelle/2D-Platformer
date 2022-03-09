@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Level1Script : MonoBehaviour
 {
+    // access settings
     private bool buttonLabels;
 
+    // level objects
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject door;
 
@@ -13,6 +15,7 @@ public class Level1Script : MonoBehaviour
     [SerializeField] GameObject interactIconP;
     [SerializeField] GameObject interactIconE;
 
+    // level variables
     private bool isPressed;
     private bool isOpen;
 

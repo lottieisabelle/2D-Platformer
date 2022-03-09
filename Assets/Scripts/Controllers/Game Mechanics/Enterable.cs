@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Enterable : MonoBehaviour
 {
-    [SerializeField] private string level;
+    //[SerializeField] private string level;
     [SerializeField] GameObject interactIconE;
+
+    private string level;
+
+    void Start()
+    {
+        level = this.transform.parent.parent.GetComponent<LevelController>().levelName;
+    }
 
     private void Reset()
     {

@@ -7,12 +7,14 @@ public class TestLevelScript : MonoBehaviour
 {   
     private bool buttonLabels;
 
+    // level objects
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject button;
     // child 0 = label
     // child 1 = trigger
 
+    // level variables
     private bool jumped;
     private bool box;
     private bool left;
