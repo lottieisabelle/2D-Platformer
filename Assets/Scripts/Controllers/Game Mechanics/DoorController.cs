@@ -4,38 +4,47 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    public Transform door;
-    public SpriteRenderer doorSR;
-    public BoxCollider2D doorHole;
-
     public bool isOpen;
+
+    private Vector3 openPosition;
+    private Vector3 closedPosition;
     
     // Start is called before the first frame update
     void Start()
     {
-        isOpen = false;
-        doorHole.enabled = false;
-        doorHole.isTrigger = false;
+        openPosition = new Vector3(-2.51f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
+        closedPosition = new Vector3(-1.341f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
 
+        // disable exit
+        this.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
+        this.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
+        
+        isOpen = false;
     }
 
     public void openDoor()
     {
         // open door
-        door.localPosition = new Vector3(-2.51f , door.localPosition.y, door.localPosition.z);
-        doorSR.flipX = true;
-        doorHole.enabled = true;
-        doorHole.isTrigger = true;
+        this.transform.GetChild(0).GetComponent<Transform>().localPosition = openPosition;
+        this.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+
+        // enable exit
+        this.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = true;
+        this.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = true;
+
         isOpen = !isOpen;
     }
 
     public void closeDoor()
     {
         // close door
-        door.localPosition = new Vector3(-1.341f , door.localPosition.y, door.localPosition.z);
-        doorSR.flipX = false;
-        doorHole.enabled = false;
-        doorHole.isTrigger = false;
+        this.transform.GetChild(0).GetComponent<Transform>().localPosition = closedPosition;
+        this.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+
+        // disable exit
+        this.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
+        this.transform.GetChild(1).GetComponent<BoxCollider2D>().isTrigger = false;
+
         isOpen = !isOpen;
     }
 
