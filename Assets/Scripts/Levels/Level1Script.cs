@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level1Script : MonoBehaviour
 {
+    private bool buttonLabels;
+
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject door;
 
@@ -17,8 +19,13 @@ public class Level1Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isPressed = button.GetComponent<Pressable>().isPressed;
-        isOpen = door.GetComponent<DoorController>().isOpen;
+        buttonLabels = GameManager.buttonLabels;
+        if(buttonLabels){
+            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        } else {
+            button.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        }
+
         interactIconP.GetComponent<IconController>().hide();
         interactIconE.GetComponent<IconController>().hide();
     }
@@ -27,7 +34,7 @@ public class Level1Script : MonoBehaviour
     void Update()
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
-        isPressed = button.GetComponent<Pressable>().isPressed;
+        isPressed = button.transform.GetChild(1).GetComponent<Pressable>().isPressed;
 
         if(isPressed)
         {

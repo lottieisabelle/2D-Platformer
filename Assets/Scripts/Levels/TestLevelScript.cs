@@ -5,7 +5,7 @@ using UnityEngine;
 // determines when to open the door of the tutorial level - when the player has interacted in all possible ways
 public class TestLevelScript : MonoBehaviour
 {   
-    public bool buttonLabels;
+    private bool buttonLabels;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject door;

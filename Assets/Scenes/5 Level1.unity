@@ -3290,8 +3290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxID: 2
-  level: Tutorial2
-  interactIconP: {fileID: 0}
+  level: 1
+  interactIconP: {fileID: 1280431734}
   isHeld: 0
 --- !u!61 &1208439386
 BoxCollider2D:
@@ -5206,7 +5206,7 @@ MonoBehaviour:
   jumpPower: 12
   blockLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
