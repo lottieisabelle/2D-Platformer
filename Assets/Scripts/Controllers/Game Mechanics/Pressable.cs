@@ -39,19 +39,10 @@ public class Pressable : MonoBehaviour
     {
         // need to keep track of what boxes are new, add to list of boxes on button - using boxids
         if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
-            if(itemsOnbutton.Count == 0){
+            // if box id not in list then 
+            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<PickUpable>().boxID)){
+                // add to list
                 itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
-            } else {
-                for(int i = 0; i < itemsOnbutton.Count; i++){
-                    if(itemsOnbutton[i] == collision.gameObject.GetComponent<PickUpable>().boxID){
-                        // break - do not add to list
-                        break;
-                    }
-                    if((itemsOnbutton[i] != collision.gameObject.GetComponent<PickUpable>().boxID) && (i == itemsOnbutton.Count - 1)){
-                        // add to list
-                        itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
-                    }
-                }
             }
         }
     }
@@ -63,19 +54,10 @@ public class Pressable : MonoBehaviour
         }
 
         if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
-            if(itemsOnbutton.Count == 0){
+            // if box id not in list then 
+            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<PickUpable>().boxID)){
+                // add to list
                 itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
-            } else {
-                for(int i = 0; i < itemsOnbutton.Count; i++){
-                    if(itemsOnbutton[i] == collision.gameObject.GetComponent<PickUpable>().boxID){
-                        // break - do not add to list
-                        break;
-                    }
-                    if((itemsOnbutton[i] != collision.gameObject.GetComponent<PickUpable>().boxID) && (i == itemsOnbutton.Count - 1)){
-                        // add to list
-                        itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
-                    }
-                }
             }
         }
     }

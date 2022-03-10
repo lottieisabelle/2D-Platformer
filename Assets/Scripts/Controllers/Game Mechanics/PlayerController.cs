@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private LayerMask boxHeldLayer;
     private LayerMask wallLayer;
 
+    private int numButtons;
+
     // player info
     private Rigidbody2D body;
     private Animator move;
@@ -46,6 +48,8 @@ public class PlayerController : MonoBehaviour
         boxHeldLayer = this.transform.parent.GetComponent<LevelController>().boxHeldLayer;
 
         levelTransform = this.transform.parent.GetComponent<Transform>();
+
+        numButtons = this.transform.parent.GetChild(3).childCount;
 
         // player info
         speed = 8;
@@ -127,17 +131,27 @@ public class PlayerController : MonoBehaviour
     {   
         // check if there is a box to pick up, if yes, pick up box
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, boxLayer);
+        int tempBoxID = 0;
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Box"){
+            tempBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
             // pick up
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             grabCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = true;
-            grabCheck.collider.gameObject.layer = 11; // put in box held layer, can check for held box and jump
+            grabCheck.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
             handsEmpty = false;
-            holdingBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
+            holdingBoxID = tempBoxID;
             pickUpCoolDown = 0;
+
+            grabCheck.collider.gameObject.GetComponent<PickUpable>().isOnButton = false; 
+            // get 'items on button' lists from each button, if contains box id then remove from list
+            for(int i = 0; i < numButtons; i++){
+                if(this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Contains(tempBoxID)){
+                    this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Remove(tempBoxID);
+                }
+            }
         } 
     }
 

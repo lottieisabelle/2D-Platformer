@@ -9,10 +9,14 @@ public class PickUpable : MonoBehaviour
     public bool isHeld;
     private string level;
 
+    public bool isOnButton;
+
     void Start()
     {
         isHeld = false;
         level = this.transform.parent.GetComponent<LevelController>().levelName;
+
+        isOnButton = false;
     }
 
     private void Reset()
@@ -22,21 +26,31 @@ public class PickUpable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player")){
             if(level != "Tutorial2" && !isHeld)
             {
                 this.transform.parent.GetChild(1).GetComponent<IconController>().show();
             }
+        }
+
+        if(collision.CompareTag("Button")){
+            isOnButton = true;
+        }
             
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player")){
             if(level != "Tutorial2" && !isHeld)
             {
                 this.transform.parent.GetChild(1).GetComponent<IconController>().hide();
             }
+        }
+
+        if(collision.CompareTag("Button")){
+            isOnButton = false;
+        }
             
     }
     
