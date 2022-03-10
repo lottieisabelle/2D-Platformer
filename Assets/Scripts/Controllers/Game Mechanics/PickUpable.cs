@@ -19,6 +19,34 @@ public class PickUpable : MonoBehaviour
         isOnButton = false;
     }
 
+    void Update()
+    {
+        if(!isHeld)
+        {
+            // determine what object box is sitting on
+            RaycastHit2D surfaceHit = Physics2D.BoxCast(this.GetComponent<BoxCollider2D>().bounds.center, this.GetComponent<BoxCollider2D>().bounds.size, 0, Vector2.down, 0.3f);
+
+            if(surfaceHit.collider != null){
+                Debug.Log(surfaceHit.collider.tag);
+                
+                if(surfaceHit.collider.CompareTag("Button"))
+                {
+                    isOnButton = true;
+                } 
+                else if(surfaceHit.collider.CompareTag("Box"))
+                {
+                    if(surfaceHit.collider.gameObject.GetComponent<PickUpable>().isOnButton){
+                        isOnButton = true;
+                    }
+                } else {
+                    isOnButton = false;
+                }
+
+            }
+        }
+        
+    }
+
     private void Reset()
     {
         GetComponent<BoxCollider2D>().isTrigger = true;
@@ -26,6 +54,7 @@ public class PickUpable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
+        // show interact icon p
         if(collision.CompareTag("Player")){
             if(level != "Tutorial2" && !isHeld)
             {
@@ -33,14 +62,22 @@ public class PickUpable : MonoBehaviour
             }
         }
 
-        if(collision.CompareTag("Button")){
-            isOnButton = true;
-        }
+        // TODO : need to figure out what button objects need to have tag button - if not all?
+        //if(collision.CompareTag("Button")){
+        //    isOnButton = true;
+        //}
+
+        // TODO : need better detection method than this - probably boxcast down
+        //if(collision.CompareTag("Box") && isOnButton){
+        //    collision.gameObject.GetComponent<PickUpable>().isOnButton = true;
+        //}
+
             
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // hide interact icon p
         if(collision.CompareTag("Player")){
             if(level != "Tutorial2" && !isHeld)
             {
@@ -48,9 +85,15 @@ public class PickUpable : MonoBehaviour
             }
         }
 
-        if(collision.CompareTag("Button")){
-            isOnButton = false;
-        }
+        // TODO : need to figure out what button objects need to have tag button - if not all?
+        //if(collision.CompareTag("Button")){
+        //    isOnButton = false;
+        //}
+
+        // TODO : need better detection method than this - probably boxcast down
+        //if(collision.CompareTag("Box") && isOnButton){
+        //    collision.gameObject.GetComponent<PickUpable>().isOnButton = false;
+        //}
             
     }
     
