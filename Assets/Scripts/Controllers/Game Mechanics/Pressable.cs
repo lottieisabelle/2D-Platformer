@@ -38,11 +38,11 @@ public class Pressable : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         // need to keep track of what boxes are new, add to list of boxes on button - using boxids
-        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<BoxController>().isHeld){
             // if box id not in list then 
-            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<PickUpable>().boxID)){
+            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
                 // add to list
-                itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
+                itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
             }
         }
     }
@@ -53,11 +53,12 @@ public class Pressable : MonoBehaviour
             itemsOnbutton.Add(0);
         }
 
-        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
+        // TODO : detecting both child and parent box objects as tagged - need to differentiate between the two / only detect one of them
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<BoxController>().isHeld){
             // if box id not in list then 
-            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<PickUpable>().boxID)){
+            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
                 // add to list
-                itemsOnbutton.Add(collision.gameObject.GetComponent<PickUpable>().boxID);
+                itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
             }
         }
     }
@@ -68,8 +69,8 @@ public class Pressable : MonoBehaviour
             itemsOnbutton.Remove(0);
         }
 
-        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<PickUpable>().isHeld){
-            itemsOnbutton.Remove(collision.gameObject.GetComponent<PickUpable>().boxID);
+        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<BoxController>().isHeld){
+            itemsOnbutton.Remove(collision.gameObject.GetComponent<BoxController>().boxID);
         }
 
     }

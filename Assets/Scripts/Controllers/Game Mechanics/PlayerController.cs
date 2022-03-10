@@ -134,18 +134,18 @@ public class PlayerController : MonoBehaviour
         int tempBoxID = 0;
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Box"){
-            tempBoxID = grabCheck.collider.gameObject.GetComponent<PickUpable>().boxID;
+            tempBoxID = grabCheck.collider.gameObject.GetComponent<BoxController>().boxID;
             // pick up
             grabCheck.collider.gameObject.transform.parent = boxHolder;
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-            grabCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = true;
+            grabCheck.collider.gameObject.GetComponent<BoxController>().isHeld = true;
             grabCheck.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
             handsEmpty = false;
             holdingBoxID = tempBoxID;
             pickUpCoolDown = 0;
 
-            grabCheck.collider.gameObject.GetComponent<PickUpable>().isOnButton = false; 
+            grabCheck.collider.gameObject.GetComponent<BoxController>().isOnButton = false; 
             // get 'items on button' lists from each button, if contains box id then remove from list
             for(int i = 0; i < numButtons; i++){
                 if(this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Contains(tempBoxID)){
@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
             holdCheck.collider.gameObject.transform.parent = levelTransform;
             holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            holdCheck.collider.gameObject.GetComponent<PickUpable>().isHeld = false;
+            holdCheck.collider.gameObject.GetComponent<BoxController>().isHeld = false;
             holdCheck.collider.gameObject.layer = 9; // put back in box layer
             handsEmpty = true;
             holdingBoxID = 0;
