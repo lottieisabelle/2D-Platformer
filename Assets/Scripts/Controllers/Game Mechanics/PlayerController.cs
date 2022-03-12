@@ -142,8 +142,6 @@ public class PlayerController : MonoBehaviour
             grabCheck.collider.gameObject.GetComponent<BoxController>().isHeld = true;
 
             grabCheck.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
-            //grabCheck.collider.gameObject.transform.GetChild(0).gameObject.layer = 11;
-            //grabCheck.collider.gameObject.transform.GetChild(0).layer = 11;
 
             handsEmpty = false;
             holdingBoxID = tempBoxID;
@@ -172,10 +170,6 @@ public class PlayerController : MonoBehaviour
             holdCheck.collider.gameObject.GetComponent<BoxController>().isHeld = false;
 
             holdCheck.collider.gameObject.layer = 9; // put back in box layer
-            //holdCheck.collider.gameObject.transform.GetChild(0).gameObject.layer = 9;
-            //holdCheck.collider.gameObject.child.layer = 9;
-
-            //holdCheck.collider.gameObject.transform.GetChild(0).layer = 9;
 
             handsEmpty = true;
             holdingBoxID = 0;
@@ -231,7 +225,7 @@ public class PlayerController : MonoBehaviour
     {   
         // casts rays only on ground (includes buttons physical part, excludes button trigger collider)
         RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
-        // casts rays only on boxes (excludes the box held if there is one)
+        // casts rays only on boxes (excludes the box held if there is one, excludes the box trigger colliders)
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
         // casts rays only on blocks
         RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);

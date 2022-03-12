@@ -32,7 +32,10 @@ public class Pressable : MonoBehaviour
 
     void Update()
     {
+        // determine pressed count number, using daisy chain method from boxes directly on buttons
+
         // using list of items on button, count stacked items
+        
         // search objects for boxes and match box ids
 
     }
