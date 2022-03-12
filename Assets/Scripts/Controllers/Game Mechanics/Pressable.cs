@@ -30,6 +30,13 @@ public class Pressable : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // using list of items on button, count stacked items
+        // search objects for boxes and match box ids
+
+    }
+
     private void Reset()
     {
         this.GetComponent<BoxCollider2D>().isTrigger = true;
@@ -37,25 +44,31 @@ public class Pressable : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // identify box, not box trigger, or box when held
+        // identify box, not box trigger, and not box when held
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
+
+            Debug.Log("button trigger stay");
+            // set isonbutton to true
+            collision.gameObject.GetComponent<BoxController>().isOnButton = true;
+
             // if box id not in list then 
             if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
                 // add to list
                 itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
             }
         }
-        
-        /*
-        // need to keep track of what boxes are new, add to list of boxes on button - using boxids
-        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<BoxController>().isHeld && collision.gameObject.layer == 9){
+
+        // if detecting box trigger, and box is not held, check if in list
+        if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
+
+            collision.gameObject.transform.parent.GetComponent<BoxController>().isOnButton = true;
+
             // if box id not in list then 
-            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
+            if(!itemsOnbutton.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
                 // add to list
-                itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
+                itemsOnbutton.Add(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
             }
         }
-        */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,6 +79,9 @@ public class Pressable : MonoBehaviour
 
         // identify box, not box trigger, or box when held
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
+            // set isonbutton to true
+            collision.gameObject.GetComponent<BoxController>().isOnButton = true;
+
             // if box id not in list then 
             if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
                 // add to list
@@ -73,16 +89,17 @@ public class Pressable : MonoBehaviour
             }
         }
 
-        /*
-        // TODO : detecting both child and parent box objects as tagged - need to differentiate between the two / only detect one of them
-        if(collision.CompareTag("Box") && !collision.gameObject.GetComponent<BoxController>().isHeld && collision.gameObject.layer == 9){
+        // if detecting box trigger, do the same
+        if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
+
+            collision.gameObject.transform.parent.GetComponent<BoxController>().isOnButton = true;
+
             // if box id not in list then 
-            if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
+            if(!itemsOnbutton.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
                 // add to list
-                itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
+                itemsOnbutton.Add(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
             }
         }
-        */
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -92,7 +109,16 @@ public class Pressable : MonoBehaviour
         }
 
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
+            collision.gameObject.GetComponent<BoxController>().isOnButton = false;
+
             itemsOnbutton.Remove(collision.gameObject.GetComponent<BoxController>().boxID);
+        }
+
+        if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
+            collision.gameObject.transform.parent.GetComponent<BoxController>().isOnButton = false;
+
+            itemsOnbutton.Remove(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
+
         }
 
     }

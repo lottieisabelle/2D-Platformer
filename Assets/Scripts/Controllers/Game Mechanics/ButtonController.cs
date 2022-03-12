@@ -50,6 +50,7 @@ public class ButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().itemsOnbutton.Count;
 
         for(int i = 0; i < lights; i++)
