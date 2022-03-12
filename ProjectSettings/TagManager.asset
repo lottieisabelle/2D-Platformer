@@ -8,6 +8,7 @@ TagManager:
   - Box
   - Button
   - Block
+  - BoxTrigger
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Box
   - Block
   - BoxHeld
-  - 
+  - BoxTrigger
   - 
   - 
   - 

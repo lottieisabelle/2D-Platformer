@@ -140,7 +140,11 @@ public class PlayerController : MonoBehaviour
             grabCheck.collider.gameObject.transform.position = boxHolder.position;
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             grabCheck.collider.gameObject.GetComponent<BoxController>().isHeld = true;
+
             grabCheck.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
+            //grabCheck.collider.gameObject.transform.GetChild(0).gameObject.layer = 11;
+            //grabCheck.collider.gameObject.transform.GetChild(0).layer = 11;
+
             handsEmpty = false;
             holdingBoxID = tempBoxID;
             pickUpCoolDown = 0;
@@ -166,7 +170,13 @@ public class PlayerController : MonoBehaviour
             holdCheck.collider.gameObject.transform.parent = levelTransform;
             holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             holdCheck.collider.gameObject.GetComponent<BoxController>().isHeld = false;
+
             holdCheck.collider.gameObject.layer = 9; // put back in box layer
+            //holdCheck.collider.gameObject.transform.GetChild(0).gameObject.layer = 9;
+            //holdCheck.collider.gameObject.child.layer = 9;
+
+            //holdCheck.collider.gameObject.transform.GetChild(0).layer = 9;
+
             handsEmpty = true;
             holdingBoxID = 0;
 
