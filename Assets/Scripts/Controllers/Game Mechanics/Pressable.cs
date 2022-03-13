@@ -24,7 +24,7 @@ public class Pressable : MonoBehaviour
 
         if(blockPressed)
         {
-            // deactivate boxcollider
+            // deactivate boxcollider - as box is not pressable
             this.GetComponent<BoxCollider2D>().enabled = false;
             pressedCount = this.transform.parent.GetComponent<ButtonController>().lights;
         } else {
@@ -34,6 +34,14 @@ public class Pressable : MonoBehaviour
     }
 
     void Update()
+    {
+        // only detect items on button, if button not held down by block
+        if(!blockPressed){
+            getPressedCount();
+        }
+    }
+
+    private void getPressedCount()
     {
         // gets the box IDs in order of which they are stored in hierarchy - as it changes when boxes are picked up and moved
         List<int> boxOrder = new List<int>();
@@ -58,16 +66,19 @@ public class Pressable : MonoBehaviour
                 // gets child index of box
                 int index = boxOrder.IndexOf(itemsOnbutton[x]);
                 
-                while(boxAbove != -1){
-
+                while(boxAbove != -1){ 
+                    
+                    // gets ID of box above
                     boxAbove = this.transform.parent.parent.parent.GetChild(4).GetChild(index).GetComponent<BoxController>().getAbove();
 
+                    // -1 means no boxes were detected above
                     if(boxAbove != -1){
+                        // if box not already accounted for, add to list
                         if(!boxChain.Contains(boxAbove)){
                             boxChain.Add(boxAbove);
                         }
 
-                        // check if player is on this box
+                        // check if player is on box above
                         if(boxAbove == boxPlayerOn){
                             playerOnButton = 1;
                         }

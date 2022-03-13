@@ -9,13 +9,11 @@ public class BoxController : MonoBehaviour
     public bool isHeld;
 
     private LayerMask boxLayer;
-    private LayerMask playerLayer;
 
     // Start is called before the first frame update
     void Start()
     {
         boxLayer = this.transform.parent.parent.GetComponent<LevelController>().boxLayer;
-        playerLayer = this.transform.parent.parent.GetComponent<LevelController>().playerLayer;
 
         isHeld = false;
     }
@@ -27,19 +25,17 @@ public class BoxController : MonoBehaviour
 
         if(boxHit.collider != null){
 
-            // if different box ID
             if(boxHit.collider.gameObject.GetComponent<BoxController>().boxID != this.GetComponent<BoxController>().boxID){
-                
-                Debug.Log("hit diff box");
+                // hit different box
                 return (boxHit.collider.gameObject.GetComponent<BoxController>().boxID);
 
             } else {
-                Debug.Log("box hit itself");
+                // box hit itself (shouldn't happen but kept just in case)
                 return (-1);
             }
 
         } else {
-            Debug.Log("hit no boxes");
+            // hit no boxes
             return (-1);
         }
 
