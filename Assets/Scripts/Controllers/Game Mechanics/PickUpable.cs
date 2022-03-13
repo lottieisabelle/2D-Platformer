@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PickUpable : MonoBehaviour
 {   
-    
     private string level;
 
     void Start()
     {
-        level = this.transform.parent.parent.GetComponent<LevelController>().levelName;
+        level = this.transform.parent.parent.parent.GetComponent<LevelController>().levelName;
     }
 
     private void Reset()
@@ -23,7 +22,7 @@ public class PickUpable : MonoBehaviour
         if(collision.CompareTag("Player")){
             if(level != "Tutorial2" && !this.transform.parent.GetComponent<BoxController>().isHeld)
             {
-                this.transform.parent.parent.GetChild(1).GetComponent<IconController>().show();
+                this.transform.parent.parent.parent.GetChild(1).GetComponent<IconController>().show();
             }
         }
      
@@ -35,7 +34,7 @@ public class PickUpable : MonoBehaviour
         if(collision.CompareTag("Player")){
             if(level != "Tutorial2" && !this.transform.parent.GetComponent<BoxController>().isHeld)
             {
-                this.transform.parent.parent.GetChild(1).GetComponent<IconController>().hide();
+                this.transform.parent.parent.parent.GetChild(1).GetComponent<IconController>().hide();
             }
         }
             

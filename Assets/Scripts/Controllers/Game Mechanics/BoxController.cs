@@ -6,45 +6,44 @@ public class BoxController : MonoBehaviour
 {
     [SerializeField] public int boxID;
 
-    public bool isOnButton;
     public bool isHeld;
 
-    private LayerMask boxTriggerLayer;
-    private LayerMask notBoxTriggers;
+    private LayerMask boxLayer;
+    private LayerMask playerLayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        boxTriggerLayer = this.transform.parent.GetComponent<LevelController>().boxTriggerLayer;
-        notBoxTriggers = ~boxTriggerLayer;
+        boxLayer = this.transform.parent.parent.GetComponent<LevelController>().boxLayer;
+        playerLayer = this.transform.parent.parent.GetComponent<LevelController>().playerLayer;
+
         isHeld = false;
-        isOnButton = false;
     }
 
-    public void getAbove()
+    public int getAbove()
     {
-        // determine object sitting on top of box - excludes box trigger colliders
-        RaycastHit2D topHit = Physics2D.BoxCast(this.GetComponent<BoxCollider2D>().bounds.center, this.GetComponent<BoxCollider2D>().bounds.size, 0, Vector2.up, 0.3f, notBoxTriggers);
+        // shoot rays to exclusively detect boxes
+        RaycastHit2D boxHit = Physics2D.BoxCast(this.GetComponent<BoxCollider2D>().bounds.center, this.GetComponent<BoxCollider2D>().bounds.size, 0, Vector2.up, 0.3f, boxLayer);
 
-        if(topHit.collider != null){
+        if(boxHit.collider != null){
 
-            if(topHit.collider.CompareTag("Box"))
-            {
-                // if different box ID
-                if(topHit.collider.gameObject.GetComponent<BoxController>().boxID != this.GetComponent<BoxController>().boxID){
-                    
-                    // add 1 to on button item count
+            // if different box ID
+            if(boxHit.collider.gameObject.GetComponent<BoxController>().boxID != this.GetComponent<BoxController>().boxID){
+                
+                Debug.Log("hit diff box");
+                return (boxHit.collider.gameObject.GetComponent<BoxController>().boxID);
 
-                    // call recursively on box hit
-
-                }
-            } else if (topHit.collider.CompareTag("Player"))
-            {
-                // add 1 to button item count 
-
-                Debug.Log("player");
+            } else {
+                Debug.Log("box hit itself");
+                return (-1);
             }
+
+        } else {
+            Debug.Log("hit no boxes");
+            return (-1);
         }
+
+
     }
 
 }

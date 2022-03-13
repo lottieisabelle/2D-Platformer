@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float speed;
     private float jumpPower;
-
+    public int onBoxID;
     public bool canEnter;
 
     // grab controller
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private int holdingBoxID;
     private float rayDist;
     private float pickUpCoolDown;
+
+    private Transform boxContainer;
     private Transform grabDetect;
     private Transform boxHolder;
     private Transform place;
@@ -40,7 +42,7 @@ public class PlayerController : MonoBehaviour
     // runs when the script is loaded
     private void Awake()
     {   
-        // store layer data        
+        // get level data       
         wallLayer = this.transform.parent.GetComponent<LevelController>().wallLayer;
         boxLayer = this.transform.parent.GetComponent<LevelController>().boxLayer;
         groundLayer = this.transform.parent.GetComponent<LevelController>().groundLayer;
@@ -48,7 +50,6 @@ public class PlayerController : MonoBehaviour
         boxHeldLayer = this.transform.parent.GetComponent<LevelController>().boxHeldLayer;
 
         levelTransform = this.transform.parent.GetComponent<Transform>();
-
         numButtons = this.transform.parent.GetChild(3).childCount;
 
         // player info
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         move = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        onBoxID = 0;
 
         // grab controller
         handsEmpty = true;
@@ -68,6 +70,8 @@ public class PlayerController : MonoBehaviour
         holdDetect = this.transform.GetChild(3).GetComponent<Transform>();
         placeBehind = this.transform.GetChild(4).GetComponent<Transform>();
 
+        boxContainer = this.transform.parent.GetChild(4).GetComponent<Transform>();
+
         // door enter controller
         canEnter = false;
     }
@@ -75,11 +79,13 @@ public class PlayerController : MonoBehaviour
     // runs on every frame
     private void Update()
     {   
+        // check if player can enter door
         if(Input.GetKey(KeyCode.E))
             enterDoor();
 
         if(pickUpCoolDown > 0.2f)
         {
+            // call to pick up or put down box
             if(Input.GetKeyDown(KeyCode.P))
             {
                 if(handsEmpty)
@@ -147,7 +153,6 @@ public class PlayerController : MonoBehaviour
             holdingBoxID = tempBoxID;
             pickUpCoolDown = 0;
 
-            grabCheck.collider.gameObject.GetComponent<BoxController>().isOnButton = false; 
             // get 'items on button' lists from each button, if contains box id then remove from list
             for(int i = 0; i < numButtons; i++){
                 if(this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Contains(tempBoxID)){
@@ -165,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
         if(holdCheck.collider != null && holdCheck.collider.tag == "Box"){
 
-            holdCheck.collider.gameObject.transform.parent = levelTransform;
+            holdCheck.collider.gameObject.transform.parent = boxContainer;
             holdCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             holdCheck.collider.gameObject.GetComponent<BoxController>().isHeld = false;
 
@@ -242,5 +247,4 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
     }
-
 }
