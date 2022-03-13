@@ -35,7 +35,7 @@ public class Pressable : MonoBehaviour
 
     void Update()
     {
-        // only detect items on button, if button not held down by block
+        // only detect items on button if button not held down by block
         if(!blockPressed){
             getPressedCount();
         }
