@@ -61,7 +61,7 @@ public class PickUpable : MonoBehaviour
 
 
             //if(level != "Tutorial2" && !this.transform.parent.GetComponent<BoxController>().isHeld)
-            if(level != "Tutorial2" && handsEmpty)
+            if(level != "Tutorial2" && handsEmpty && !this.transform.parent.GetComponent<BoxController>().isHeld)
             {
                 this.transform.parent.parent.parent.GetChild(1).GetComponent<IconController>().hide();
             }
