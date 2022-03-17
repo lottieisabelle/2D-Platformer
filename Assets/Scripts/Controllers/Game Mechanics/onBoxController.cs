@@ -28,6 +28,7 @@ public class onBoxController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // player is not on this box
+        // need to account for if player holding box and stuff gets weird ?
         if(collision.CompareTag("Player")){
             this.transform.parent.parent.parent.GetChild(5).GetComponent<PlayerController>().onBoxID = 0;
         }

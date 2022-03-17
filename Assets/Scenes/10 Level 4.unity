@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 37767304}
   - component: {fileID: 37767306}
   - component: {fileID: 37767305}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Pressed
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -1341,7 +1341,7 @@ GameObject:
   - component: {fileID: 266036795}
   - component: {fileID: 266036797}
   - component: {fileID: 266036796}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Unpressed
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -2653,7 +2653,7 @@ GameObject:
   - component: {fileID: 548145825}
   - component: {fileID: 548145827}
   - component: {fileID: 548145826}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Trigger
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -4385,7 +4385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1087704356}
   - component: {fileID: 1087704357}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Light1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +4867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1280499670}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lights
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -4899,7 +4899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1289542913}
   - component: {fileID: 1289542914}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Label
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -5063,7 +5063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345996012}
   - component: {fileID: 1345996013}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Light1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5145,7 +5145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361094721}
   - component: {fileID: 1361094722}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Label
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -5452,7 +5452,7 @@ GameObject:
   - component: {fileID: 1551244511}
   - component: {fileID: 1551244510}
   - component: {fileID: 1551244509}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Button2
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -5802,7 +5802,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1597491150}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lights
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -5907,7 +5907,7 @@ GameObject:
   - component: {fileID: 1648685978}
   - component: {fileID: 1648685980}
   - component: {fileID: 1648685979}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Pressed
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -6633,7 +6633,7 @@ GameObject:
   - component: {fileID: 1836483653}
   - component: {fileID: 1836483655}
   - component: {fileID: 1836483654}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Unpressed
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -6961,7 +6961,7 @@ GameObject:
   - component: {fileID: 1926567725}
   - component: {fileID: 1926567727}
   - component: {fileID: 1926567726}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Button1
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -7119,7 +7119,7 @@ GameObject:
   - component: {fileID: 1974536299}
   - component: {fileID: 1974536301}
   - component: {fileID: 1974536300}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Trigger
   m_TagString: Button
   m_Icon: {fileID: 0}
