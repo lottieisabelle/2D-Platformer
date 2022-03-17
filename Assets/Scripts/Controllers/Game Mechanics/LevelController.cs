@@ -13,6 +13,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] public LayerMask boxLayer;
     [SerializeField] public LayerMask boxHeldLayer;
     [SerializeField] public LayerMask wallLayer;
+    [SerializeField] public LayerMask buttonLayer;
 
     public List<int> boxOrder = new List<int>();
     public int numBoxes;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerOld : MonoBehaviour
 {
     // level info
     private Transform levelTransform;
@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private LayerMask boxLayer;
     private LayerMask boxHeldLayer;
     private LayerMask wallLayer;
-    private LayerMask buttonLayer;
 
     private int numButtons;
 
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour
         groundLayer = this.transform.parent.GetComponent<LevelController>().groundLayer;
         blockLayer = this.transform.parent.GetComponent<LevelController>().blockLayer;
         boxHeldLayer = this.transform.parent.GetComponent<LevelController>().boxHeldLayer;
-        buttonLayer = this.transform.parent.GetComponent<LevelController>().buttonLayer;
 
         levelTransform = this.transform.parent.GetComponent<Transform>();
         numButtons = this.transform.parent.GetChild(3).childCount;
@@ -58,7 +56,6 @@ public class PlayerController : MonoBehaviour
         speed = 8;
         jumpPower = 12;
         body = GetComponent<Rigidbody2D>();
-        body.gravityScale = 4;
         move = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         onBoxID = 0;
@@ -112,26 +109,32 @@ public class PlayerController : MonoBehaviour
         else if(horizontalInput < 0.0f)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        // set animator preferences
+        // set  animator preferences
         move.SetBool("Run", horizontalInput != 0);
         move.SetBool("Grounded", isGrounded());
 
-        // update player movement
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        //bool temp = isGrounded();
+        //Debug.Log("isGrounded: " + temp);
+        //Debug.Log("body velocity: " + body.velocity.x + ", " + body.velocity.y);
 
-        if(isGrounded()){
-            if(Input.GetKey(KeyCode.Space)){
-                // jump
-                body.velocity = new Vector2(body.velocity.x, jumpPower);
-                move.SetTrigger("Jump"); // changes animation
-            }
-        } else {
-            // if on side of object - slide down to ground
-            if(againstObject()){
+        // wall jump logic
+        if (jumpCoolDown > 0.4f) // if jumping is allowed
+        {
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+            body.gravityScale = 4;
+            
+            // TODO i think this means drop to the floor - needs to apply to on box or stuff
+            if((onWall() || againstObject()) && !isGrounded())
+            {   
                 body.velocity = new Vector2(0, body.velocity.y);
             }
-        }
+            
+            if(Input.GetKey(KeyCode.Space))
+                Jump();
 
+        } else {
+            jumpCoolDown += Time.deltaTime;
+        }
 
     }
 
@@ -200,38 +203,60 @@ public class PlayerController : MonoBehaviour
             this.transform.parent.GetComponent<LevelController>().nextLevel();
         }
     }
+    
+    private void Jump()
+    {   
+        if(isGrounded())
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            move.SetTrigger("Jump"); // changes animation
+        } 
+        else if(onWall() && !isGrounded())
+        {   
+            if(horizontalInput == 0)
+            {   
+                // jumping off wall
+                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
+                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            } else {
+                // jumping up wall
+                // 3 is the power at which the player is pushed away from the wall, 6 is the force at which player will be pushed up, can change these
+                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6);
+                body.gravityScale = 2;
+            }
+
+            // reset
+            jumpCoolDown = 0;
+        }
+        
+    }
 
     private bool isGrounded()
     {   
-        // casts rays only on ground 
+        // casts rays only on ground (includes buttons physical part, excludes button trigger collider)
         RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
         // casts rays only on boxes (excludes the box held if there is one, excludes the box trigger colliders)
         RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
         // casts rays only on blocks
         RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);
-        // casts rays only on physical buttons (includes buttons physical part, excludes button trigger collider)
-        RaycastHit2D buttonHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, buttonLayer);
 
-        if(boxHit.collider != null || groundHit.collider != null || blockHit.collider != null || buttonHit.collider != null){
+        if(boxHit.collider != null || groundHit.collider != null || blockHit.collider != null){
             return true;
         } else {
             return false;
         }
     }
 
+    private bool onWall()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
+        return raycastHit.collider != null;
+    }
+
     private bool againstObject()
     {
-        // casts rays only on wall
-        RaycastHit2D raycastWall = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         // casts rays against physical boxes (excludes box trigger colliders)
         RaycastHit2D raycastBox = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, boxLayer);
-        // casts rays only on physical buttons (includes buttons physical part, excludes button trigger collider)
-        RaycastHit2D raycastButton = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, buttonLayer);
-
-        if(raycastBox.collider != null || raycastButton.collider != null || raycastWall.collider != null){
-            return true;
-        } else {
-            return false;
-        }
+        return raycastBox.collider != null;
     }
 }
