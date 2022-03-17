@@ -13,12 +13,8 @@ public class TestLevelScript : MonoBehaviour
     // child 1 = trigger
 
     // level variables
-    private bool jumped;
-    private bool box;
-    private bool left;
-    private bool right;
-    private bool pressed;
-
+    private bool isPressed;
+    private bool isOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,50 +22,27 @@ public class TestLevelScript : MonoBehaviour
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 
-        jumped = false;
-        box = false;
-        left = false;
-        right = false;
-        pressed = false;
+        isPressed = button.GetComponent<ButtonController>().isPressed;
+        isOpen = door.GetComponent<DoorController>().isOpen;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            jumped = true;
-        }
 
-        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            left = true;
-        }
+        isPressed = button.GetComponent<ButtonController>().isPressed;
+        isOpen = door.GetComponent<DoorController>().isOpen;
 
-        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            right = true;
-        }
-
-        // if the player's hands are not empty - they have picked up the box
-        if(!player.GetComponent<PlayerController>().handsEmpty)
-        {
-            box = true;
+        if(isPressed){
+            if(!isOpen){
+                door.GetComponent<DoorController>().openDoor();
+            }
+        } else {
+            if(isOpen){
+                door.GetComponent<DoorController>().closeDoor();
+            }
         }
         
-        // if the player has pressed the button
-        if(button.GetComponent<ButtonController>().isPressed)
-        {
-            pressed = true;
-        }
-
-        if(jumped && left && right && box && pressed)
-        {
-            // open door
-            door.GetComponent<DoorController>().openDoor();
-        }
-
-
-
     }
 }

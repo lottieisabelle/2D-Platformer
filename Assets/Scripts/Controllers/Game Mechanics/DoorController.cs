@@ -12,8 +12,8 @@ public class DoorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        openPosition = new Vector3(-2.51f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
-        closedPosition = new Vector3(-1.341f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
+        openPosition = new Vector3(-1.61f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
+        closedPosition = new Vector3(0f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
 
         // disable exit
         this.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
