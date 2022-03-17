@@ -204,13 +204,13 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {   
         // casts rays only on ground 
-        RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, groundLayer);
+        RaycastHit2D groundHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.2f, groundLayer);
         // casts rays only on boxes (excludes the box held if there is one, excludes the box trigger colliders)
-        RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, boxLayer);
+        RaycastHit2D boxHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.2f, boxLayer);
         // casts rays only on blocks
-        RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, blockLayer);
+        RaycastHit2D blockHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.2f, blockLayer);
         // casts rays only on physical buttons (includes buttons physical part, excludes button trigger collider)
-        RaycastHit2D buttonHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.3f, buttonLayer);
+        RaycastHit2D buttonHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.2f, buttonLayer);
 
         if(boxHit.collider != null || groundHit.collider != null || blockHit.collider != null || buttonHit.collider != null){
             return true;
