@@ -225,10 +225,12 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D raycastWall = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         // casts rays against physical boxes (excludes box trigger colliders)
         RaycastHit2D raycastBox = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, boxLayer);
+        // casts rays only on blocks
+        RaycastHit2D raycastBlocks = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, blockLayer);
         // casts rays only on physical buttons (includes buttons physical part, excludes button trigger collider)
         RaycastHit2D raycastButton = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, buttonLayer);
 
-        if(raycastBox.collider != null || raycastButton.collider != null || raycastWall.collider != null){
+        if(raycastBox.collider != null || raycastButton.collider != null || raycastWall.collider != null || raycastBlocks.collider != null){
             return true;
         } else {
             return false;
