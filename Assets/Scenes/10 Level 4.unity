@@ -5476,7 +5476,7 @@ MonoBehaviour:
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
   lights: 1
-  isPressed: 0
+  isPressed: 1
 --- !u!50 &1551244510
 Rigidbody2D:
   serializedVersion: 4
