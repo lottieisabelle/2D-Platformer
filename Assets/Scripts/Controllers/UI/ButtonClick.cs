@@ -11,6 +11,7 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private Sprite _default, _pressed, _locked;
     [SerializeField] public int buttonNumber;
     private bool isLocked;
+    private int sceneID;
 
     void Start()
     {
@@ -23,16 +24,11 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
-    void Update()
-    {
-        //if(islocked){
 
-        //}
-    }
-
-    public void MoveToScene(int sceneID)
+    public void MoveToScene()
     {
         if(!isLocked){
+            sceneID = GameManager.levelSceneIDs[buttonNumber-1];
             SceneManager.LoadScene(sceneID);
         }
         
