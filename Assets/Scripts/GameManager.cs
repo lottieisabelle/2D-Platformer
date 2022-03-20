@@ -35,20 +35,20 @@ public class GameManager : MonoBehaviour
         // no symbols, length 8
 
         levelSceneIDs.Add(5); // level 1
-        levelSceneIDs.Add(6);
-        levelSceneIDs.Add(9);
-        levelSceneIDs.Add(10);
-        levelSceneIDs.Add(11);
-        levelSceneIDs.Add(12);
-        levelSceneIDs.Add(13);
-        levelSceneIDs.Add(14);
-        levelSceneIDs.Add(15);
-        levelSceneIDs.Add(16);
-        levelSceneIDs.Add(17);
-        levelSceneIDs.Add(18);
-        levelSceneIDs.Add(19);
-        levelSceneIDs.Add(20);
-        levelSceneIDs.Add(21);
+        levelSceneIDs.Add(6); // 2
+        levelSceneIDs.Add(9); // 3
+        levelSceneIDs.Add(10); // 4
+        levelSceneIDs.Add(11); // 5
+        levelSceneIDs.Add(12); // 6
+        levelSceneIDs.Add(13); // 7
+        levelSceneIDs.Add(14); // 8
+        levelSceneIDs.Add(15); // 9
+        levelSceneIDs.Add(16); // 10
+        levelSceneIDs.Add(17); // 11
+        levelSceneIDs.Add(18); // 12
+        levelSceneIDs.Add(19); // 13
+        levelSceneIDs.Add(20); // 14
+        levelSceneIDs.Add(21); // 15
 
     }
 

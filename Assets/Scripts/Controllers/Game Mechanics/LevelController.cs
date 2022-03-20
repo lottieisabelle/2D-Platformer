@@ -7,7 +7,8 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] public string levelName;
     [SerializeField] public int levelNumber;
-    [SerializeField] private int NextLevelSceneID;
+    
+    private int NextLevelSceneID;
 
     [SerializeField] public LayerMask blockLayer;
     [SerializeField] public LayerMask groundLayer;
@@ -26,6 +27,16 @@ public class LevelController : MonoBehaviour
         if(levelNumber > GameManager.maxLevel){
             GameManager.maxLevel = levelNumber;
         }
+
+        int max = GameManager.levelSceneIDs.Count;
+        if(!(levelNumber == max)){
+            // level numbers start at 1, indexes of list start at 0, automatically gets the next one
+            NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
+        } else {
+            // last level goes back to the menu for now
+            NextLevelSceneID = 0;
+        }
+        
     }
 
     public void nextLevel()

@@ -44,42 +44,4 @@ public class CheckLevelCode : MonoBehaviour
         }
     }
     
-    /* 
-    private string input;
-
-    InputField iField;
-    string myName;
-    
-    void MyFunction()
-    {
-        Debug.Log(iField.text);
-        myName = iField.text;
-        
-        if (myName == "MattCarter")
-        {
-                Debug.Log("Welcome back Mr. Carter");
-        }
-        else
-        {
-            Debug.Log("I Don't Know You!");
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void readInput(string s)
-    {
-        input = s;
-    }
-     */
 }
