@@ -38,8 +38,9 @@ public class Level15Script : MonoBehaviour
         if(!isOpen){
             door.GetComponent<DoorController>().openDoor();
         }
-        
+
         isPressed = button.GetComponent<ButtonController>().isPressed;
+        isVisible = obstacle.GetComponent<ShowHideController>().isVisible;
 
         if(!isPressed)
         {

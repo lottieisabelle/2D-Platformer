@@ -5332,6 +5332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level10
+  levelNumber: 10
   NextLevelSceneID: 17
   blockLayer:
     serializedVersion: 2

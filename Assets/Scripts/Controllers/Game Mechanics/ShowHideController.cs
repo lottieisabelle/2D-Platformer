@@ -22,18 +22,26 @@ public class ShowHideController : MonoBehaviour
 
     public void show()
     {
-        obj.enabled = true;
-        objTask.enabled = true;
-        objColl.enabled = true;
+        this.GetComponent<SpriteRenderer>().enabled = true;
+        this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        this.GetComponent<BoxCollider2D>().enabled = true;
+
+        //obj.enabled = true;
+        //objTask.enabled = true;
+        //objColl.enabled = true;
 
         isVisible = true;
     }
 
     public void hide()
     {
-        obj.enabled = false;
-        objTask.enabled = false;
-        objColl.enabled = false;
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        this.GetComponent<BoxCollider2D>().enabled = false;
+
+        //obj.enabled = false;
+        //objTask.enabled = false;
+        //objColl.enabled = false;
 
         isVisible = false;
     }

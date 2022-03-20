@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] public string levelName;
+    [SerializeField] public int levelNumber;
     [SerializeField] private int NextLevelSceneID;
 
     [SerializeField] public LayerMask blockLayer;
