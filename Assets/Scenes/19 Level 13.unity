@@ -7074,7 +7074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level13
-  levelNumber: 14
+  levelNumber: 13
   NextLevelSceneID: 20
   blockLayer:
     serializedVersion: 2
@@ -8716,6 +8716,8 @@ MonoBehaviour:
   _img: {fileID: 2028402844}
   _default: {fileID: 21300000, guid: 47fbd51d608bf5041821089b357287e9, type: 3}
   _pressed: {fileID: 21300000, guid: a7f07fa41003ee640b821eae187b63f7, type: 3}
+  _locked: {fileID: 0}
+  buttonNumber: 0
 --- !u!114 &2028402843
 MonoBehaviour:
   m_ObjectHideFlags: 0
