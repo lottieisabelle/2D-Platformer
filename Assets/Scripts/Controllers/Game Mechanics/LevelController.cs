@@ -22,6 +22,10 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         numBoxes = this.transform.GetChild(4).childCount;
+
+        if(levelNumber > GameManager.maxLevel){
+            GameManager.maxLevel = levelNumber;
+        }
     }
 
     public void nextLevel()

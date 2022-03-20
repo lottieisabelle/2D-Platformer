@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 74464991}
   - component: {fileID: 74464990}
   - component: {fileID: 74464989}
-  - component: {fileID: 74464988}
   m_Layer: 5
   m_Name: 8
   m_TagString: Untagged
@@ -163,18 +162,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.78, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &74464988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74464986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &74464989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +177,8 @@ MonoBehaviour:
   _img: {fileID: 74464991}
   _default: {fileID: 21300000, guid: 20db821a76752654693222f06e1925b3, type: 3}
   _pressed: {fileID: 21300000, guid: b6d11d28d4c6e6949931931572d7761b, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 8
 --- !u!114 &74464990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,8 +223,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 74464988}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 74464989}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -495,7 +484,6 @@ GameObject:
   - component: {fileID: 413194880}
   - component: {fileID: 413194879}
   - component: {fileID: 413194878}
-  - component: {fileID: 413194877}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -522,18 +510,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5.2500005, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &413194877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413194875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &413194878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,6 +525,8 @@ MonoBehaviour:
   _img: {fileID: 413194880}
   _default: {fileID: 21300000, guid: 7e90facb1b42d584b95c7f7970ab6fb8, type: 3}
   _pressed: {fileID: 21300000, guid: 0d974192877ce0845ac7fe1c064d88f2, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 1
 --- !u!114 &413194879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,8 +571,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 413194877}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 413194878}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -656,7 +634,6 @@ GameObject:
   - component: {fileID: 416807047}
   - component: {fileID: 416807046}
   - component: {fileID: 416807045}
-  - component: {fileID: 416807044}
   m_Layer: 5
   m_Name: 10
   m_TagString: Untagged
@@ -683,18 +660,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5.08, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &416807044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416807042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &416807045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +675,8 @@ MonoBehaviour:
   _img: {fileID: 416807047}
   _default: {fileID: 21300000, guid: befceacb7e1ef8a4d90dd32681b920c1, type: 3}
   _pressed: {fileID: 21300000, guid: d000127d6ce581a4c8692d79b654379b, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 10
 --- !u!114 &416807046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,8 +721,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 416807044}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 416807045}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -871,6 +838,8 @@ MonoBehaviour:
   _img: {fileID: 497144074}
   _default: {fileID: 21300000, guid: befceacb7e1ef8a4d90dd32681b920c1, type: 3}
   _pressed: {fileID: 21300000, guid: d000127d6ce581a4c8692d79b654379b, type: 3}
+  _locked: {fileID: 0}
+  buttonNumber: 0
 --- !u!114 &497144073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,7 +947,6 @@ GameObject:
   - component: {fileID: 544547589}
   - component: {fileID: 544547588}
   - component: {fileID: 544547587}
-  - component: {fileID: 544547586}
   m_Layer: 5
   m_Name: 9
   m_TagString: Untagged
@@ -1005,18 +973,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3.9399998, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &544547586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544547584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &544547587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,6 +988,8 @@ MonoBehaviour:
   _img: {fileID: 544547589}
   _default: {fileID: 21300000, guid: 66a18525d0d8c594698bdab976fccd3d, type: 3}
   _pressed: {fileID: 21300000, guid: 5837bfa8479364e4fb262413ee66d3d2, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 9
 --- !u!114 &544547588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,8 +1034,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 544547586}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 544547587}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -1139,7 +1097,6 @@ GameObject:
   - component: {fileID: 830172939}
   - component: {fileID: 830172938}
   - component: {fileID: 830172937}
-  - component: {fileID: 830172936}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -1166,18 +1123,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.1099997, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &830172936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830172934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &830172937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,6 +1138,8 @@ MonoBehaviour:
   _img: {fileID: 830172939}
   _default: {fileID: 21300000, guid: 96b34c9244b94484e9a6390aeba30f6e, type: 3}
   _pressed: {fileID: 21300000, guid: 43ab9825b8f6d7a45aa9109aa76baec7, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 2
 --- !u!114 &830172938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,8 +1184,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 830172936}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 830172937}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -1421,6 +1368,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865458127}
   m_CullTransparentMesh: 1
+--- !u!1 &866301557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866301559}
+  - component: {fileID: 866301558}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &866301558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866301557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498cc2e3804f16d41a49bcc73c1c3cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &866301559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866301557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18854445, y: 0.9698981, z: -0.58121556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &905703334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1544,8 @@ MonoBehaviour:
   _img: {fileID: 1004273962}
   _default: {fileID: 21300000, guid: 47fbd51d608bf5041821089b357287e9, type: 3}
   _pressed: {fileID: 21300000, guid: a7f07fa41003ee640b821eae187b63f7, type: 3}
+  _locked: {fileID: 0}
+  buttonNumber: 0
 --- !u!114 &1004273961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,7 +1653,6 @@ GameObject:
   - component: {fileID: 1173077389}
   - component: {fileID: 1173077388}
   - component: {fileID: 1173077387}
-  - component: {fileID: 1173077386}
   m_Layer: 5
   m_Name: 5
   m_TagString: Untagged
@@ -1688,18 +1679,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.68000007, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1173077386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173077384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1173077387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,6 +1694,8 @@ MonoBehaviour:
   _img: {fileID: 1173077389}
   _default: {fileID: 21300000, guid: b56904bb5454b4d408cb5ce9b49d797f, type: 3}
   _pressed: {fileID: 21300000, guid: 41888dc5ed279c542a6c4c6e5f7c9733, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 5
 --- !u!114 &1173077388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,8 +1740,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1173077386}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1173077387}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -1876,6 +1857,8 @@ MonoBehaviour:
   _img: {fileID: 1208157203}
   _default: {fileID: 21300000, guid: 7b082b5865288f241affa4023c559934, type: 3}
   _pressed: {fileID: 21300000, guid: 96b2319c16042e740bc7c897619a98da, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 11
 --- !u!114 &1208157202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,8 +1903,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1208157200}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1208157201}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -1983,7 +1966,6 @@ GameObject:
   - component: {fileID: 1280325547}
   - component: {fileID: 1280325546}
   - component: {fileID: 1280325545}
-  - component: {fileID: 1280325544}
   m_Layer: 5
   m_Name: 6
   m_TagString: Untagged
@@ -2010,18 +1992,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.45999992, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1280325544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280325542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1280325545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2037,6 +2007,8 @@ MonoBehaviour:
   _img: {fileID: 1280325547}
   _default: {fileID: 21300000, guid: 8628e20ac20ddcd42903041c4b55f11f, type: 3}
   _pressed: {fileID: 21300000, guid: b55a839ebb1350d41b6c8cfd9bba8f9d, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 6
 --- !u!114 &1280325546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,8 +2053,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1280325544}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1280325545}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -2144,7 +2116,6 @@ GameObject:
   - component: {fileID: 1446195288}
   - component: {fileID: 1446195287}
   - component: {fileID: 1446195286}
-  - component: {fileID: 1446195285}
   m_Layer: 5
   m_Name: 7
   m_TagString: Untagged
@@ -2171,18 +2142,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1.6199999, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1446195285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446195283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1446195286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2198,6 +2157,8 @@ MonoBehaviour:
   _img: {fileID: 1446195288}
   _default: {fileID: 21300000, guid: 82d5407f605b54746b41c50064c2f9bd, type: 3}
   _pressed: {fileID: 21300000, guid: 53bc201776148034e893bde87fae1482, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 7
 --- !u!114 &1446195287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,8 +2203,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446195285}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1446195286}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -2359,6 +2320,8 @@ MonoBehaviour:
   _img: {fileID: 1644937716}
   _default: {fileID: 21300000, guid: 0d2f52719b5a3494ca88e19dc353c473, type: 3}
   _pressed: {fileID: 21300000, guid: ae0573dc46c05b949963737e1c6396ae, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 12
 --- !u!114 &1644937715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2403,8 +2366,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1644937713}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1644937714}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -2466,7 +2429,6 @@ GameObject:
   - component: {fileID: 1762937455}
   - component: {fileID: 1762937454}
   - component: {fileID: 1762937453}
-  - component: {fileID: 1762937452}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -2493,18 +2455,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.97, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1762937452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762937450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1762937453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,6 +2470,8 @@ MonoBehaviour:
   _img: {fileID: 1762937455}
   _default: {fileID: 21300000, guid: c21d5bc9f34e7fb409817dc71c7503c8, type: 3}
   _pressed: {fileID: 21300000, guid: c7512516f93448a48bd7db8d999fc5f1, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 3
 --- !u!114 &1762937454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2564,8 +2516,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1762937452}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1762937453}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -2627,7 +2579,6 @@ GameObject:
   - component: {fileID: 1890751214}
   - component: {fileID: 1890751213}
   - component: {fileID: 1890751212}
-  - component: {fileID: 1890751211}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -2654,18 +2605,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1.8400002, y: 0.94}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1890751211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890751209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1890751212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2681,6 +2620,8 @@ MonoBehaviour:
   _img: {fileID: 1890751214}
   _default: {fileID: 21300000, guid: 0a90466cf0d9851499662c76ec1a51ee, type: 3}
   _pressed: {fileID: 21300000, guid: 4e7961f37a5e7ec40b64b04ebd3e047c, type: 3}
+  _locked: {fileID: 21300000, guid: c7c01ece8564da144a524e831447c5bf, type: 3}
+  buttonNumber: 4
 --- !u!114 &1890751213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2725,8 +2666,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1890751211}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1890751212}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 3
         m_Arguments:
@@ -2842,6 +2783,8 @@ MonoBehaviour:
   _img: {fileID: 2020599639}
   _default: {fileID: 21300000, guid: befceacb7e1ef8a4d90dd32681b920c1, type: 3}
   _pressed: {fileID: 21300000, guid: d000127d6ce581a4c8692d79b654379b, type: 3}
+  _locked: {fileID: 0}
+  buttonNumber: 0
 --- !u!114 &2020599638
 MonoBehaviour:
   m_ObjectHideFlags: 0
