@@ -27,7 +27,11 @@ public class LevelController : MonoBehaviour
         if(levelNumber > GameManager.maxLevel){
             GameManager.maxLevel = levelNumber;
         }
+        
+    }
 
+    public void nextLevel()
+    {
         int max = GameManager.levelSceneIDs.Count;
         if(!(levelNumber == max)){
             // level numbers start at 1, indexes of list start at 0, automatically gets the next one
@@ -36,11 +40,7 @@ public class LevelController : MonoBehaviour
             // last level goes back to the menu for now
             NextLevelSceneID = 0;
         }
-        
-    }
-
-    public void nextLevel()
-    {
+    
         SceneManager.LoadScene(NextLevelSceneID);
     }
 
