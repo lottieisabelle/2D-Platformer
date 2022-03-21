@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
         passwords.Add("y17vBzxd"); // 15
         passwords.Add("j4uT4F0H"); // 16
         passwords.Add("05xs7PCR"); // 17
+        passwords.Add("310aI6Yb"); // 18
+        passwords.Add("1y92Ix7p"); // 19
+        passwords.Add("opBRad06"); // 20
         
         // https://randompasswordgenerator.app/ 
         // no symbols, length 8
