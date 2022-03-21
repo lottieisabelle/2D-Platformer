@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
     {   
         // check if player is holding box, check for walls, put box behind player if wall detected
         RaycastHit2D holdCheck = Physics2D.Raycast(holdDetect.position, Vector2.up, rayDist, boxHeldLayer);
-        RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, wallLayer);
+        RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, 1.2f, wallLayer);
 
         if(holdCheck.collider != null && holdCheck.collider.tag == "Box"){
 
@@ -183,11 +183,9 @@ public class PlayerController : MonoBehaviour
 
             if(wallCheck.collider != null)
             {
-                Debug.Log("wall");
                 // if hit wall, put down in behind position
                 holdCheck.collider.gameObject.transform.position = placeBehind.position;
             } else {
-                Debug.Log("no wall");
                 // put down in front
                 holdCheck.collider.gameObject.transform.position = place.position;
             }
