@@ -8,28 +8,28 @@ public class GameManager : MonoBehaviour
 
     static public int maxLevel = 0;
 
-    static public List<string> levelCodes = new List<string>();
+    static public List<string> passwords = new List<string>();
     static public List<int> levelSceneIDs = new List<int>();
 
     void Start()
     {
-        levelCodes.Add("5kX2SRP5"); // level 1
-        levelCodes.Add("9Ilzk3Iz");
-        levelCodes.Add("U336QRe6");
-        levelCodes.Add("L8PG9W7y");
-        levelCodes.Add("fHrI1cVE");
-        levelCodes.Add("76S9e8A9");
-        levelCodes.Add("QkZ2vPBj");
-        levelCodes.Add("5R7A3ilF");
-        levelCodes.Add("2zGTsmhQ");
-        levelCodes.Add("zoHm5pDr");
-        levelCodes.Add("qxVE2Cms");
-        levelCodes.Add("c37UxFzm");
-        levelCodes.Add("nL7xsH8I");
-        levelCodes.Add("2991RpJq");
-        levelCodes.Add("y17vBzxd");
-        levelCodes.Add("j4uT4F0H");
-        levelCodes.Add("05xs7PCR");
+        passwords.Add("5kX2SRP5"); // level 1
+        passwords.Add("9Ilzk3Iz");
+        passwords.Add("U336QRe6");
+        passwords.Add("L8PG9W7y");
+        passwords.Add("fHrI1cVE");
+        passwords.Add("76S9e8A9");
+        passwords.Add("QkZ2vPBj");
+        passwords.Add("5R7A3ilF");
+        passwords.Add("2zGTsmhQ");
+        passwords.Add("zoHm5pDr");
+        passwords.Add("qxVE2Cms");
+        passwords.Add("c37UxFzm");
+        passwords.Add("nL7xsH8I");
+        passwords.Add("2991RpJq");
+        passwords.Add("y17vBzxd");
+        passwords.Add("j4uT4F0H");
+        passwords.Add("05xs7PCR");
         // 17
         // https://randompasswordgenerator.app/ 
         // no symbols, length 8

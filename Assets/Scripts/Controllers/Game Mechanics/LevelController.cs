@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelController : MonoBehaviour
 {
     [SerializeField] public string levelName;
     [SerializeField] public int levelNumber;
+    [SerializeField] public TextMeshProUGUI password;
     
     private int NextLevelSceneID;
 
@@ -27,6 +29,12 @@ public class LevelController : MonoBehaviour
         if(levelNumber > GameManager.maxLevel){
             GameManager.maxLevel = levelNumber;
         }
+
+        // tutorial levels have level number 0, and don't have/need level codes
+        if(levelNumber > 0){
+            password.text = "Password: " + GameManager.passwords[levelNumber-1];
+        }
+        
         
     }
 

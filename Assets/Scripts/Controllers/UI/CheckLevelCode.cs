@@ -23,10 +23,10 @@ public class CheckLevelCode : MonoBehaviour
     {
         user_input = input.text;
 
-        if(GameManager.levelCodes.Contains(user_input)){
+        if(GameManager.passwords.Contains(user_input)){
             Debug.Log("yes");
             // get index of password in list
-            index = GameManager.levelCodes.IndexOf(user_input);
+            index = GameManager.passwords.IndexOf(user_input);
         
             // indexes are in order and the same as the level IDs list
 
