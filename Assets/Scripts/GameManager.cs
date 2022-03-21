@@ -14,23 +14,23 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         passwords.Add("5kX2SRP5"); // level 1
-        passwords.Add("9Ilzk3Iz");
-        passwords.Add("U336QRe6");
-        passwords.Add("L8PG9W7y");
-        passwords.Add("fHrI1cVE");
-        passwords.Add("76S9e8A9");
-        passwords.Add("QkZ2vPBj");
-        passwords.Add("5R7A3ilF");
-        passwords.Add("2zGTsmhQ");
-        passwords.Add("zoHm5pDr");
-        passwords.Add("qxVE2Cms");
-        passwords.Add("c37UxFzm");
-        passwords.Add("nL7xsH8I");
-        passwords.Add("2991RpJq");
-        passwords.Add("y17vBzxd");
-        passwords.Add("j4uT4F0H");
-        passwords.Add("05xs7PCR");
-        // 17
+        passwords.Add("9Ilzk3Iz"); // 2
+        passwords.Add("U336QRe6"); // 3
+        passwords.Add("L8PG9W7y"); // 4
+        passwords.Add("fHrI1cVE"); // 5
+        passwords.Add("76S9e8A9"); // 6
+        passwords.Add("QkZ2vPBj"); // 7
+        passwords.Add("5R7A3ilF"); // 8
+        passwords.Add("2zGTsmhQ"); // 9
+        passwords.Add("zoHm5pDr"); // 10
+        passwords.Add("qxVE2Cms"); // 11
+        passwords.Add("c37UxFzm"); // 12
+        passwords.Add("nL7xsH8I"); // 13
+        passwords.Add("2991RpJq"); // 14
+        passwords.Add("y17vBzxd"); // 15
+        passwords.Add("j4uT4F0H"); // 16
+        passwords.Add("05xs7PCR"); // 17
+        
         // https://randompasswordgenerator.app/ 
         // no symbols, length 8
 
