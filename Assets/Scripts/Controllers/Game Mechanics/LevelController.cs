@@ -24,19 +24,38 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
+        
         numBoxes = this.transform.GetChild(4).childCount;
 
         if(levelNumber > GameManager.maxLevel){
             GameManager.maxLevel = levelNumber;
         }
 
+        // TODO : remove wait and put below code back in for final release version
+
+        // used to prevent errors when testing
+        StartCoroutine(Wait());
+
         // tutorial levels have level number 0, and don't have/need level codes
+        /*
         if(levelNumber > 0){
-            password.text = "Password: " + GameManager.passwords[levelNumber-1];
-        }
-        
+            password.text = "Level code: " + GameManager.passwords[levelNumber-1];
+        } 
+        */
         
     }
+
+    IEnumerator Wait()
+    {
+        //yield on a new YieldInstruction that waits for 3 seconds.
+        yield return new WaitForSeconds(1);
+
+        // tutorial levels have level number 0, and don't have/need level codes
+        if(levelNumber > 0){
+            password.text = "Level code: " + GameManager.passwords[levelNumber-1];
+        }
+    }
+
 
     public void nextLevel()
     {

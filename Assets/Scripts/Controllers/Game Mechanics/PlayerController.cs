@@ -183,9 +183,11 @@ public class PlayerController : MonoBehaviour
 
             if(wallCheck.collider != null)
             {
+                Debug.Log("wall");
                 // if hit wall, put down in behind position
                 holdCheck.collider.gameObject.transform.position = placeBehind.position;
             } else {
+                Debug.Log("no wall");
                 // put down in front
                 holdCheck.collider.gameObject.transform.position = place.position;
             }
