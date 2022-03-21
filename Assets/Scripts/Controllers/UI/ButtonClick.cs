@@ -8,27 +8,15 @@ using UnityEngine.SceneManagement;
 public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private Image _img;
-    [SerializeField] private Sprite _default, _pressed, _locked;
-    [SerializeField] public int buttonNumber;
-    private bool isLocked;
-    private int sceneID;
+    [SerializeField] public Sprite _default, _pressed; 
+    public bool isLocked;
+    public int sceneID;
 
-    void Start()
-    {
-        if((buttonNumber > GameManager.maxLevel) && (buttonNumber != 1)){
-            isLocked = true;
-            _img.sprite = _locked;
-        } else {
-            isLocked = false;
-            _img.sprite = _default;
-        }
-    }
-
+   // locked buttons don't display correctly if game is loaded on level select scene due to order of game scripts running
 
     public void MoveToScene()
     {
         if(!isLocked){
-            sceneID = GameManager.levelSceneIDs[buttonNumber-1];
             SceneManager.LoadScene(sceneID);
         }
         
