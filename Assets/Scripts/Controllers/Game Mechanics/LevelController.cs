@@ -40,13 +40,23 @@ public class LevelController : MonoBehaviour
 
     public void nextLevel()
     {
-        int max = GameManager.levelSceneIDs.Count;
-        if(!(levelNumber == max)){
-            // level numbers start at 1, indexes of list start at 0, automatically gets the next one
-            NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
+        int lastLevel = GameManager.levelSceneIDs.Count;
+
+        if(levelNumber == 0){
+            // tutorials have level number 0
+            if(levelName == "Tutorial1"){
+                NextLevelSceneID = 6;
+            } else if(levelName == "Tutorial2"){
+                NextLevelSceneID = 7;
+            } else {
+                NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
+            }
+        } else if(levelNumber == lastLevel) {
+            // last level goes to completion page
+            NextLevelSceneID = 4;
         } else {
-            // last level goes back to the menu for now
-            NextLevelSceneID = 0;
+            // all levels go to next level scene id, level numbers start at 1, indexes start at 0 so automatically gets the next level
+            NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
         }
     
         SceneManager.LoadScene(NextLevelSceneID);

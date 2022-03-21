@@ -24,7 +24,6 @@ public class CheckLevelCode : MonoBehaviour
         user_input = input.text;
 
         if(GameManager.passwords.Contains(user_input)){
-            Debug.Log("yes");
             // get index of password in list
             index = GameManager.passwords.IndexOf(user_input);
         
@@ -38,8 +37,7 @@ public class CheckLevelCode : MonoBehaviour
 
             
         } else {
-            // dialog box for invalid - or text on screen
-            Debug.Log("no");
+            // if invalid show text on screen
             invalidMessage.text = "Code invalid. Please try again.";
         }
     }
