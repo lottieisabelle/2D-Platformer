@@ -11,18 +11,18 @@ public class IconController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(KeyCode.P.ToString().Equals(key))
+        if(KeyCode.F.ToString().Equals(key))
         {
-            if(Input.GetKey(KeyCode.P))
+            if(Input.GetKey(KeyCode.F))
             {
                 icon.sprite = _pressed;
             } else {
                 icon.sprite = _default;
             }
         } 
-        else if(KeyCode.E.ToString().Equals(key))
+        else if(KeyCode.W.ToString().Equals(key))
         {
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKey(KeyCode.W))
             {
                 icon.sprite = _pressed;
             } else {

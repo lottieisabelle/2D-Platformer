@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Level11Script : MonoBehaviour
-{
-    // used for level 5 and level 10
-    
+{    
     // level objects
     [SerializeField] private GameObject button1;
     [SerializeField] private GameObject door;
@@ -17,7 +15,7 @@ public class Level11Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // hide interact icons P and E
+        // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 

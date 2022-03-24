@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         levelSceneIDs.Add(20); // 13
         levelSceneIDs.Add(21); // 14
         levelSceneIDs.Add(22); // 15
+        levelSceneIDs.Add(23); // 16
 
     }
 

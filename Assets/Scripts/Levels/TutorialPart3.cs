@@ -18,7 +18,7 @@ public class TutorialPart3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        // hide interact icons P and E
+        // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
     }

@@ -83,13 +83,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {   
         // check if player can enter door
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKey(KeyCode.W))
             enterDoor();
 
         if(pickUpCoolDown > 0.2f)
         {
             // call to pick up or put down box
-            if(Input.GetKeyDown(KeyCode.P))
+            if(Input.GetKeyDown(KeyCode.F))
             {
                 if(handsEmpty)
                 {
@@ -119,19 +119,32 @@ public class PlayerController : MonoBehaviour
         // update player movement
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
+
         if(isGrounded()){
-            if(Input.GetKey(KeyCode.Space)){
-                // jump
-                body.velocity = new Vector2(body.velocity.x, jumpPower);
-                move.SetTrigger("Jump"); // changes animation
+
+            // check jump cool down
+            if(jumpCoolDown > 0.25f){
+                
+                if(Input.GetKey(KeyCode.Space)){
+
+                    // jump
+                    body.velocity = new Vector2(body.velocity.x, jumpPower);
+                    move.SetTrigger("Jump"); // changes animation
+
+                    jumpCoolDown = 0;
+
+                }
+            } else {
+                jumpCoolDown += Time.deltaTime;
             }
+
         } else {
             // if on side of object - slide down to ground
             if(againstObject()){
                 body.velocity = new Vector2(0, body.velocity.y);
             }
         }
-
+        
 
     }
 

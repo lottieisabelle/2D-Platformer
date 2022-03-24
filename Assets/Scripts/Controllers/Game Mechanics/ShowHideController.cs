@@ -15,7 +15,6 @@ public class ShowHideController : MonoBehaviour
     {
         // count number of children to hide
         num = this.transform.childCount;
-        Debug.Log(num);
     }
 
     public void show()
@@ -32,7 +31,7 @@ public class ShowHideController : MonoBehaviour
             for(int i = 0; i < num; i++){
                 this.transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = true;
             }
-            
+
         }
         
     }

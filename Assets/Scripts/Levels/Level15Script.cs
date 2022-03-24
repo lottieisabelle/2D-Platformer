@@ -20,7 +20,7 @@ public class Level15Script : MonoBehaviour
         isVisible = true;
         obstacle.GetComponent<ShowHideController>().isVisible = isVisible;
 
-        // hide interact icons P and E
+        // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 

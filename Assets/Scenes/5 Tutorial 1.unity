@@ -1851,7 +1851,7 @@ GameObject:
   - component: {fileID: 625448160}
   - component: {fileID: 625448159}
   m_Layer: 0
-  m_Name: interactIconE
+  m_Name: interactIconW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1870,9 +1870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 625448160}
-  _default: {fileID: 21300000, guid: bdd752c811d661446bee9ba009156ce5, type: 3}
-  _pressed: {fileID: 21300000, guid: 0e0cde78f4b1fce4d90fb7fb5d7621fc, type: 3}
-  key: E
+  _default: {fileID: 21300000, guid: 15c381f43146fbd44b5f38d3d9e31c9a, type: 3}
+  _pressed: {fileID: 21300000, guid: f8d4d2a37bf33b54786c4b0ddfb56207, type: 3}
+  key: W
 --- !u!212 &625448160
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1913,7 +1913,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: bdd752c811d661446bee9ba009156ce5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15c381f43146fbd44b5f38d3d9e31c9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1936,7 +1936,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1954424842}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &663230813
 GameObject:
@@ -3529,6 +3529,8 @@ MonoBehaviour:
   _img: {fileID: 1307526552}
   _default: {fileID: 21300000, guid: 47fbd51d608bf5041821089b357287e9, type: 3}
   _pressed: {fileID: 21300000, guid: a7f07fa41003ee640b821eae187b63f7, type: 3}
+  isLocked: 0
+  sceneID: 0
 --- !u!114 &1307526551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3938,7 +3940,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1954424842}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409716954
 GameObject:
@@ -4395,7 +4397,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1954424842}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596830520
 GameObject:
@@ -5388,10 +5390,10 @@ Transform:
   m_Children:
   - {fileID: 803496380}
   - {fileID: 2017176177}
+  - {fileID: 625448161}
   - {fileID: 1557484515}
   - {fileID: 2072910235}
   - {fileID: 1383364598}
-  - {fileID: 625448161}
   - {fileID: 916034780}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -5409,7 +5411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Tutorial1
-  NextLevelSceneID: 3
+  levelNumber: 0
+  password: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -6192,7 +6195,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1954424842}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076775669
 GameObject:
