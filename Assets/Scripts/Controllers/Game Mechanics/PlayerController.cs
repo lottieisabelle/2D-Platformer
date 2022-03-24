@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
         // player info
         speed = 8;
-        jumpPower = 12;
+        jumpPower = 15;
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = 4;
         move = GetComponent<Animator>();
@@ -230,7 +230,11 @@ public class PlayerController : MonoBehaviour
         // casts rays only on physical buttons (includes buttons physical part, excludes button trigger collider)
         RaycastHit2D raycastButton = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, buttonLayer);
 
-        if(raycastBox.collider != null || raycastButton.collider != null || raycastWall.collider != null || raycastBlocks.collider != null){
+        // casts rays only on ground objects - platforms
+        RaycastHit2D raycastGround = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, groundLayer);
+
+
+        if(raycastBox.collider != null || raycastButton.collider != null || raycastWall.collider != null || raycastBlocks.collider != null || raycastGround.collider != null){
             return true;
         } else {
             return false;

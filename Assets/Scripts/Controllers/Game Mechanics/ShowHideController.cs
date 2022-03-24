@@ -1,49 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShowHideController : MonoBehaviour
 {
     public bool isVisible;
 
-    private SpriteRenderer obj;
-    private SpriteRenderer objTask;
-    private BoxCollider2D objColl;
-    
-    // Start is called before the first frame update
+    [SerializeField] public TextMeshProUGUI taskText;
+
+    private int num;
+
     void Start()
     {
-        obj = this.GetComponent<SpriteRenderer>();
-        objTask = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-
-        objColl = this.GetComponent<BoxCollider2D>();
-
+        // count number of children to hide
+        num = this.transform.childCount;
+        Debug.Log(num);
     }
 
     public void show()
     {
-        this.GetComponent<SpriteRenderer>().enabled = true;
-        this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         this.GetComponent<BoxCollider2D>().enabled = true;
-
-        //obj.enabled = true;
-        //objTask.enabled = true;
-        //objColl.enabled = true;
-
+        taskText.enabled = true;
         isVisible = true;
+
+        if(num == 0){
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            
+        } else {
+
+            for(int i = 0; i < num; i++){
+                this.transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = true;
+            }
+            
+        }
+        
     }
 
     public void hide()
     {
-        this.GetComponent<SpriteRenderer>().enabled = false;
-        this.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         this.GetComponent<BoxCollider2D>().enabled = false;
-
-        //obj.enabled = false;
-        //objTask.enabled = false;
-        //objColl.enabled = false;
-
+        taskText.enabled = false;
         isVisible = false;
+
+        if(num == 0){
+            this.GetComponent<SpriteRenderer>().enabled = false;
+            
+        } else {
+
+            for(int i = 0; i < num; i++){
+                this.transform.GetChild(i).GetComponent<SpriteRenderer>().enabled = false;
+            }
+
+        }
+        
     }
 
 }

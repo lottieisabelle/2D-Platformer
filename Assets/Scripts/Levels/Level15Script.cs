@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Level15Script : MonoBehaviour
-{
-    // used for level 2 and level 7
-    
+{    
     // level objects
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject obstacle;

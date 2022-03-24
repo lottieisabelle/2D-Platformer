@@ -39,6 +39,18 @@ public class Pressable : MonoBehaviour
         if(!blockPressed){
             getPressedCount();
         }
+
+        blockPressed = this.transform.parent.GetComponent<ButtonController>().blockPressed;
+
+        if(blockPressed)
+        {
+            // deactivate boxcollider - as box is not pressable
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            pressedCount = this.transform.parent.GetComponent<ButtonController>().lights;
+        } else {
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            this.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
     }
 
     private void getPressedCount()
