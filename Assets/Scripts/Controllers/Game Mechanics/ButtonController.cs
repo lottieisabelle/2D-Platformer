@@ -52,7 +52,33 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         // get number of items on the button
-        pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
+        //pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
+
+        if(!(this.transform.GetChild(1).GetComponent<Pressable>().blockPressed)){
+            this.transform.GetChild(1).GetComponent<Pressable>().getPressedCount();
+            pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
+        } else {
+            pressedCount = lights;
+        }
+
+        float buttonTimer = 0;
+
+        if(pressedCount == 0){
+
+            while(buttonTimer < 0.2f){
+                buttonTimer += Time.deltaTime;
+            }
+            // wait and check again
+
+            this.transform.GetChild(1).GetComponent<Pressable>().getPressedCount();
+            pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
+
+            buttonTimer = 0;
+
+        }
+        // if pressed count is 0 - wait for a bit, check again and then set button sprite ?
+        
+        Debug.Log(pressedCount);
 
         // turn on the same number of lights as there is items on the button (up to the number of lights)
         for(int i = 0; i < lights; i++)

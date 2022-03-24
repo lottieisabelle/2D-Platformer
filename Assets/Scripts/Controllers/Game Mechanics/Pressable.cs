@@ -36,9 +36,9 @@ public class Pressable : MonoBehaviour
     void Update()
     {
         // only detect items on button if button not held down by block
-        if(!blockPressed){
-            getPressedCount();
-        }
+        //if(!blockPressed){
+        //    getPressedCount();
+        //}
 
         blockPressed = this.transform.parent.GetComponent<ButtonController>().blockPressed;
 
@@ -53,7 +53,7 @@ public class Pressable : MonoBehaviour
         }
     }
 
-    private void getPressedCount()
+    public void getPressedCount()
     {
         // gets the box IDs in order of which they are stored in hierarchy - as it changes when boxes are picked up and moved
         List<int> boxOrder = new List<int>();
