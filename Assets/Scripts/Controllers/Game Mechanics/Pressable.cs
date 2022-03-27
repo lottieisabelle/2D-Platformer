@@ -35,11 +35,6 @@ public class Pressable : MonoBehaviour
 
     void Update()
     {
-        // only detect items on button if button not held down by block
-        //if(!blockPressed){
-        //    getPressedCount();
-        //}
-
         blockPressed = this.transform.parent.GetComponent<ButtonController>().blockPressed;
 
         if(blockPressed)

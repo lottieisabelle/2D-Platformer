@@ -20,6 +20,8 @@ public class ButtonController : MonoBehaviour
     public bool isPressed;
     private int pressedCount;
 
+    private float changeTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +34,13 @@ public class ButtonController : MonoBehaviour
 
         pressedCount = 0;
 
-        // set button to unpressed
-        this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
-        this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
-
-        this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-        this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = false;
+        if(isPressed){
+            // set button to pressed
+            On();
+        } else {
+            // set button to unpressed
+            Off();
+        }
 
         // set all lights off
         lights = this.transform.GetChild(4).childCount;
@@ -46,50 +49,22 @@ public class ButtonController : MonoBehaviour
             this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
         }
         
+        changeTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         // get number of items on the button
-        //pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
-
         if(!(this.transform.GetChild(1).GetComponent<Pressable>().blockPressed)){
+
             this.transform.GetChild(1).GetComponent<Pressable>().getPressedCount();
             pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
+
         } else {
             pressedCount = lights;
         }
-
-        float buttonTimer = 0;
-
-        if(pressedCount == 0){
-
-            while(buttonTimer < 0.2f){
-                buttonTimer += Time.deltaTime;
-            }
-            // wait and check again
-
-            this.transform.GetChild(1).GetComponent<Pressable>().getPressedCount();
-            pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
-
-            buttonTimer = 0;
-
-        }
-        // if pressed count is 0 - wait for a bit, check again and then set button sprite ?
         
-        Debug.Log(pressedCount);
-
-        // turn on the same number of lights as there is items on the button (up to the number of lights)
-        for(int i = 0; i < lights; i++)
-        {   
-            if(i < pressedCount){
-                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOn;
-            } else {
-                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
-            }
-        }
-
         // the button is pressed when the number of items on the button is at least the number of lights
         if(pressedCount >= lights)
         {
@@ -98,21 +73,53 @@ public class ButtonController : MonoBehaviour
             isPressed = false;
         }
 
-        // show the button in the correct position
-        if(isPressed){
-            this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
-            this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
+        // delay visual graphics changing to prevent glitching
+        if(changeTimer > 0.2f){
 
-            this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
-            this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = true;
+            // turn on the same number of lights as there is items on the button (up to the number of lights)
+            for(int i = 0; i < lights; i++)
+            {   
+                if(i < pressedCount){
+                    this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOn;
+                } else {
+                    this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
+                }
+            }
 
-        } else {
-            this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
-            this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
+            // show the button in the correct position
+            if(isPressed){
+                On();
 
-            this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
-            this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = false;
-
+            } else {
+                Off();
+            }
         }
+
+        changeTimer += Time.deltaTime;
     }
+
+    private void On()
+    {
+        this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = false;
+
+        this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
+        this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = true;
+
+        changeTimer = 0;
+    }
+
+    private void Off()
+    {
+        this.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = true;
+        this.transform.GetChild(2).GetComponent<PolygonCollider2D>().enabled = true;
+
+        this.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        this.transform.GetChild(3).GetComponent<PolygonCollider2D>().enabled = false;
+
+        changeTimer = 0;
+    }
+
+
+
 }
