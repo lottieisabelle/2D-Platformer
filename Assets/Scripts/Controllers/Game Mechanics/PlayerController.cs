@@ -102,6 +102,12 @@ public class PlayerController : MonoBehaviour
         } else {
             pickUpCoolDown += Time.deltaTime;
         }
+
+        // check if box on head
+        if(handsEmpty)
+        {
+            onHead();
+        }
         
         // gets input from left and right arrow keys, negative = left, positive = right
         horizontalInput = Input.GetAxis("Horizontal");
@@ -150,8 +156,10 @@ public class PlayerController : MonoBehaviour
 
     private void pickUp()
     {   
-        // check if there is a box to pick up, if yes, pick up box
-        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist, boxLayer);
+        // casts rays only on boxes (excludes the box held if there is one, excludes the box trigger colliders)
+        RaycastHit2D grabCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right * transform.localScale, 0.5f, boxLayer);
+        RaycastHit2D grabCheckDown = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.5f, boxLayer);
+
         int tempBoxID = 0;
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Box"){
@@ -175,6 +183,32 @@ public class PlayerController : MonoBehaviour
                 }
             }
         } 
+
+        // pick up box below player
+        if(grabCheck.collider == null && grabCheckDown.collider != null && grabCheckDown.collider.tag == "Box")
+        {
+            tempBoxID = grabCheckDown.collider.gameObject.GetComponent<BoxController>().boxID;
+            // pick up
+            grabCheckDown.collider.gameObject.transform.parent = boxHolder;
+            grabCheckDown.collider.gameObject.transform.position = boxHolder.position;
+            grabCheckDown.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            grabCheckDown.collider.gameObject.GetComponent<BoxController>().isHeld = true;
+
+            grabCheckDown.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
+
+            handsEmpty = false;
+            holdingBoxID = tempBoxID;
+            pickUpCoolDown = 0;
+
+            // get 'items on button' lists from each button, if contains box id then remove from list
+            for(int i = 0; i < numButtons; i++){
+                if(this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Contains(tempBoxID)){
+                    this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Remove(tempBoxID);
+                }
+            }
+        }
+
+
     }
 
     private void putDown()
@@ -201,6 +235,27 @@ public class PlayerController : MonoBehaviour
             } else {
                 // put down in front
                 holdCheck.collider.gameObject.transform.position = place.position;
+            }
+            
+        } 
+    }
+
+    private void onHead()
+    {
+        // check for a box on players head
+        RaycastHit2D aboveCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 0.5f, boxLayer);
+        // check for a wall
+        RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, 1.2f, wallLayer);
+
+        if(aboveCheck.collider != null && aboveCheck.collider.tag == "Box"){
+
+            if(wallCheck.collider != null)
+            {
+                // if hit wall, put down in behind position
+                aboveCheck.collider.gameObject.transform.position = placeBehind.position;
+            } else {
+                // put down in front
+                aboveCheck.collider.gameObject.transform.position = place.position;
             }
             
         } 
