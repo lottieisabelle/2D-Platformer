@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
             passwords.Add("310aI6Yb"); // 18
             passwords.Add("1y92Ix7p"); // 19
             passwords.Add("opBRad06"); // 20
+            passwords.Add("3nd02L51"); // 21
         }
         
         
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(25); // 18
             levelSceneIDs.Add(26); // 19
             levelSceneIDs.Add(27); // 20
+            levelSceneIDs.Add(28); // 21
         }
         
 
