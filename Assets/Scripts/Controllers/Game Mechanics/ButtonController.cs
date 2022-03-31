@@ -74,7 +74,7 @@ public class ButtonController : MonoBehaviour
         }
 
         // delay visual graphics changing to prevent glitching
-        if(changeTimer > 0.2f){
+        if(changeTimer > 0.15f){
 
             // turn on the same number of lights as there is items on the button (up to the number of lights)
             for(int i = 0; i < lights; i++)
