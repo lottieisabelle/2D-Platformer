@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(passwords.Count == 0){
-            passwords.Add("5kX2SRP5"); // level 1
+        if(passwords.Count == 0){      // leve1 number
+            passwords.Add("5kX2SRP5"); // 1
             passwords.Add("9Ilzk3Iz"); // 2
             passwords.Add("U336QRe6"); // 3
             passwords.Add("L8PG9W7y"); // 4
@@ -35,6 +35,16 @@ public class GameManager : MonoBehaviour
             passwords.Add("1y92Ix7p"); // 19
             passwords.Add("opBRad06"); // 20
             passwords.Add("3nd02L51"); // 21
+            passwords.Add("sWiG46iM"); // 22
+            passwords.Add("2lO21G2p"); // 23
+            passwords.Add("nX350Yf7"); // 24
+            passwords.Add("fuLkXW62"); // 25
+            passwords.Add("Yx7Lhg85"); // 26
+            passwords.Add("VMw0c098"); // 27
+            passwords.Add("rWWS5c29"); // 28
+            passwords.Add("AHnSE28g"); // 29
+            passwords.Add("Te3ZD5B6"); // 30
+
         }
         
         
@@ -62,6 +72,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(26); // 19
             levelSceneIDs.Add(27); // 20
             levelSceneIDs.Add(28); // 21
+            levelSceneIDs.Add(29); // 22
         }
         
 
