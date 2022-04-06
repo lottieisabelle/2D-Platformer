@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
+        // https://randompasswordgenerator.app/ 
+        // no symbols, length 8
+
         if(passwords.Count == 0){      // leve1 number
             passwords.Add("5kX2SRP5"); // 1
             passwords.Add("9Ilzk3Iz"); // 2
@@ -47,9 +51,7 @@ public class GameManager : MonoBehaviour
 
         }
         
-        
-        // https://randompasswordgenerator.app/ 
-        // no symbols, length 8
+
         if(levelSceneIDs.Count == 0){ // level number
             levelSceneIDs.Add(8); // 1
             levelSceneIDs.Add(9); // 2
@@ -75,6 +77,13 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(29); // 22
             levelSceneIDs.Add(30); // 23
             levelSceneIDs.Add(31); // 24
+            levelSceneIDs.Add(32); // 25
+            //levelSceneIDs.Add(33); // 26
+            //levelSceneIDs.Add(34); // 27
+            //levelSceneIDs.Add(35); // 28
+            //levelSceneIDs.Add(36); // 29
+            //levelSceneIDs.Add(337); // 30
+
         }
         
 
