@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour
         
         // https://randompasswordgenerator.app/ 
         // no symbols, length 8
-        if(levelSceneIDs.Count == 0){
-            levelSceneIDs.Add(8); // level 1
+        if(levelSceneIDs.Count == 0){ // level number
+            levelSceneIDs.Add(8); // 1
             levelSceneIDs.Add(9); // 2
             levelSceneIDs.Add(10); // 3
             levelSceneIDs.Add(11); // 4
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(28); // 21
             levelSceneIDs.Add(29); // 22
             levelSceneIDs.Add(30); // 23
+            levelSceneIDs.Add(31); // 24
         }
         
 
