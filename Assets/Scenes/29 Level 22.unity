@@ -1772,8 +1772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Level 22: \n\u2203x(RightOf(x,a)\u22C0Red(x)\u22C0On(x))\n\n\t\t\u2200
-    \u22C0 \u21D2  \u2203 "
+  m_text: "Level 22: \n\u2203x(RightOf(x,a)\u22C0Red(x)\u22C0On(x))"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

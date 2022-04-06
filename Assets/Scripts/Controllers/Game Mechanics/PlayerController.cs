@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
     private void onHead()
     {
         // check for a box on players head
-        RaycastHit2D aboveCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 0.5f, boxLayer);
+        RaycastHit2D aboveCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 0.4f, boxLayer);
         
         if(aboveCheck.collider != null && aboveCheck.collider.tag == "Box"){
 
