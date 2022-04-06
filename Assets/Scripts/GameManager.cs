@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(30); // 23
             levelSceneIDs.Add(31); // 24
             levelSceneIDs.Add(32); // 25
-            //levelSceneIDs.Add(33); // 26
+            levelSceneIDs.Add(33); // 26
             //levelSceneIDs.Add(34); // 27
             //levelSceneIDs.Add(35); // 28
             //levelSceneIDs.Add(36); // 29
