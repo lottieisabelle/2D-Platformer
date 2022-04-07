@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11143132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8100002, y: -3.01, z: 1}
+  m_LocalPosition: {x: -1.82, y: -3.05, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 304915961}
@@ -204,11 +204,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colour: Green
-  blockPressed: 1
+  blockPressed: 0
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
   lights: 1
-  isPressed: 0
+  isPressed: 1
 --- !u!50 &11143135
 Rigidbody2D:
   serializedVersion: 4
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
   lights: 1
-  isPressed: 1
+  isPressed: 0
 --- !u!50 &583915153
 Rigidbody2D:
   serializedVersion: 4
@@ -2409,7 +2409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583915151}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.22, y: -3.01, z: 1}
+  m_LocalPosition: {x: 2.84, y: -3.05, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 264917323}
@@ -2732,7 +2732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759247903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.08, y: -3.37, z: 0}
+  m_LocalPosition: {x: -10.09, y: -3.42, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children:
   - {fileID: 1739340573}
@@ -3505,6 +3505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08928c8fcd982ea46a961941792ef50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button1: {fileID: 0}
   button2: {fileID: 583915151}
   door: {fileID: 175215956}
 --- !u!114 &1002012121
@@ -6120,7 +6121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758556398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.87, y: -4.31, z: 0}
+  m_LocalPosition: {x: -2.47, y: -4.31, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children:
   - {fileID: 2142779160}

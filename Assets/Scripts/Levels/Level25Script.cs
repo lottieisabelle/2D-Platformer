@@ -5,10 +5,12 @@ using UnityEngine;
 public class Level25Script : MonoBehaviour
 {
     // level objects
+    //[SerializeField] private GameObject button1;
     [SerializeField] private GameObject button2;
     [SerializeField] private GameObject door;
 
     // level variables
+    //private bool isPressed1;
     private bool isPressed2;
     private bool isOpen;
 
@@ -27,6 +29,7 @@ public class Level25Script : MonoBehaviour
     void Update()
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
+        //isPressed1 = button1.GetComponent<ButtonController>().isPressed;
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
 
         if(isPressed2)

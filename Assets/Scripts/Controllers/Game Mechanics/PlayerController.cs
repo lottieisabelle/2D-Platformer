@@ -261,8 +261,8 @@ public class PlayerController : MonoBehaviour
     private bool putBehind()
     {
         // check for walls and obstacles, put box behind player if wall or obstacle detected
-        RaycastHit2D wallCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, 1.2f, wallLayer);
-        RaycastHit2D obsCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, 1.2f, blockLayer);
+        RaycastHit2D wallCheck = Physics2D.Raycast(boxHolder.position, Vector2.right * transform.localScale, 1.2f, wallLayer);
+        RaycastHit2D obsCheck = Physics2D.Raycast(boxHolder.position, Vector2.right * transform.localScale, 1.2f, blockLayer);
         RaycastHit2D boxCheck = Physics2D.Raycast(boxHolder.position, Vector2.right * transform.localScale, 1.2f, boxLayer);
 
         if(wallCheck.collider != null || obsCheck.collider != null || boxCheck.collider != null){
