@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ShowHideController : MonoBehaviour
+public class PlatformController : MonoBehaviour
 {
     public bool isVisible;
-
     [SerializeField] public TextMeshProUGUI taskText;
 
     private int num;
@@ -15,7 +14,6 @@ public class ShowHideController : MonoBehaviour
     {
         // count number of children to hide
         num = this.transform.childCount;
-
     }
 
     public void show()
@@ -55,5 +53,4 @@ public class ShowHideController : MonoBehaviour
         }
         
     }
-
 }
