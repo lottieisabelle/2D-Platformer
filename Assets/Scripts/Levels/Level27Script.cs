@@ -61,7 +61,7 @@ public class Level27Script : MonoBehaviour
             }
         }
 
-        if(isPressed2){
+        if(isPressed1 && isPressed2){
             if(obstacleVisible){
                 obstacle.GetComponent<ShowHideController>().hide();
             }
