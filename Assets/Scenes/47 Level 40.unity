@@ -12331,8 +12331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78afb97dc788be47a2e447f095436d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level30
-  levelNumber: 30
+  levelName: Level40
+  levelNumber: 40
   password: {fileID: 745782626}
   blockLayer:
     serializedVersion: 2
@@ -18434,7 +18434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Level 30: (\u2200x(Green(x) \u22C0 Lights(x,2)) \u21D2 Off(x)) \u22C1
+  m_text: "Level 40: (\u2200x(Green(x) \u22C0 Lights(x,2)) \u21D2 Off(x)) \u22C1
     \n((\u2200x(RightOf(x,d) \u22C1 \xACRed(x)) \u21D2 On(x)) \u22C0 \u2203y(Red(y)
     \u22C0 Lights(x,1) \u22C0 Off(y)))"
   m_isRightToLeft: 0

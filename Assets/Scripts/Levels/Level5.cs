@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level2Script : MonoBehaviour
+public class Level5 : MonoBehaviour
 {
-    // used for level 2 and level 7
-    
     // level objects
-    [SerializeField] private GameObject button;
+    [SerializeField] private GameObject button1;
+    [SerializeField] private GameObject button2;
     [SerializeField] private GameObject door;
 
     // level variables
-    private bool isPressed;
+    private bool isPressed1;
+    private bool isPressed2;
     private bool isOpen;
 
     // Start is called before the first frame update
@@ -27,9 +27,10 @@ public class Level2Script : MonoBehaviour
     void Update()
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
-        isPressed = button.GetComponent<ButtonController>().isPressed;
+        isPressed1 = button1.GetComponent<ButtonController>().isPressed;
+        isPressed2 = button2.GetComponent<ButtonController>().isPressed;
 
-        if(!isPressed)
+        if(isPressed1)
         {
             if(!isOpen)
             {

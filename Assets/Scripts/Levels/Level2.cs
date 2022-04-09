@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level1Script : MonoBehaviour
+public class Level2 : MonoBehaviour
 {
+    // used for level 2 and level 7
+    
     // level objects
     [SerializeField] private GameObject button;
     [SerializeField] private GameObject door;
@@ -27,7 +29,7 @@ public class Level1Script : MonoBehaviour
         isOpen = door.GetComponent<DoorController>().isOpen;
         isPressed = button.GetComponent<ButtonController>().isPressed;
 
-        if(isPressed)
+        if(!isPressed)
         {
             if(!isOpen)
             {
