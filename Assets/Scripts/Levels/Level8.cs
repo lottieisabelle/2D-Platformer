@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level8Script : MonoBehaviour
+public class Level8 : MonoBehaviour
 {
+    // used for level 8 and level 20
+    
     // level objects
     [SerializeField] private GameObject button1;
     [SerializeField] private GameObject button2;
@@ -30,7 +32,7 @@ public class Level8Script : MonoBehaviour
         isPressed1 = button1.GetComponent<ButtonController>().isPressed;
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
 
-        if(!(isPressed1 && isPressed2))
+        if(isPressed1 || isPressed2)
         {
             if(!isOpen)
             {

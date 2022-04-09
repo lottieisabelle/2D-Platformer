@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level2 : MonoBehaviour
 {
-    // used for level 2 and level 7
+    // used for level 2 and level 13
     
     // level objects
     [SerializeField] private GameObject button;
