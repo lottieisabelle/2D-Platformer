@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level23Script : MonoBehaviour
+public class Level30 : MonoBehaviour
 {
     // level objects
     [SerializeField] private GameObject button1;
