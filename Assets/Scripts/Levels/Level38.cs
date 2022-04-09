@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level29Script : MonoBehaviour
+public class Level38 : MonoBehaviour
 {
     // level objects
     [SerializeField] private GameObject button1;
@@ -11,7 +11,6 @@ public class Level29Script : MonoBehaviour
     [SerializeField] private GameObject button4;
     [SerializeField] private GameObject platform;
     [SerializeField] private GameObject obstacle;
-    [SerializeField] private GameObject obstacle2;
     [SerializeField] private GameObject door;
 
     // level variables
@@ -21,7 +20,6 @@ public class Level29Script : MonoBehaviour
     private bool isPressed4;
     private bool platformVisible;
     private bool obstacleVisible;
-    private bool obstacleVisible2;
     private bool isOpen;
 
     // Start is called before the first frame update
@@ -32,9 +30,6 @@ public class Level29Script : MonoBehaviour
 
         obstacleVisible = true;
         obstacle.GetComponent<ShowHideController>().isVisible = obstacleVisible;
-
-        obstacleVisible2 = true;
-        obstacle2.GetComponent<ShowHideController>().isVisible = obstacleVisible2;
 
         // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
@@ -56,9 +51,8 @@ public class Level29Script : MonoBehaviour
 
         platformVisible = platform.GetComponent<ShowHideController>().isVisible;
         obstacleVisible = obstacle.GetComponent<ShowHideController>().isVisible;
-        obstacleVisible2 = obstacle2.GetComponent<ShowHideController>().isVisible;
 
-        if(isPressed3){
+        if(isPressed2){
             if(platformVisible){
                 platform.GetComponent<ShowHideController>().hide();
             }
@@ -68,7 +62,7 @@ public class Level29Script : MonoBehaviour
             }
         }
 
-        if(isPressed4){
+        if(isPressed1 || isPressed2){
             if(obstacleVisible){
                 obstacle.GetComponent<ShowHideController>().hide();
             }
@@ -78,17 +72,7 @@ public class Level29Script : MonoBehaviour
             }
         }
 
-        if(isPressed1){
-            if(obstacleVisible2){
-                obstacle2.GetComponent<ShowHideController>().hide();
-            }
-        } else {
-            if(!obstacleVisible2){
-                obstacle2.GetComponent<ShowHideController>().show();
-            }
-        }
-
-        if(isPressed2 && isPressed1){
+        if(isPressed3 && !isPressed4){
             if(!isOpen){
                 door.GetComponent<DoorController>().openDoor();
             }
