@@ -7,11 +7,13 @@ public class Level14Script : MonoBehaviour
     // level objects
     [SerializeField] private GameObject button2;
     [SerializeField] private GameObject button3;
+    [SerializeField] private GameObject platform;
     [SerializeField] private GameObject door;
 
     // level variables
     private bool isPressed2;
     private bool isPressed3;
+    private bool platformVisible;
     private bool isOpen;
 
     // Start is called before the first frame update
@@ -20,6 +22,9 @@ public class Level14Script : MonoBehaviour
         // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
+
+        platformVisible = true;
+        platform.GetComponent<ShowHideController>().isVisible = platformVisible;
 
     }
 
@@ -30,6 +35,16 @@ public class Level14Script : MonoBehaviour
 
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
         isPressed3 = button3.GetComponent<ButtonController>().isPressed;
+
+        if(isPressed3){
+            if(platformVisible){
+                platform.GetComponent<ShowHideController>().hide();
+            }
+        } else {
+            if(!platformVisible){
+                platform.GetComponent<ShowHideController>().show();
+            }
+        }
 
         if(isPressed2 && isPressed3)
         {
