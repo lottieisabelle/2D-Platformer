@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
             passwords.Add("5R7A3ilF"); // 8
             passwords.Add("2zGTsmhQ"); // 9
             passwords.Add("zoHm5pDr"); // 10
+
             passwords.Add("qxVE2Cms"); // 11
             passwords.Add("c37UxFzm"); // 12
             passwords.Add("nL7xsH8I"); // 13
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
             passwords.Add("310aI6Yb"); // 18
             passwords.Add("1y92Ix7p"); // 19
             passwords.Add("opBRad06"); // 20
+
             passwords.Add("3nd02L51"); // 21
             passwords.Add("sWiG46iM"); // 22
             passwords.Add("2lO21G2p"); // 23
@@ -48,6 +50,17 @@ public class GameManager : MonoBehaviour
             passwords.Add("rWWS5c29"); // 28
             passwords.Add("AHnSE28g"); // 29
             passwords.Add("Te3ZD5B6"); // 30
+
+            passwords.Add("8uB4lbeK"); // 31
+            passwords.Add("k3YV01Cx"); // 32
+            passwords.Add("7xyW3kDe"); // 33
+            passwords.Add("mqJ5c0K0"); // 34
+            passwords.Add("aLu9m30N"); // 35
+            passwords.Add("uG3abGH9"); // 36
+            passwords.Add("tzYgI184"); // 37
+            passwords.Add("kmSw9TRN"); // 38
+            passwords.Add("A3K21yaG"); // 39
+            passwords.Add("QlHTT9I5"); // 40
 
         }
         
@@ -63,6 +76,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(15); // 8
             levelSceneIDs.Add(16); // 9
             levelSceneIDs.Add(17); // 10
+
             levelSceneIDs.Add(18); // 11
             levelSceneIDs.Add(19); // 12
             levelSceneIDs.Add(20); // 13
@@ -73,6 +87,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(25); // 18
             levelSceneIDs.Add(26); // 19
             levelSceneIDs.Add(27); // 20
+
             levelSceneIDs.Add(28); // 21
             levelSceneIDs.Add(29); // 22
             levelSceneIDs.Add(30); // 23
@@ -83,6 +98,7 @@ public class GameManager : MonoBehaviour
             levelSceneIDs.Add(35); // 28
             levelSceneIDs.Add(36); // 29
             levelSceneIDs.Add(37); // 30
+            
 
         }        
 

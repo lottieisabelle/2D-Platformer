@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level22Script : MonoBehaviour
+public class Level17aScript : MonoBehaviour
 {
     // level objects
     [SerializeField] private GameObject button1;
@@ -49,7 +49,8 @@ public class Level22Script : MonoBehaviour
         platformVisible = platform.GetComponent<ShowHideController>().isVisible;
         obstacleVisible = obstacle.GetComponent<ShowHideController>().isVisible;
 
-        if(isPressed1){
+
+        if(!isPressed2){
             if(platformVisible){
                 platform.GetComponent<ShowHideController>().hide();
             }
@@ -59,7 +60,7 @@ public class Level22Script : MonoBehaviour
             }
         }
 
-        if(isPressed1 && isPressed2){
+        if(isPressed1 || isPressed3){
             if(obstacleVisible){
                 obstacle.GetComponent<ShowHideController>().hide();
             }
@@ -69,7 +70,7 @@ public class Level22Script : MonoBehaviour
             }
         }
 
-        if(isPressed3){
+        if(isPressed1 && isPressed2 && isPressed3){
             if(!isOpen){
                 door.GetComponent<DoorController>().openDoor();
             }
@@ -78,6 +79,5 @@ public class Level22Script : MonoBehaviour
                 door.GetComponent<DoorController>().closeDoor();
             }
         }
-
     }
 }
