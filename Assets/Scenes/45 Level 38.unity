@@ -439,12 +439,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299fbcf6350037f418d9e5b1e32b872f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: Green
+  colour: Yellow
   blockPressed: 0
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
-  lights: 1
-  isPressed: 1
+  lights: 2
+  isPressed: 0
 --- !u!50 &43061683
 Rigidbody2D:
   serializedVersion: 4
@@ -1656,7 +1656,7 @@ MonoBehaviour:
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
   lights: 1
-  isPressed: 1
+  isPressed: 0
 --- !u!50 &205686575
 Rigidbody2D:
   serializedVersion: 4
@@ -7024,7 +7024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299fbcf6350037f418d9e5b1e32b872f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colour: Red
+  colour: Yellow
   blockPressed: 0
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
@@ -12059,7 +12059,7 @@ MonoBehaviour:
   lightOn: {fileID: 21300000, guid: 02e4753e759aff84a958ef4e3841ec51, type: 3}
   lightOff: {fileID: 21300000, guid: 642f5dfe1e8329d4c891d26e1f816a52, type: 3}
   lights: 1
-  isPressed: 1
+  isPressed: 0
 --- !u!50 &1484254915
 Rigidbody2D:
   serializedVersion: 4
