@@ -37,16 +37,20 @@ public class ButtonController : MonoBehaviour
         if(isPressed){
             // set button to pressed
             On();
+            pressedCount = lights;
         } else {
             // set button to unpressed
             Off();
         }
 
-        // set all lights off
-        lights = this.transform.GetChild(4).childCount;
+        // turn on the same number of lights as there is items on the button (up to the number of lights)
         for(int i = 0; i < lights; i++)
-        {
-            this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
+        {   
+            if(i < pressedCount){
+                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOn;
+            } else {
+                this.transform.GetChild(4).GetChild(i).GetComponent<SpriteRenderer>().sprite = lightOff;
+            }
         }
         
         changeTimer = 0;

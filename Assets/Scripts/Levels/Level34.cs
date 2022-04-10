@@ -49,7 +49,7 @@ public class Level34 : MonoBehaviour
         platformVisible = platform.GetComponent<ShowHideController>().isVisible;
         obstacleVisible = obstacle.GetComponent<ShowHideController>().isVisible;
 
-        if(isPressed2){
+        if(isPressed1){
             if(platformVisible){
                 platform.GetComponent<ShowHideController>().hide();
             }
@@ -69,7 +69,7 @@ public class Level34 : MonoBehaviour
             }
         }
 
-        if(isPressed2 && isPressed3){
+        if(isPressed1 && isPressed1){
             if(!isOpen){
                 door.GetComponent<DoorController>().openDoor();
             }

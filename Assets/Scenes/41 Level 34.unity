@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 183011783}
   - component: {fileID: 183011782}
   m_Layer: 0
-  m_Name: Button3
+  m_Name: Button2
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1346,7 +1346,7 @@ Transform:
   - {fileID: 668050362}
   - {fileID: 1122427390}
   m_Father: {fileID: 457814824}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &183011782
 MonoBehaviour:
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Level 34: \u2200x (LeftOf(x,c) \u22C1 \xACGreen(x)) \u21D2 On(x) \n"
+  m_text: "Level 34: \u2200x (LeftOf(x,b) \u22C1 \xACGreen(x)) \u21D2 On(x) \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2315,7 +2315,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292414927}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3307,9 +3307,9 @@ Transform:
   m_LocalPosition: {x: -2.43, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 497053589}
   - {fileID: 2112698600}
   - {fileID: 183011781}
+  - {fileID: 497053589}
   m_Father: {fileID: 1292938511}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3587,7 +3587,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472021315}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3771,7 +3771,7 @@ GameObject:
   - component: {fileID: 497053591}
   - component: {fileID: 497053590}
   m_Layer: 0
-  m_Name: Button1
+  m_Name: Button3
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3794,7 +3794,7 @@ Transform:
   - {fileID: 1056985313}
   - {fileID: 325509172}
   m_Father: {fileID: 457814824}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &497053590
 MonoBehaviour:
@@ -3991,7 +3991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514269670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -3.43, z: 0}
+  m_LocalPosition: {x: -6.78, y: -3.43, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children:
   - {fileID: 74937413}
@@ -5789,7 +5789,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749955660}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -10148,7 +10148,7 @@ GameObject:
   - component: {fileID: 1271618081}
   - component: {fileID: 1271618080}
   m_Layer: 5
-  m_Name: ButtonLabelA
+  m_Name: ButtonLabelC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10166,7 +10166,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2040286656}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10193,7 +10193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: a
+  m_text: c
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10373,9 +10373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92523969f9bfedd45b3fbc8c884bdce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: {fileID: 497053588}
-  button2: {fileID: 2112698597}
-  button3: {fileID: 183011780}
+  button1: {fileID: 2112698597}
+  button2: {fileID: 183011780}
+  button3: {fileID: 497053588}
   platform: {fileID: 239492822}
   obstacle: {fileID: 1954103478}
   door: {fileID: 498584203}
@@ -10898,7 +10898,7 @@ GameObject:
   - component: {fileID: 1324735333}
   - component: {fileID: 1324735332}
   m_Layer: 5
-  m_Name: ButtonLabelB
+  m_Name: ButtonLabelA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10916,11 +10916,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2040286656}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.85, y: -1.35}
+  m_AnchoredPosition: {x: -8.85, y: -1.29}
   m_SizeDelta: {x: 1.7708, y: 0.8983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324735332
@@ -10943,7 +10943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: b
+  m_text: a
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12932,7 +12932,7 @@ GameObject:
   - component: {fileID: 1689080726}
   - component: {fileID: 1689080725}
   m_Layer: 5
-  m_Name: ButtonLabelC
+  m_Name: ButtonLabelB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12950,7 +12950,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2040286656}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12977,7 +12977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: c
+  m_text: b
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13664,7 +13664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795030021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.42, y: -2.41, z: 0}
+  m_LocalPosition: {x: -6.66, y: -2.45, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_Children:
   - {fileID: 562274116}
@@ -15705,9 +15705,9 @@ RectTransform:
   m_Children:
   - {fileID: 216301158}
   - {fileID: 465247839}
-  - {fileID: 1271618079}
   - {fileID: 1324735331}
   - {fileID: 1689080724}
+  - {fileID: 1271618079}
   - {fileID: 1812777916}
   - {fileID: 76860535}
   - {fileID: 1418405978}
@@ -16046,7 +16046,7 @@ GameObject:
   - component: {fileID: 2112698599}
   - component: {fileID: 2112698598}
   m_Layer: 0
-  m_Name: Button2
+  m_Name: Button1
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16108,5 +16108,5 @@ Transform:
   - {fileID: 1492308293}
   - {fileID: 2028315401}
   m_Father: {fileID: 457814824}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
