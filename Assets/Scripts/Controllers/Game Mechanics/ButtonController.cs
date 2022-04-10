@@ -34,6 +34,8 @@ public class ButtonController : MonoBehaviour
 
         pressedCount = 0;
 
+        lights = this.transform.GetChild(4).childCount;
+
         if(isPressed){
             // set button to pressed
             On();

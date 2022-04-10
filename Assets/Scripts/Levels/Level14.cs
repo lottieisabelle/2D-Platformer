@@ -21,6 +21,8 @@ public class Level14 : MonoBehaviour
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 
+        isOpen = false;
+        isOpen = door.GetComponent<DoorController>().isOpen = false;
     }
 
     // Update is called once per frame
