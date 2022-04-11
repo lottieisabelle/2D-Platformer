@@ -62,7 +62,7 @@ public class Level38 : MonoBehaviour
             }
         }
 
-        if(isPressed1 || isPressed2){
+        if(isPressed1 && isPressed2){
             if(obstacleVisible){
                 obstacle.GetComponent<ObstacleController>().hide();
             }
