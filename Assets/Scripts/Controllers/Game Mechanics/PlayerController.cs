@@ -135,32 +135,25 @@ public class PlayerController : MonoBehaviour
         // update player movement
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
+        // if on side of object - slide down to ground
+        if(!isGrounded() && againstObject()){
+            body.velocity = new Vector2(0, body.velocity.y);
+        }
 
-        if(isGrounded()){
+        // check jump cool down
+        if(jumpCoolDown > 0.2f){
 
-            // check jump cool down
-            if(jumpCoolDown > 0.25f){
-                
-                if(Input.GetKey(KeyCode.Space)){
+            if(isGrounded() && Input.GetKey(KeyCode.Space)){
+                // jump
+                body.velocity = new Vector2(body.velocity.x, jumpPower);
+                move.SetTrigger("Jump"); // changes animation
 
-                    // jump
-                    body.velocity = new Vector2(body.velocity.x, jumpPower);
-                    move.SetTrigger("Jump"); // changes animation
-
-                    jumpCoolDown = 0;
-
-                }
-            } else {
-                jumpCoolDown += Time.deltaTime;
+                jumpCoolDown = 0;
             }
 
         } else {
-            // if on side of object - slide down to ground
-            if(againstObject()){
-                body.velocity = new Vector2(0, body.velocity.y);
-            }
-        }
-        
+            jumpCoolDown += Time.deltaTime;
+        }        
 
     }
 
