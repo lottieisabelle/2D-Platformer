@@ -27,7 +27,7 @@ public class Level24 : MonoBehaviour
         isOpen = door.GetComponent<DoorController>().isOpen = false;
 
         obstacleVisible = true;
-        obstacle.GetComponent<ShowHideController>().isVisible = obstacleVisible;
+        obstacle.GetComponent<ObstacleController>().isVisible = obstacleVisible;
     }
 
     // Update is called once per frame
@@ -36,17 +36,17 @@ public class Level24 : MonoBehaviour
         isOpen = door.GetComponent<DoorController>().isOpen;
         isPressed1 = button1.GetComponent<ButtonController>().isPressed;
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
-        obstacleVisible = obstacle.GetComponent<ShowHideController>().isVisible;
+        obstacleVisible = obstacle.GetComponent<ObstacleController>().isVisible;
 
         if(isPressed1){
             if(obstacleVisible){
                 // hide
-                obstacle.GetComponent<ShowHideController>().hide();
+                obstacle.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible){
                 // show
-                obstacle.GetComponent<ShowHideController>().show();
+                obstacle.GetComponent<ObstacleController>().show();
             }
         }   
 
