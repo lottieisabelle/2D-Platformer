@@ -11439,6 +11439,7 @@ MonoBehaviour:
     m_Bits: 256
   boxOrder: 
   numBoxes: 0
+  hasObstacles: 1
 --- !u!4 &1556377705
 Transform:
   m_ObjectHideFlags: 0

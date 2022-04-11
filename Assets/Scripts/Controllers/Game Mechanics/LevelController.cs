@@ -22,6 +22,8 @@ public class LevelController : MonoBehaviour
     public List<int> boxOrder = new List<int>();
     public int numBoxes;
 
+    public bool hasObstacles;
+
     void Start()
     {
         
