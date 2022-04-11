@@ -33,8 +33,11 @@ public class Level3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isOpen = door.GetComponent<DoorController>().isOpen;
+
         isPressed1 = button1.GetComponent<ButtonController>().isPressed;
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
+        
         isVisible = obstacle.GetComponent<ObstacleController>().isVisible;
 
         if(!isPressed1)
