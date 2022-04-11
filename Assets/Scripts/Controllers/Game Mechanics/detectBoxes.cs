@@ -5,18 +5,18 @@ using UnityEngine;
 public class detectBoxes : MonoBehaviour
 {
     public List<int> boxesInArea = new List<int>();
-    // could make a list of all box ids that are in box and upon calling show on obstacle do something to boxes in list
 
-    // Start is called before the first frame update
+    public int numBoxes;
+
     void Start()
     {
-        
+        numBoxes = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        numBoxes = boxesInArea.Count;
+        //Debug.Log("DB : num boxes: "+ numBoxes);
     }
 
     private void Reset()
@@ -24,29 +24,73 @@ public class detectBoxes : MonoBehaviour
         this.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {   
-        if(collision.CompareTag("Box")){
-            Debug.Log("Box Enter");
+
+        // identify box, not box trigger, and not box when held
+        if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
+            //Debug.Log("Box stay");
+            
+            // if box id not in list then 
+            if(!boxesInArea.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
+                // add to list
+                boxesInArea.Add(collision.gameObject.GetComponent<BoxController>().boxID);
+            }
+        
+        }
+
+        // if detecting box trigger, and box is not held, check if in list
+        if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
+            //Debug.Log("Box stay");
+
+            // if box id not in list then 
+            if(!boxesInArea.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
+                // add to list
+                boxesInArea.Add(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
+            }
         }
      
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {   
-        if(collision.CompareTag("Box")){
-            Debug.Log("Box Stay");
+        // identify box, not box trigger, and not box when held
+        if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
+            //Debug.Log("Box enter");
+            
+            // if box id not in list then 
+            if(!boxesInArea.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
+                // add to list
+                boxesInArea.Add(collision.gameObject.GetComponent<BoxController>().boxID);
+            }
+        
         }
 
-     
+        // if detecting box trigger, and box is not held, check if in list
+        if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
+            //Debug.Log("Box enter");
+
+            // if box id not in list then 
+            if(!boxesInArea.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
+                // add to list
+                boxesInArea.Add(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
+            }
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Box")){
-            Debug.Log("Box Exit");
+    {        
+        if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
+            //Debug.Log("Box exit");
+            boxesInArea.Remove(collision.gameObject.GetComponent<BoxController>().boxID);
         }
-        
+
+        if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
+            //Debug.Log("Box exit");
+            boxesInArea.Remove(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
+
+        }
             
     }
 

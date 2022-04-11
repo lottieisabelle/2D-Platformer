@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private LayerMask buttonLayer;
 
     private int numButtons;
+    private int numObstacles;
 
     // player info
     private Rigidbody2D body;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         levelTransform = this.transform.parent.GetComponent<Transform>();
         numButtons = this.transform.parent.GetChild(3).childCount;
+        numObstacles = this.transform.parent.GetChild(6).childCount;
 
         // player info
         speed = 8;
@@ -182,6 +184,14 @@ public class PlayerController : MonoBehaviour
                     this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Remove(tempBoxID);
                 }
             }
+
+            // get 'boxes in area' list for each obstacle, if contains box id then remove it
+            for(int j = 0; j < numObstacles; j++){
+                if(this.transform.parent.GetChild(6).GetChild(j).GetChild(0).GetComponent<detectBoxes>().boxesInArea.Contains(tempBoxID)){
+                    this.transform.parent.GetChild(6).GetChild(j).GetChild(0).GetComponent<detectBoxes>().boxesInArea.Remove(tempBoxID);
+                }
+            }
+
         } 
 
         // pick up box below player
@@ -206,6 +216,14 @@ public class PlayerController : MonoBehaviour
                     this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Remove(tempBoxID);
                 }
             }
+
+            // get 'boxes in area' list for each obstacle, if contains box id then remove it
+            for(int j = 0; j < numObstacles; j++){
+                if(this.transform.parent.GetChild(6).GetChild(j).GetChild(0).GetComponent<detectBoxes>().boxesInArea.Contains(tempBoxID)){
+                    this.transform.parent.GetChild(6).GetChild(j).GetChild(0).GetComponent<detectBoxes>().boxesInArea.Remove(tempBoxID);
+                }
+            }
+
         }
 
 
