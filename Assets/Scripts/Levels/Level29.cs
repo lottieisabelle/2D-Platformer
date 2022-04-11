@@ -5,11 +5,15 @@ using UnityEngine;
 public class Level29 : MonoBehaviour
 {
     // level objects
-    [SerializeField] private GameObject button1;
+    [SerializeField] private GameObject button2;
+    [SerializeField] private GameObject button3;
+    [SerializeField] private GameObject platform;
     [SerializeField] private GameObject door;
 
     // level variables
-    private bool isPressed1;
+    private bool isPressed2;
+    private bool isPressed3;
+    private bool platformVisible;
     private bool isOpen;
 
     // Start is called before the first frame update
@@ -19,8 +23,9 @@ public class Level29 : MonoBehaviour
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 
-        isOpen = false;
-        isOpen = door.GetComponent<DoorController>().isOpen = false;
+        platformVisible = true;
+        platform.GetComponent<PlatformController>().isVisible = platformVisible;
+
     }
 
     // Update is called once per frame
@@ -28,17 +33,34 @@ public class Level29 : MonoBehaviour
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
 
-        isPressed1 = button1.GetComponent<ButtonController>().isPressed;
+        platformVisible = platform.GetComponent<PlatformController>().isVisible;
 
-        if(isPressed1){
-            if(!isOpen){
-                door.GetComponent<DoorController>().openDoor();
+        isPressed2 = button2.GetComponent<ButtonController>().isPressed;
+        isPressed3 = button3.GetComponent<ButtonController>().isPressed;
+
+        if(isPressed3){
+            if(platformVisible){
+                platform.GetComponent<PlatformController>().hide();
             }
         } else {
-            if(isOpen){
-                door.GetComponent<DoorController>().closeDoor();
+            if(!platformVisible){
+                platform.GetComponent<PlatformController>().show();
             }
         }
 
+        if(isPressed2 && isPressed3)
+        {
+            if(!isOpen)
+            {
+                // open door
+                door.GetComponent<DoorController>().openDoor();
+            }
+        } else {
+            if(isOpen)
+            {
+                // close door
+                door.GetComponent<DoorController>().closeDoor();
+            }
+        }
     }
 }
