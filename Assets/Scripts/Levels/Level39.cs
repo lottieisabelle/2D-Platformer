@@ -31,10 +31,10 @@ public class Level39 : MonoBehaviour
         platform.GetComponent<ShowHideController>().isVisible = platformVisible;
 
         obstacleVisible = true;
-        obstacle.GetComponent<ShowHideController>().isVisible = obstacleVisible;
+        obstacle.GetComponent<ObstacleController>().isVisible = obstacleVisible;
 
         obstacleVisible2 = true;
-        obstacle2.GetComponent<ShowHideController>().isVisible = obstacleVisible2;
+        obstacle2.GetComponent<ObstacleController>().isVisible = obstacleVisible2;
 
         // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
@@ -55,8 +55,8 @@ public class Level39 : MonoBehaviour
         isPressed4 = button4.GetComponent<ButtonController>().isPressed;
 
         platformVisible = platform.GetComponent<ShowHideController>().isVisible;
-        obstacleVisible = obstacle.GetComponent<ShowHideController>().isVisible;
-        obstacleVisible2 = obstacle2.GetComponent<ShowHideController>().isVisible;
+        obstacleVisible = obstacle.GetComponent<ObstacleController>().isVisible;
+        obstacleVisible2 = obstacle2.GetComponent<ObstacleController>().isVisible;
 
         if(isPressed3){
             if(platformVisible){
@@ -70,21 +70,21 @@ public class Level39 : MonoBehaviour
 
         if(isPressed4){
             if(obstacleVisible){
-                obstacle.GetComponent<ShowHideController>().hide();
+                obstacle.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible){
-                obstacle.GetComponent<ShowHideController>().show();
+                obstacle.GetComponent<ObstacleController>().show();
             }
         }
 
         if(isPressed1){
             if(obstacleVisible2){
-                obstacle2.GetComponent<ShowHideController>().hide();
+                obstacle2.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible2){
-                obstacle2.GetComponent<ShowHideController>().show();
+                obstacle2.GetComponent<ObstacleController>().show();
             }
         }
 

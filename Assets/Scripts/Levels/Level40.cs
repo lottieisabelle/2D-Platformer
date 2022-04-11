@@ -47,13 +47,13 @@ public class Level40 : MonoBehaviour
 
 
         obstacleVisible1 = true;
-        obstacle1.GetComponent<ShowHideController>().isVisible = obstacleVisible1;
+        obstacle1.GetComponent<ObstacleController>().isVisible = obstacleVisible1;
 
         obstacleVisible2 = true;
-        obstacle2.GetComponent<ShowHideController>().isVisible = obstacleVisible2;
+        obstacle2.GetComponent<ObstacleController>().isVisible = obstacleVisible2;
 
         obstacleVisible3 = true;
-        obstacle3.GetComponent<ShowHideController>().isVisible = obstacleVisible3;
+        obstacle3.GetComponent<ObstacleController>().isVisible = obstacleVisible3;
 
         // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
@@ -77,9 +77,9 @@ public class Level40 : MonoBehaviour
         platformVisible1 = platform1.GetComponent<ShowHideController>().isVisible;
         platformVisible2 = platform2.GetComponent<ShowHideController>().isVisible;
         
-        obstacleVisible1 = obstacle1.GetComponent<ShowHideController>().isVisible;
-        obstacleVisible2 = obstacle2.GetComponent<ShowHideController>().isVisible;
-        obstacleVisible3 = obstacle3.GetComponent<ShowHideController>().isVisible;
+        obstacleVisible1 = obstacle1.GetComponent<ObstacleController>().isVisible;
+        obstacleVisible2 = obstacle2.GetComponent<ObstacleController>().isVisible;
+        obstacleVisible3 = obstacle3.GetComponent<ObstacleController>().isVisible;
 
         // platform1
         if(isPressed4){
@@ -107,33 +107,33 @@ public class Level40 : MonoBehaviour
         // obstacle 1
         if(!isPressed1){
             if(obstacleVisible1){
-                obstacle1.GetComponent<ShowHideController>().hide();
+                obstacle1.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible1){
-                obstacle1.GetComponent<ShowHideController>().show();
+                obstacle1.GetComponent<ObstacleController>().show();
             }
         }
 
         // obstacle 2
         if(isPressed2){
             if(obstacleVisible2){
-                obstacle2.GetComponent<ShowHideController>().hide();
+                obstacle2.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible2){
-                obstacle2.GetComponent<ShowHideController>().show();
+                obstacle2.GetComponent<ObstacleController>().show();
             }
         }
 
         // obstacle 3
         if(isPressed2 && isPressed5){
             if(obstacleVisible3){
-                obstacle3.GetComponent<ShowHideController>().hide();
+                obstacle3.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible3){
-                obstacle3.GetComponent<ShowHideController>().show();
+                obstacle3.GetComponent<ObstacleController>().show();
             }
         }
 
