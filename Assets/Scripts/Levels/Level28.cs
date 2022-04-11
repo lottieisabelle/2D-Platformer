@@ -24,7 +24,7 @@ public class Level28 : MonoBehaviour
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 
         platformVisible = true;
-        platform.GetComponent<ShowHideController>().isVisible = platformVisible;
+        platform.GetComponent<PlatformController>().isVisible = platformVisible;
 
     }
 
@@ -33,16 +33,18 @@ public class Level28 : MonoBehaviour
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
 
+        platformVisible = platform.GetComponent<PlatformController>().isVisible;
+
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
         isPressed3 = button3.GetComponent<ButtonController>().isPressed;
 
         if(isPressed3){
             if(platformVisible){
-                platform.GetComponent<ShowHideController>().hide();
+                platform.GetComponent<PlatformController>().hide();
             }
         } else {
             if(!platformVisible){
-                platform.GetComponent<ShowHideController>().show();
+                platform.GetComponent<PlatformController>().show();
             }
         }
 

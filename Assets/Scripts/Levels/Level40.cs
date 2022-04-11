@@ -40,10 +40,10 @@ public class Level40 : MonoBehaviour
     void Start()
     {
         platformVisible1 = true;
-        platform1.GetComponent<ShowHideController>().isVisible = platformVisible1;
+        platform1.GetComponent<PlatformController>().isVisible = platformVisible1;
 
         platformVisible2 = true;
-        platform2.GetComponent<ShowHideController>().isVisible = platformVisible2;
+        platform2.GetComponent<PlatformController>().isVisible = platformVisible2;
 
 
         obstacleVisible1 = true;
@@ -74,8 +74,8 @@ public class Level40 : MonoBehaviour
         isPressed4 = button4.GetComponent<ButtonController>().isPressed;
         isPressed5 = button5.GetComponent<ButtonController>().isPressed;
 
-        platformVisible1 = platform1.GetComponent<ShowHideController>().isVisible;
-        platformVisible2 = platform2.GetComponent<ShowHideController>().isVisible;
+        platformVisible1 = platform1.GetComponent<PlatformController>().isVisible;
+        platformVisible2 = platform2.GetComponent<PlatformController>().isVisible;
         
         obstacleVisible1 = obstacle1.GetComponent<ObstacleController>().isVisible;
         obstacleVisible2 = obstacle2.GetComponent<ObstacleController>().isVisible;
@@ -84,23 +84,23 @@ public class Level40 : MonoBehaviour
         // platform1
         if(isPressed4){
             if(platformVisible1){
-                platform1.GetComponent<ShowHideController>().hide();
+                platform1.GetComponent<PlatformController>().hide();
             }
         } else {
             if(!platformVisible1){
-                platform1.GetComponent<ShowHideController>().show();
+                platform1.GetComponent<PlatformController>().show();
             }
         }
 
         // platform2
         if(isPressed1 && isPressed3){
             if(platformVisible2){
-                platform2.GetComponent<ShowHideController>().hide();
+                platform2.GetComponent<PlatformController>().hide();
                 button5.GetComponent<ButtonController>().blockPressed = true;
             }
         } else {
             if(!platformVisible2){
-                platform2.GetComponent<ShowHideController>().show();
+                platform2.GetComponent<PlatformController>().show();
             }
         }
 

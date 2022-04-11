@@ -9608,10 +9608,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1467270890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12a07cbc2732474586471b7950ec713, type: 3}
+  m_Script: {fileID: 11500000, guid: ad4ebf7e2328cf0499c31675be2bcd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isVisible: 0
+  isVisible: 1
   taskText: {fileID: 853596749}
 --- !u!61 &1467270892
 BoxCollider2D:

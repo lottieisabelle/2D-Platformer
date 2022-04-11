@@ -22,7 +22,7 @@ public class Level16 : MonoBehaviour
     void Start()
     {
         isVisible = true;
-        platform.GetComponent<ShowHideController>().isVisible = isVisible;
+        platform.GetComponent<PlatformController>().isVisible = isVisible;
 
         // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
@@ -41,15 +41,15 @@ public class Level16 : MonoBehaviour
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
         isPressed3 = button3.GetComponent<ButtonController>().isPressed;
 
-        isVisible = platform.GetComponent<ShowHideController>().isVisible;
+        isVisible = platform.GetComponent<PlatformController>().isVisible;
 
         if(isPressed2){
             if(isVisible){
-                platform.GetComponent<ShowHideController>().hide();
+                platform.GetComponent<PlatformController>().hide();
             }
         } else {
             if(!isVisible){
-                platform.GetComponent<ShowHideController>().show();
+                platform.GetComponent<PlatformController>().show();
             }
         }
 

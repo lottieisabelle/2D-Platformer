@@ -28,7 +28,7 @@ public class Level39 : MonoBehaviour
     void Start()
     {
         platformVisible = true;
-        platform.GetComponent<ShowHideController>().isVisible = platformVisible;
+        platform.GetComponent<PlatformController>().isVisible = platformVisible;
 
         obstacleVisible = true;
         obstacle.GetComponent<ObstacleController>().isVisible = obstacleVisible;
@@ -54,17 +54,17 @@ public class Level39 : MonoBehaviour
         isPressed3 = button3.GetComponent<ButtonController>().isPressed;
         isPressed4 = button4.GetComponent<ButtonController>().isPressed;
 
-        platformVisible = platform.GetComponent<ShowHideController>().isVisible;
+        platformVisible = platform.GetComponent<PlatformController>().isVisible;
         obstacleVisible = obstacle.GetComponent<ObstacleController>().isVisible;
         obstacleVisible2 = obstacle2.GetComponent<ObstacleController>().isVisible;
 
         if(isPressed3){
             if(platformVisible){
-                platform.GetComponent<ShowHideController>().hide();
+                platform.GetComponent<PlatformController>().hide();
             }
         } else {
             if(!platformVisible){
-                platform.GetComponent<ShowHideController>().show();
+                platform.GetComponent<PlatformController>().show();
             }
         }
 

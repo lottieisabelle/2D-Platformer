@@ -527,7 +527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 13849466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12a07cbc2732474586471b7950ec713, type: 3}
+  m_Script: {fileID: 11500000, guid: ad4ebf7e2328cf0499c31675be2bcd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
@@ -6670,7 +6670,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.30764, y: -5.6534843}
+  m_Offset: {x: -2.6020546, y: -5.6534843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6681,7 +6681,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.2841816, y: 0.95308304}
+  m_Size: {x: 5.6953526, y: 0.95308304}
   m_EdgeRadius: 0
 --- !u!1 &576326261
 GameObject:
@@ -15816,7 +15816,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1318833727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12a07cbc2732474586471b7950ec713, type: 3}
+  m_Script: {fileID: 11500000, guid: ad4ebf7e2328cf0499c31675be2bcd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
