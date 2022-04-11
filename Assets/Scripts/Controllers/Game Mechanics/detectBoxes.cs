@@ -29,7 +29,6 @@ public class detectBoxes : MonoBehaviour
 
         // identify box, not box trigger, and not box when held
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
-            //Debug.Log("Box stay");
             
             // if box id not in list then 
             if(!boxesInArea.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
@@ -41,7 +40,6 @@ public class detectBoxes : MonoBehaviour
 
         // if detecting box trigger, and box is not held, check if in list
         if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
-            //Debug.Log("Box stay");
 
             // if box id not in list then 
             if(!boxesInArea.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
@@ -56,7 +54,6 @@ public class detectBoxes : MonoBehaviour
     {   
         // identify box, not box trigger, and not box when held
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
-            //Debug.Log("Box enter");
             
             // if box id not in list then 
             if(!boxesInArea.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
@@ -68,7 +65,6 @@ public class detectBoxes : MonoBehaviour
 
         // if detecting box trigger, and box is not held, check if in list
         if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
-            //Debug.Log("Box enter");
 
             // if box id not in list then 
             if(!boxesInArea.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
@@ -82,12 +78,10 @@ public class detectBoxes : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {        
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
-            //Debug.Log("Box exit");
             boxesInArea.Remove(collision.gameObject.GetComponent<BoxController>().boxID);
         }
 
         if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
-            //Debug.Log("Box exit");
             boxesInArea.Remove(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
 
         }

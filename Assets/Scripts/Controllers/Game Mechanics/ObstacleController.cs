@@ -46,8 +46,6 @@ public class ObstacleController : MonoBehaviour
         if(hasTrigger){
             
             if(numBoxes != 0){
-                Debug.Log(numBoxes + " box(es) detected");
-
                 // for every box (not held) in level - if in area : disable (add to disabled list)
                 int totalBoxes = this.transform.parent.parent.GetChild(4).childCount;
                 for(int x = 0; x < totalBoxes; x++){
@@ -59,9 +57,7 @@ public class ObstacleController : MonoBehaviour
                     }
                 }
 
-            } else {
-                Debug.Log("no boxes");
-            }
+            } 
 
             this.transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
             this.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;

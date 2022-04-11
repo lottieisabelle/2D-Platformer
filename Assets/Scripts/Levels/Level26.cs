@@ -27,7 +27,7 @@ public class Level26 : MonoBehaviour
         platform.GetComponent<ShowHideController>().isVisible = platformVisible;
 
         obstacleVisible = true;
-        obstacle.GetComponent<ShowHideController>().isVisible = obstacleVisible;
+        obstacle.GetComponent<ObstacleController>().isVisible = obstacleVisible;
 
         // hide interact icons F and W
         this.transform.GetChild(1).GetComponent<IconController>().hide();
@@ -47,7 +47,7 @@ public class Level26 : MonoBehaviour
         isPressed3 = button3.GetComponent<ButtonController>().isPressed;
 
         platformVisible = platform.GetComponent<ShowHideController>().isVisible;
-        obstacleVisible = obstacle.GetComponent<ShowHideController>().isVisible;
+        obstacleVisible = obstacle.GetComponent<ObstacleController>().isVisible;
 
 
         if(!isPressed2){
@@ -62,11 +62,11 @@ public class Level26 : MonoBehaviour
 
         if(isPressed1 || isPressed3){
             if(obstacleVisible){
-                obstacle.GetComponent<ShowHideController>().hide();
+                obstacle.GetComponent<ObstacleController>().hide();
             }
         } else {
             if(!obstacleVisible){
-                obstacle.GetComponent<ShowHideController>().show();
+                obstacle.GetComponent<ObstacleController>().show();
             }
         }
 
