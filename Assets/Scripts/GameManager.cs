@@ -19,30 +19,30 @@ public class GameManager : MonoBehaviour
 
         if(passwords.Count == 0){      // leve1 number
             passwords.Add("5kX2SRP5"); // 1
-            passwords.Add("9Ilzk3Iz"); // 2
+            passwords.Add("90xzk3Jz"); // 2
             passwords.Add("U336QRe6"); // 3
             passwords.Add("L8PG9W7y"); // 4
-            passwords.Add("fHrI1cVE"); // 5
+            passwords.Add("fHr0LcVE"); // 5
             passwords.Add("76S9e8A9"); // 6
             passwords.Add("QkZ2vPBj"); // 7
-            passwords.Add("5R7A3ilF"); // 8
+            passwords.Add("5R7A3iXF"); // 8
             passwords.Add("2zGTsmhQ"); // 9
             passwords.Add("zoHm5pDr"); // 10
 
             passwords.Add("qxVE2Cms"); // 11
             passwords.Add("c37UxFzm"); // 12
-            passwords.Add("nL7xsH8I"); // 13
+            passwords.Add("nL7xsH8o"); // 13
             passwords.Add("2991RpJq"); // 14
             passwords.Add("y17vBzxd"); // 15
             passwords.Add("j4uT4F0H"); // 16
             passwords.Add("05xs7PCR"); // 17
-            passwords.Add("310aI6Yb"); // 18
-            passwords.Add("1y92Ix7p"); // 19
+            passwords.Add("310aK6Yb"); // 18
+            passwords.Add("1y92Sx7p"); // 19
             passwords.Add("opBRad06"); // 20
 
             passwords.Add("3nd02L51"); // 21
-            passwords.Add("sWiG46iM"); // 22
-            passwords.Add("2lO21G2p"); // 23
+            passwords.Add("sW0G46KM"); // 22
+            passwords.Add("2MO21G2p"); // 23
             passwords.Add("nX350Yf7"); // 24
             passwords.Add("fuLkXW62"); // 25
             passwords.Add("Yx7Lhg85"); // 26
@@ -51,16 +51,16 @@ public class GameManager : MonoBehaviour
             passwords.Add("AHnSE28g"); // 29
             passwords.Add("Te3ZD5B6"); // 30
 
-            passwords.Add("8uB4lbeK"); // 31
+            passwords.Add("8uB40beK"); // 31
             passwords.Add("k3YV01Cx"); // 32
             passwords.Add("7xyW3kDe"); // 33
             passwords.Add("mqJ5c0K0"); // 34
             passwords.Add("aLu9m30N"); // 35
             passwords.Add("uG3abGH9"); // 36
-            passwords.Add("tzYgI184"); // 37
+            passwords.Add("tzYg0184"); // 37
             passwords.Add("kmSw9TRN"); // 38
             passwords.Add("A3K21yaG"); // 39
-            passwords.Add("QlHTT9I5"); // 40
+            passwords.Add("69Lz0CDH"); // 40
 
         }
         
