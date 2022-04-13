@@ -114,12 +114,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // check if box on head
-        if(handsEmpty)
-        {
+        if(handsEmpty){
             onHead();
         } else {
-            // set box position to 0, 0, 0 to prevent sliding
-            //this.transform.GetChild(1).GetChild(0).gameObject.transform.localScale = new Vector3(0,0,0);
+            // set box velocity to 0, 0 to prevent sliding
+            this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 
         }
         
