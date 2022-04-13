@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {   
         // check if player can enter door
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.E))
             enterDoor();
 
         if(pickUpCoolDown > 0.2f)
