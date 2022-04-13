@@ -251,6 +251,7 @@ public class PlayerController : MonoBehaviour
 
             handsEmpty = true;
             holdingBoxID = 0;
+            pickUpCoolDown = 0;
 
             if(putBehind()){
                 // if hit wall or obstacle, put down in behind position
@@ -260,8 +261,35 @@ public class PlayerController : MonoBehaviour
                 holdCheck.collider.gameObject.transform.position = place.position;
             }
 
-            
-        } 
+        } else {
+            // what to do if game glitches and box is not above players head 
+
+            // box is stored in 'boxholder' parent in player object
+            int boxholding = this.transform.GetChild(1).childCount;
+
+            if(boxholding != 0){
+                this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().isKinematic = false;
+                this.transform.GetChild(1).GetChild(0).GetComponent<BoxController>().isHeld = false;
+
+                this.transform.GetChild(1).GetChild(0).gameObject.layer = 9; // put back in box layer
+
+                handsEmpty = true;
+                holdingBoxID = 0;
+                pickUpCoolDown = 0;
+
+                if(putBehind()){
+                    // if hit wall or obstacle, put down in behind position
+                    this.transform.GetChild(1).GetChild(0).gameObject.transform.position = placeBehind.position;
+                } else {
+                    // put down in front
+                    this.transform.GetChild(1).GetChild(0).gameObject.transform.position = place.position;
+                }
+
+                this.transform.GetChild(1).GetChild(0).gameObject.transform.parent = boxContainer;
+                
+            }
+
+        }
     }
 
     private bool putBehind()
