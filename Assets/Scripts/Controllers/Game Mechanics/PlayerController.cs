@@ -116,11 +116,7 @@ public class PlayerController : MonoBehaviour
         // check if box on head
         if(handsEmpty){
             onHead();
-        } else {
-            // set box velocity to 0, 0 to prevent sliding
-            this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
-
-        }
+        } 
         
         // gets input from left and right arrow keys, negative = left, positive = right
         horizontalInput = Input.GetAxis("Horizontal");
@@ -182,6 +178,9 @@ public class PlayerController : MonoBehaviour
             holdingBoxID = tempBoxID;
             pickUpCoolDown = 0;
 
+            // set box velocity to 0, 0 to prevent sliding
+            this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+
             // get 'items on button' lists from each button, if contains box id then remove from list
             for(int i = 0; i < numButtons; i++){
                 if(this.transform.parent.GetChild(3).GetChild(i).GetChild(1).GetComponent<Pressable>().itemsOnbutton.Contains(tempBoxID)){
@@ -231,6 +230,9 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+
+            // set box velocity to 0, 0 to prevent sliding
+            this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             
 
         }
@@ -301,7 +303,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D wallCheck = Physics2D.Raycast(boxHolder.position, Vector2.right * transform.localScale, 1.3f, wallLayer);
         RaycastHit2D obsCheck = Physics2D.Raycast(boxHolder.position, Vector2.right * transform.localScale, 1.3f, blockLayer);
         RaycastHit2D boxCheck = Physics2D.Raycast(boxHolder.position, Vector2.right * transform.localScale, 1.3f, boxLayer);
-
+        
         if(wallCheck.collider != null || obsCheck.collider != null || boxCheck.collider != null){
             return true;
         } else {
@@ -312,7 +314,7 @@ public class PlayerController : MonoBehaviour
     private void onHead()
     {
         // check for a box on players head
-        RaycastHit2D aboveCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 0.4f, boxLayer);
+        RaycastHit2D aboveCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size/2, 0, Vector2.up, 0.4f, boxLayer);
         
         if(aboveCheck.collider != null && aboveCheck.collider.tag == "Box"){
 
