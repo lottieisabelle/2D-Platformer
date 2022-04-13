@@ -79,7 +79,6 @@ public class ButtonController : MonoBehaviour
             {
                 isPressed = true;
             } else {
-                Debug.Log("less");
                 isPressed = false;
             }
 
