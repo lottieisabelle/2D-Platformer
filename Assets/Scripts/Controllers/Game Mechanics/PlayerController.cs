@@ -117,6 +117,10 @@ public class PlayerController : MonoBehaviour
         if(handsEmpty)
         {
             onHead();
+        } else {
+            // set box position to 0, 0, 0 to prevent sliding
+            //this.transform.GetChild(1).GetChild(0).gameObject.transform.localScale = new Vector3(0,0,0);
+
         }
         
         // gets input from left and right arrow keys, negative = left, positive = right
