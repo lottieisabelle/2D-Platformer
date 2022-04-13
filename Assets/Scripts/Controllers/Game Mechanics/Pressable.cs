@@ -58,10 +58,12 @@ public class Pressable : MonoBehaviour
         boxChain.Clear();
 
         // check if player is on top of any boxes directly on the button
-        playerOnButton = 0;
+        //playerOnButton = 0;
         int boxPlayerOn = this.transform.parent.parent.parent.GetChild(5).GetComponent<PlayerController>().onBoxID;
         if(boxPlayerOn != 0 && itemsOnbutton.Contains(boxPlayerOn)){
             playerOnButton = 1;
+        } else {
+            playerOnButton = 0;
         }
 
         // for each box directly on the button
@@ -97,6 +99,12 @@ public class Pressable : MonoBehaviour
                 }
             }
             
+        }
+
+        if(boxPlayerOn != 0 && (itemsOnbutton.Contains(boxPlayerOn) || boxChain.Contains(boxPlayerOn))){
+            playerOnButton = 1;
+        } else {
+            playerOnButton = 0;
         }
 
         pressedCount = itemsOnbutton.Count + boxChain.Count + playerOnButton;

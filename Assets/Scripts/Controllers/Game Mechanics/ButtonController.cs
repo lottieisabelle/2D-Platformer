@@ -61,26 +61,27 @@ public class ButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // get number of items on the button
-        if(!(this.transform.GetChild(1).GetComponent<Pressable>().blockPressed)){
-
-            this.transform.GetChild(1).GetComponent<Pressable>().getPressedCount();
-            pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
-
-        } else {
-            pressedCount = lights;
-        }
-        
-        // the button is pressed when the number of items on the button is at least the number of lights
-        if(pressedCount >= lights)
-        {
-            isPressed = true;
-        } else {
-            isPressed = false;
-        }
-
-        // delay visual graphics changing to prevent glitching
+        // delay visual graphics changing to prevent/delay glitching
         if(changeTimer > 0.15f){
+
+            // get number of items on the button
+            if(!(this.transform.GetChild(1).GetComponent<Pressable>().blockPressed)){
+
+                this.transform.GetChild(1).GetComponent<Pressable>().getPressedCount();
+                pressedCount = this.transform.GetChild(1).GetComponent<Pressable>().pressedCount;
+
+            } else {
+                pressedCount = lights;
+            }
+
+            // the button is pressed when the number of items on the button is at least the number of lights
+            if(pressedCount >= lights)
+            {
+                isPressed = true;
+            } else {
+                Debug.Log("less");
+                isPressed = false;
+            }
 
             // turn on the same number of lights as there is items on the button (up to the number of lights)
             for(int i = 0; i < lights; i++)
