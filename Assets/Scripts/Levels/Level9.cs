@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level9 : MonoBehaviour
 {
+    // used for level 9 and level 20
+    
     // level objects
     [SerializeField] private GameObject button1;
     [SerializeField] private GameObject button2;
@@ -21,8 +23,6 @@ public class Level9 : MonoBehaviour
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 
-        isOpen = false;
-        isOpen = door.GetComponent<DoorController>().isOpen = false;
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Level9 : MonoBehaviour
         isPressed1 = button1.GetComponent<ButtonController>().isPressed;
         isPressed2 = button2.GetComponent<ButtonController>().isPressed;
 
-        if(isPressed2)
+        if(isPressed1 || isPressed2)
         {
             if(!isOpen)
             {

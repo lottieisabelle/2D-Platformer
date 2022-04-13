@@ -69,6 +69,8 @@ public class LevelController : MonoBehaviour
                 NextLevelSceneID = 6;
             } else if(levelName == "Tutorial2"){
                 NextLevelSceneID = 7;
+            } else if(levelName == "Tutorial3"){
+                NextLevelSceneID = 48;
             } else {
                 NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
             }
