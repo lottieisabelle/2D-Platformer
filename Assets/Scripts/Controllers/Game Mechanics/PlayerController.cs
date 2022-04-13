@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
         // check jump cool down
         if(jumpCoolDown > 0.2f){
 
-            if(isGrounded() && Input.GetKey(KeyCode.Space)){
+            if(isGrounded() && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))){
                 // jump
                 body.velocity = new Vector2(body.velocity.x, jumpPower);
                 move.SetTrigger("Jump"); // changes animation
