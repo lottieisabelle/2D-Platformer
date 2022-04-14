@@ -49,7 +49,7 @@ public class LevelController : MonoBehaviour
 
     IEnumerator Wait()
     {
-        //yield on a new YieldInstruction that waits for 3 seconds.
+        //yield on a new YieldInstruction that waits for 1 seconds.
         yield return new WaitForSeconds(1);
 
         // tutorial levels have level number 0, and don't have/need level codes
