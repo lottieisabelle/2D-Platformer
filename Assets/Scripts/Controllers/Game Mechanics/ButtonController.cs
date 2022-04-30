@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    // button children
-    // child 0 = colour label
-    // child 1 = trigger
-    // child 2 = unpressed
-    // child 3 = pressed
-    // child 4 = lights
-
     [SerializeField] public string colour;
     [SerializeField] public bool blockPressed;
     [SerializeField] public Sprite lightOn, lightOff;
@@ -22,7 +15,6 @@ public class ButtonController : MonoBehaviour
 
     private float changeTimer;
 
-    // Start is called before the first frame update
     void Start()
     {
         // show or hide button labels
@@ -58,7 +50,6 @@ public class ButtonController : MonoBehaviour
         changeTimer = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // delay visual graphics changing to prevent/delay glitching
