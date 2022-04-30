@@ -9,7 +9,6 @@ public class DoorController : MonoBehaviour
     private Vector3 openPosition;
     private Vector3 closedPosition;
     
-    // Start is called before the first frame update
     void Start()
     {
         openPosition = new Vector3(-1.61f , this.transform.GetChild(0).GetComponent<Transform>().localPosition.y , this.transform.GetChild(0).GetComponent<Transform>().localPosition.z);
