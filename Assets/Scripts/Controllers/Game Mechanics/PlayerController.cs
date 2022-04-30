@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    // level info
+    // level information
     private Transform levelTransform;
 
     private LayerMask blockLayer;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private int numObstacles;
     private bool hasObstacles;
 
-    // player info
+    // player information
     private Rigidbody2D body;
     private Animator move;
     private BoxCollider2D boxCollider;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private float jumpPower;
     public int onBoxID;
     public bool canEnter;
+    private float jumpCoolDown;
+    private float horizontalInput;
 
     // grab controller
     public bool handsEmpty;
@@ -38,9 +40,6 @@ public class PlayerController : MonoBehaviour
     private Transform place;
     private Transform holdDetect;
     private Transform placeBehind;
-
-    private float jumpCoolDown;
-    private float horizontalInput;
 
     // runs when the script is loaded
     private void Awake()
@@ -63,8 +62,7 @@ public class PlayerController : MonoBehaviour
             numObstacles = 0;
         }
         
-
-        // player info
+        // set player information
         speed = 8;
         jumpPower = 15;
         body = GetComponent<Rigidbody2D>();
@@ -145,7 +143,7 @@ public class PlayerController : MonoBehaviour
             if(isGrounded() && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))){
                 // jump
                 body.velocity = new Vector2(body.velocity.x, jumpPower);
-                move.SetTrigger("Jump"); // changes animation
+                move.SetTrigger("Jump"); // change animation
 
                 jumpCoolDown = 0;
             }
@@ -172,7 +170,7 @@ public class PlayerController : MonoBehaviour
             grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             grabCheck.collider.gameObject.GetComponent<BoxController>().isHeld = true;
 
-            grabCheck.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
+            grabCheck.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and can jump when holding box
 
             handsEmpty = false;
             holdingBoxID = tempBoxID;
@@ -209,7 +207,7 @@ public class PlayerController : MonoBehaviour
             grabCheckDown.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             grabCheckDown.collider.gameObject.GetComponent<BoxController>().isHeld = true;
 
-            grabCheckDown.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and jump
+            grabCheckDown.collider.gameObject.layer = 11; // put in box held layer, therefore can check for held box and can jump when holding box
 
             handsEmpty = false;
             holdingBoxID = tempBoxID;
@@ -234,9 +232,7 @@ public class PlayerController : MonoBehaviour
             // set box velocity to 0, 0 to prevent sliding
             this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             
-
         }
-
 
     }
 
@@ -267,11 +263,12 @@ public class PlayerController : MonoBehaviour
             }
 
         } else {
-            // what to do if game glitches and box is not above players head 
+            // if game glitches and box is not directly above players head 
 
             // box is stored in 'boxholder' parent in player object
             int boxholding = this.transform.GetChild(1).childCount;
 
+            // if box is held
             if(boxholding != 0){
                 this.transform.GetChild(1).GetChild(0).GetComponent<Rigidbody2D>().isKinematic = false;
                 this.transform.GetChild(1).GetChild(0).GetComponent<BoxController>().isHeld = false;
@@ -297,6 +294,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // function determines if the box needs to be placed behind the player if there is an obstruction in front
     private bool putBehind()
     {
         // check for walls and obstacles, put box behind player if wall or obstacle detected
@@ -311,9 +309,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // check for a box on players head
     private void onHead()
     {
-        // check for a box on players head
         RaycastHit2D aboveCheck = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size/2, 0, Vector2.up, 0.4f, boxLayer);
         
         if(aboveCheck.collider != null && aboveCheck.collider.tag == "Box"){
@@ -330,14 +328,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // function allows player to go to next level
     private void enterDoor()
     {
         if(canEnter && handsEmpty)
         {
+            // call to change scene
             this.transform.parent.GetComponent<LevelController>().nextLevel();
         }
     }
 
+    // function returns whether or not the player is on the ground
     private bool isGrounded()
     {   
         // casts rays only on ground 
@@ -356,6 +357,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // function returns whether or not the player is against an object
     private bool againstObject()
     {
         // casts rays only on wall
