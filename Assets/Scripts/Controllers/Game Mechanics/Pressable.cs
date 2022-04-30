@@ -14,7 +14,6 @@ public class Pressable : MonoBehaviour
     public int pressedCount;
     private int playerOnButton;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerOnButton = 0;
@@ -24,7 +23,7 @@ public class Pressable : MonoBehaviour
 
         if(blockPressed)
         {
-            // deactivate boxcollider - as box is not pressable
+            // deactivate boxcollider - as button is not pressable
             this.GetComponent<BoxCollider2D>().enabled = false;
             pressedCount = this.transform.parent.GetComponent<ButtonController>().lights;
         } else {
@@ -39,7 +38,7 @@ public class Pressable : MonoBehaviour
 
         if(blockPressed)
         {
-            // deactivate boxcollider - as box is not pressable
+            // deactivate boxcollider - as button is not pressable
             this.GetComponent<BoxCollider2D>().enabled = false;
             pressedCount = this.transform.parent.GetComponent<ButtonController>().lights;
         } else {
@@ -48,6 +47,7 @@ public class Pressable : MonoBehaviour
         }
     }
 
+    // calculate the number of objects on the button
     public void getPressedCount()
     {
         // gets the box IDs in order of which they are stored in hierarchy - as it changes when boxes are picked up and moved
@@ -58,7 +58,6 @@ public class Pressable : MonoBehaviour
         boxChain.Clear();
 
         // check if player is on top of any boxes directly on the button
-        //playerOnButton = 0;
         int boxPlayerOn = this.transform.parent.parent.parent.GetChild(5).GetComponent<PlayerController>().onBoxID;
         if(boxPlayerOn != 0 && itemsOnbutton.Contains(boxPlayerOn)){
             playerOnButton = 1;
@@ -69,7 +68,7 @@ public class Pressable : MonoBehaviour
         // for each box directly on the button
         for(int x = 0; x < itemsOnbutton.Count; x++){
 
-            if(itemsOnbutton[x] != 0){ // this is the player - don't need to look for boxes above 
+            if(itemsOnbutton[x] != 0){ // 0 is the player - don't need to look for boxes above 
 
                 int boxAbove = 0;
                 // gets child index of box
@@ -95,10 +94,8 @@ public class Pressable : MonoBehaviour
                         // gets child index of box above
                         index = boxOrder.IndexOf(boxAbove);
                     }
-
                 }
             }
-            
         }
 
         if(boxPlayerOn != 0 && (itemsOnbutton.Contains(boxPlayerOn) || boxChain.Contains(boxPlayerOn))){
@@ -106,9 +103,8 @@ public class Pressable : MonoBehaviour
         } else {
             playerOnButton = 0;
         }
-
+        // total number of objects on the button
         pressedCount = itemsOnbutton.Count + boxChain.Count + playerOnButton;
-
     }
 
     private void Reset()
@@ -121,9 +117,8 @@ public class Pressable : MonoBehaviour
         // identify box, not box trigger, and not box when held
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
 
-            // if box id not in list then 
+            // if box id not in list then add to list
             if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
-                // add to list
                 itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
             }
         }
@@ -131,9 +126,8 @@ public class Pressable : MonoBehaviour
         // if detecting box trigger, and box is not held, check if in list
         if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
 
-            // if box id not in list then 
+            // if box id not in list then add to list
             if(!itemsOnbutton.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
-                // add to list
                 itemsOnbutton.Add(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
             }
         }
@@ -147,19 +141,16 @@ public class Pressable : MonoBehaviour
 
         // identify box, not box trigger, or box when held
         if(collision.CompareTag("Box") && collision.gameObject.layer == 9){
-            // if box id not in list then 
+            // if box id not in list then add to list
             if(!itemsOnbutton.Contains(collision.gameObject.GetComponent<BoxController>().boxID)){
-                // add to list
                 itemsOnbutton.Add(collision.gameObject.GetComponent<BoxController>().boxID);
             }
         }
 
         // if detecting box trigger, do the same
         if(collision.CompareTag("BoxTrigger") && !collision.gameObject.transform.parent.GetComponent<BoxController>().isHeld){
-
-            // if box id not in list then 
+            // if box id not in list then add to list
             if(!itemsOnbutton.Contains(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID)){
-                // add to list
                 itemsOnbutton.Add(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
             }
         }
@@ -167,6 +158,7 @@ public class Pressable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // remove items from on box list when exit button trigger
         if(collision.CompareTag("Player")){
             itemsOnbutton.Remove(0);
         }
@@ -179,8 +171,6 @@ public class Pressable : MonoBehaviour
             itemsOnbutton.Remove(collision.gameObject.transform.parent.GetComponent<BoxController>().boxID);
 
         }
-
     }
-
 }
 
