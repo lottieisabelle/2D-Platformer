@@ -7,7 +7,6 @@ public class PlatformController : MonoBehaviour
 {
     public bool isVisible;
     [SerializeField] public TextMeshProUGUI taskText;
-
     private int num;
 
     private Color solidPlat;
@@ -35,17 +34,14 @@ public class PlatformController : MonoBehaviour
         
         isVisible = true;
 
+        // update visibility of platform
         if(num == 0){
             this.GetComponent<SpriteRenderer>().color = solidPlat;
-            
         } else {
-
             for(int i = 0; i < num; i++){
                 this.transform.GetChild(i).GetComponent<SpriteRenderer>().color = solidPlat;
             }
-
         }
-        
     }
 
     public void hide()
@@ -55,16 +51,13 @@ public class PlatformController : MonoBehaviour
 
         isVisible = false;
 
+        // update visibility of platform
         if(num == 0){
             this.GetComponent<SpriteRenderer>().color = transparentPlat;
-            
         } else {
-
             for(int i = 0; i < num; i++){
                 this.transform.GetChild(i).GetComponent<SpriteRenderer>().color = transparentPlat;
             }
-
         }
-        
     }
 }
