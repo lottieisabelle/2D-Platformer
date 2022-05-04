@@ -6399,7 +6399,6 @@ GameObject:
   - component: {fileID: 943485667}
   - component: {fileID: 943485666}
   - component: {fileID: 943485665}
-  - component: {fileID: 943485664}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -6426,18 +6425,6 @@ RectTransform:
   m_AnchoredPosition: {x: -9.824637, y: 5.1305003}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &943485664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943485662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &943485665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6454,7 +6441,7 @@ MonoBehaviour:
   _default: {fileID: 21300000, guid: 957fa0995e739514bb0a7b601a157d13, type: 3}
   _pressed: {fileID: 21300000, guid: 3db0b61ebc6f3bf4e9f51f09d58b422d, type: 3}
   isLocked: 0
-  sceneID: 0
+  sceneID: 1
 --- !u!114 &943485666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6499,10 +6486,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 943485664}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 943485665}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9089,7 +9076,6 @@ GameObject:
   - component: {fileID: 1399220082}
   - component: {fileID: 1399220081}
   - component: {fileID: 1399220080}
-  - component: {fileID: 1399220079}
   m_Layer: 5
   m_Name: Refresh Button
   m_TagString: Untagged
@@ -9116,18 +9102,6 @@ RectTransform:
   m_AnchoredPosition: {x: -9.824637, y: 4.2}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1399220079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399220077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1399220080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9144,7 +9118,7 @@ MonoBehaviour:
   _default: {fileID: 21300000, guid: 62a1ec312d2c0e845a531a89082cd08a, type: 3}
   _pressed: {fileID: 21300000, guid: 3f404325fff74474db2db0a474fde8da, type: 3}
   isLocked: 0
-  sceneID: 0
+  sceneID: 22
 --- !u!114 &1399220081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9189,10 +9163,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1399220079}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1399220080}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
