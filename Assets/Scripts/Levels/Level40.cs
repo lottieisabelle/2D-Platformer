@@ -36,7 +36,6 @@ public class Level40 : MonoBehaviour
 
     private bool isOpen;
 
-    // Start is called before the first frame update
     void Start()
     {
         platformVisible1 = true;
@@ -55,7 +54,7 @@ public class Level40 : MonoBehaviour
         obstacleVisible3 = true;
         obstacle3.GetComponent<ObstacleController>().isVisible = obstacleVisible3;
 
-        // hide interact icons F and W
+        // hide interact icons
         this.transform.GetChild(1).GetComponent<IconController>().hide();
         this.transform.GetChild(2).GetComponent<IconController>().hide();
 
@@ -63,7 +62,6 @@ public class Level40 : MonoBehaviour
         isOpen = door.GetComponent<DoorController>().isOpen = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         isOpen = door.GetComponent<DoorController>().isOpen;
