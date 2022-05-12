@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enterable : MonoBehaviour
 {
-    //[SerializeField] private string level;
-    //[SerializeField] GameObject interactIconE;
-
     private string level;
 
     void Start()
@@ -19,28 +16,26 @@ public class Enterable : MonoBehaviour
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
+    // update players ability to exit level
     private void OnTriggerEnter2D(Collider2D collision)
     {   
         if(collision.CompareTag("Player"))
             collision.GetComponent<PlayerController>().canEnter = true;
-
+            // visibility of the exit interact icon does not change in tutorial part 1
             if(level != "Tutorial1")
             {
-                // show the E if it's not the tutorial level
-                //interactIconE.GetComponent<IconController>().show();
                 this.transform.parent.parent.GetChild(2).GetComponent<IconController>().show();
             }
     }
 
+    // update players ability to exit level
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
             collision.GetComponent<PlayerController>().canEnter = false;
-
+            // visibility of the exit interact icon does not change in tutorial part 1
             if(level != "Tutorial1")
             {
-                // hide the E if it's not the tutorial level
-                //interactIconE.GetComponent<IconController>().hide();
                 this.transform.parent.parent.GetChild(2).GetComponent<IconController>().hide();
             }
     }

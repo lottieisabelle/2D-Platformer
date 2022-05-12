@@ -1616,7 +1616,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c1f885258e7b79e429ec21d5537c1b5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3810,7 +3810,6 @@ GameObject:
   - component: {fileID: 950262419}
   - component: {fileID: 950262418}
   - component: {fileID: 950262417}
-  - component: {fileID: 950262416}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -3837,18 +3836,6 @@ RectTransform:
   m_AnchoredPosition: {x: -9.824637, y: 5.1305003}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &950262416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950262414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &950262417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3865,7 +3852,7 @@ MonoBehaviour:
   _default: {fileID: 21300000, guid: 957fa0995e739514bb0a7b601a157d13, type: 3}
   _pressed: {fileID: 21300000, guid: 3db0b61ebc6f3bf4e9f51f09d58b422d, type: 3}
   isLocked: 0
-  sceneID: 0
+  sceneID: 1
 --- !u!114 &950262418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3910,10 +3897,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 950262416}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 950262417}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5631,7 +5618,7 @@ GameObject:
   - component: {fileID: 1373675695}
   - component: {fileID: 1373675694}
   m_Layer: 0
-  m_Name: interactIconW
+  m_Name: interactIconExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5664,9 +5651,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1373675695}
-  _default: {fileID: 21300000, guid: 15c381f43146fbd44b5f38d3d9e31c9a, type: 3}
-  _pressed: {fileID: 21300000, guid: f8d4d2a37bf33b54786c4b0ddfb56207, type: 3}
-  key: W
+  _default: {fileID: 21300000, guid: 74926bec803154e49a8b9c7e93acad4a, type: 3}
+  _pressed: {fileID: 21300000, guid: 79e1f533bac5ba24daabdd409e920144, type: 3}
+  key: E
 --- !u!212 &1373675695
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5707,7 +5694,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 15c381f43146fbd44b5f38d3d9e31c9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74926bec803154e49a8b9c7e93acad4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6405,7 +6392,6 @@ GameObject:
   - component: {fileID: 1535873232}
   - component: {fileID: 1535873231}
   - component: {fileID: 1535873230}
-  - component: {fileID: 1535873229}
   m_Layer: 5
   m_Name: Refresh Button
   m_TagString: Untagged
@@ -6432,18 +6418,6 @@ RectTransform:
   m_AnchoredPosition: {x: -9.824637, y: 4.2}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1535873229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535873227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eefb26e17a7f71f4f9672910caf01c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1535873230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6460,7 +6434,7 @@ MonoBehaviour:
   _default: {fileID: 21300000, guid: 62a1ec312d2c0e845a531a89082cd08a, type: 3}
   _pressed: {fileID: 21300000, guid: 3f404325fff74474db2db0a474fde8da, type: 3}
   isLocked: 0
-  sceneID: 0
+  sceneID: 10
 --- !u!114 &1535873231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6505,10 +6479,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1535873229}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1535873230}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6611,7 +6585,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570440201}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -9143,7 +9117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092362463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 1, z: 0}
+  m_LocalPosition: {x: 1.06, y: 0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 41818323}

@@ -5,19 +5,16 @@ using UnityEngine;
 public class BoxController : MonoBehaviour
 {
     [SerializeField] public int boxID;
-
     public bool isHeld;
-
     private LayerMask boxLayer;
 
-    // Start is called before the first frame update
     void Start()
     {
         boxLayer = this.transform.parent.parent.GetComponent<LevelController>().boxLayer;
-
         isHeld = false;
     }
 
+    // get the boxID of the box above if there is one
     public int getAbove()
     {
         // shoot rays to exclusively detect boxes
@@ -38,7 +35,6 @@ public class BoxController : MonoBehaviour
             // hit no boxes
             return (-1);
         }
-
 
     }
 

@@ -2466,7 +2466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804580653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 1, z: 0}
+  m_LocalPosition: {x: 1.06, y: 0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 248789374}
@@ -4931,7 +4931,7 @@ GameObject:
   - component: {fileID: 1606164135}
   - component: {fileID: 1606164134}
   m_Layer: 0
-  m_Name: interactIconW
+  m_Name: interactIconExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4950,9 +4950,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 1606164135}
-  _default: {fileID: 21300000, guid: 15c381f43146fbd44b5f38d3d9e31c9a, type: 3}
-  _pressed: {fileID: 21300000, guid: f8d4d2a37bf33b54786c4b0ddfb56207, type: 3}
-  key: W
+  _default: {fileID: 21300000, guid: 74926bec803154e49a8b9c7e93acad4a, type: 3}
+  _pressed: {fileID: 21300000, guid: 79e1f533bac5ba24daabdd409e920144, type: 3}
+  key: E
 --- !u!212 &1606164135
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4993,7 +4993,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 15c381f43146fbd44b5f38d3d9e31c9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74926bec803154e49a8b9c7e93acad4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

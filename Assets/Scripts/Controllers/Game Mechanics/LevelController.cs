@@ -26,38 +26,25 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
-        
         numBoxes = this.transform.GetChild(4).childCount;
 
         if(levelNumber > GameManager.maxLevel){
             GameManager.maxLevel = levelNumber;
         }
-
-        // TODO : remove wait and put below code back in for final release version
-
-        // used to prevent errors when testing
+        // wait used to prevent errors when testing
         StartCoroutine(Wait());
-
-        // tutorial levels have level number 0, and don't have/need level codes
-        /*
-        if(levelNumber > 0){
-            password.text = "Level code: " + GameManager.passwords[levelNumber-1];
-        } 
-        */
-        
     }
 
     IEnumerator Wait()
     {
-        //yield on a new YieldInstruction that waits for 3 seconds.
+        // wait for 1 second
         yield return new WaitForSeconds(1);
-
         // tutorial levels have level number 0, and don't have/need level codes
         if(levelNumber > 0){
+            // display level code
             password.text = "Level code: " + GameManager.passwords[levelNumber-1];
         }
     }
-
 
     public void nextLevel()
     {
@@ -69,6 +56,8 @@ public class LevelController : MonoBehaviour
                 NextLevelSceneID = 6;
             } else if(levelName == "Tutorial2"){
                 NextLevelSceneID = 7;
+            } else if(levelName == "Tutorial3"){
+                NextLevelSceneID = 48;
             } else {
                 NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
             }
@@ -76,10 +65,11 @@ public class LevelController : MonoBehaviour
             // last level goes to completion page
             NextLevelSceneID = 4;
         } else {
-            // all levels go to next level scene id, level numbers start at 1, indexes start at 0 so automatically gets the next level
+            // all other levels go to next level 
             NextLevelSceneID = GameManager.levelSceneIDs[levelNumber];
+            // level numbers start at 1, indexes start at 0 so call automatically gets the next level
         }
-    
+
         SceneManager.LoadScene(NextLevelSceneID);
     }
 
@@ -92,5 +82,4 @@ public class LevelController : MonoBehaviour
             boxOrder.Add(this.transform.GetChild(4).GetChild(i).GetComponent<BoxController>().boxID);
         }
     }
-
 }

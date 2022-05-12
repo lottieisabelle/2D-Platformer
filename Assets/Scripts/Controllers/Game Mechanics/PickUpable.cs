@@ -31,8 +31,9 @@ public class PickUpable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {   
-        // show interact icon p
+        // show interact icon pick up
         if(collision.CompareTag("Player")){
+            // visibility of pick up interact icon does not change on tutorial part 2
             if(level != "Tutorial2" && !this.transform.parent.GetComponent<BoxController>().isHeld)
             {
                 this.transform.parent.parent.parent.GetChild(1).GetComponent<IconController>().show();
@@ -43,8 +44,9 @@ public class PickUpable : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {   
-        // show interact icon p
+        // show interact icon pick up
         if(collision.CompareTag("Player")){
+            // visibility of pick up interact icon does not change on tutorial part 2
             if(level != "Tutorial2" && !this.transform.parent.GetComponent<BoxController>().isHeld)
             {
                 this.transform.parent.parent.parent.GetChild(1).GetComponent<IconController>().show();
@@ -55,12 +57,9 @@ public class PickUpable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // hide interact icon p
+        // hide interact icon pick up, if player not holding box
         if(collision.CompareTag("Player")){
-            // not on tutorial part2 and only when hands are empty
-
-
-            //if(level != "Tutorial2" && !this.transform.parent.GetComponent<BoxController>().isHeld)
+            // visibility of pick up interact icon does not change on tutorial part 2
             if(level != "Tutorial2" && handsEmpty && !this.transform.parent.GetComponent<BoxController>().isHeld)
             {
                 this.transform.parent.parent.parent.GetChild(1).GetComponent<IconController>().hide();
