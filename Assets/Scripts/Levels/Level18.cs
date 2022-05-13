@@ -51,9 +51,9 @@ public class Level18 : MonoBehaviour
                 // show
                 obstacle.GetComponent<ObstacleController>().show();
             }
-        }   
+        }
 
-        if((isPressed1 && isPressed3 && !isPressed2) || (!isPressed1 && !isPressed2 && !isPressed3))
+        if((isPressed1 && isPressed3 && !isPressed2) || (!isPressed1 && !isPressed2 && !isPressed3) || (!isPressed1 && !isPressed2 && isPressed3))
         {
             if(!isOpen)
             {
